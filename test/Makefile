@@ -7,6 +7,10 @@ TOPLEVEL_LANG ?= verilog
 SRC_DIR = $(PWD)/../src
 PROJECT_SOURCES = project.v generated.v
 
+ifeq ($(SIM),verilator)
+EXTRA_ARGS += --timing --trace --trace-fst --trace-structs -Wno-fatal
+endif
+
 ifneq ($(GATES),yes)
 
 # RTL simulation:
