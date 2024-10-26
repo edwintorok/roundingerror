@@ -399,7 +399,7 @@ module Vec2 = struct
       let width = args |> Args.to_list |> List.hd |> Signal.width in
       let r_sync =
         Reg_spec.create ~clock:clk ()
-        |> Reg_spec.override ~clear:!rst_n ~clear_level:Level.Low
+        |> Reg_spec.override ~reset:!rst_n ~reset_edge:Edge.Falling
       in
       let ld =
         Signal.reg_fb r_sync

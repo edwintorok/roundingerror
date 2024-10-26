@@ -1272,7 +1272,7 @@ module generated (
     assign _107 = _104 & _106;
     assign _108 = ~ _107;
     assign vga$vgaController$o$vsync = _108;
-    always @(posedge vga$i$clk) begin
+    always @(posedge vga$i$clk or negedge vga$i$rst_n) begin
         if (vga$i$rst_n == 0)
             _111 <= _109;
         else
@@ -1287,7 +1287,7 @@ module generated (
     assign _117 = _114 & _116;
     assign _118 = ~ _117;
     assign vga$vgaController$o$hsync = _118;
-    always @(posedge vga$i$clk) begin
+    always @(posedge vga$i$clk or negedge vga$i$rst_n) begin
         if (vga$i$rst_n == 0)
             _119 <= _109;
         else
@@ -1509,7 +1509,7 @@ module generated (
         endcase
     end
     assign _231 = vga$vgaController$o$blank ? _226 : _230;
-    always @(posedge vga$i$clk) begin
+    always @(posedge vga$i$clk or negedge vga$i$rst_n) begin
         if (vga$i$rst_n == 0)
             _232 <= _226;
         else
@@ -1732,7 +1732,7 @@ module generated (
         endcase
     end
     assign _284 = vga$vgaController$o$blank ? _226 : _283;
-    always @(posedge vga$i$clk) begin
+    always @(posedge vga$i$clk or negedge vga$i$rst_n) begin
         if (vga$i$rst_n == 0)
             _285 <= _226;
         else
@@ -2302,7 +2302,7 @@ module generated (
     assign _480 = _54 == _479;
     assign _482 = _480 ? _314 : _481;
     assign _53 = _482;
-    always @(posedge vga$ray$i$clk) begin
+    always @(posedge vga$ray$i$clk or negedge vga$ray$i$rst_n) begin
         if (vga$ray$i$rst_n == 0)
             _483 <= _314;
         else
@@ -2481,7 +2481,7 @@ module generated (
     assign _693 = _61 == _479;
     assign _695 = _693 ? _314 : _694;
     assign _60 = _695;
-    always @(posedge vga$ray$i$clk) begin
+    always @(posedge vga$ray$i$clk or negedge vga$ray$i$rst_n) begin
         if (vga$ray$i$rst_n == 0)
             _696 <= _314;
         else
@@ -2568,7 +2568,7 @@ module generated (
                     _825 };
     assign _828 = _827[12:2];
     assign vga$ray$eye$p$norm$dot_norm_l$x = _828[9:0];
-    always @(posedge vga$ray$i$clk) begin
+    always @(posedge vga$ray$i$clk or negedge vga$ray$i$rst_n) begin
         if (vga$ray$i$rst_n == 0)
             _830 <= _288;
         else
@@ -3057,7 +3057,7 @@ module generated (
     assign _936 = _69 == _479;
     assign _938 = _936 ? _314 : _937;
     assign _68 = _938;
-    always @(posedge vga$ray$i$clk) begin
+    always @(posedge vga$ray$i$clk or negedge vga$ray$i$rst_n) begin
         if (vga$ray$i$rst_n == 0)
             _939 <= _314;
         else
@@ -3090,7 +3090,7 @@ module generated (
     assign _950 = 8'b00000001;
     assign _951 = _76 + _950;
     assign _75 = _951;
-    always @(posedge vga$ray$i$clk) begin
+    always @(posedge vga$ray$i$clk or negedge vga$ray$i$rst_n) begin
         if (vga$ray$i$rst_n == 0)
             _956 <= _952;
         else
@@ -3220,7 +3220,7 @@ module generated (
     assign _1071 = _84 == _479;
     assign _1073 = _1071 ? _314 : _1072;
     assign _83 = _1073;
-    always @(posedge vga$ray$i$clk) begin
+    always @(posedge vga$ray$i$clk or negedge vga$ray$i$rst_n) begin
         if (vga$ray$i$rst_n == 0)
             _1074 <= _314;
         else
@@ -3296,7 +3296,7 @@ module generated (
     assign _1108 = _90 == _1107;
     assign _1111 = _1108 ? _288 : _1110;
     assign _89 = _1111;
-    always @(posedge vga$vgaController$i$clk) begin
+    always @(posedge vga$vgaController$i$clk or negedge vga$vgaController$i$rst_n) begin
         if (vga$vgaController$i$rst_n == 0)
             _949 <= _288;
         else
@@ -3318,7 +3318,7 @@ module generated (
     assign _1113 = _98 == _1112;
     assign _1115 = _1113 ? _288 : _1114;
     assign _97 = _1115;
-    always @(posedge vga$vgaController$i$clk) begin
+    always @(posedge vga$vgaController$i$clk or negedge vga$vgaController$i$rst_n) begin
         if (vga$vgaController$i$rst_n == 0)
             _946 <= _288;
         else
@@ -3330,7 +3330,7 @@ module generated (
     assign _1121 = ~ _1120;
     assign vga$vgaController$o$blank = _1121;
     assign _1149 = vga$vgaController$o$blank ? _226 : _1148;
-    always @(posedge vga$i$clk) begin
+    always @(posedge vga$i$clk or negedge vga$i$rst_n) begin
         if (vga$i$rst_n == 0)
             _1150 <= _226;
         else

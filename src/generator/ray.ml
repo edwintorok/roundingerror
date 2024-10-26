@@ -13,7 +13,7 @@ let create ~modeline scope I.{clk; coord; rst_n} =
   (* From raymarching tutorial *)
   let r_sync =
     Reg_spec.create ~clock:clk ()
-    |> Reg_spec.override ~clear:rst_n ~clear_level:Level.Low
+    |> Reg_spec.override ~reset:rst_n ~reset_edge:Edge.Falling
   in
   let frame_bits = 8 in
   let frames =
