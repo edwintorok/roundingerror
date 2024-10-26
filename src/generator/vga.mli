@@ -13,7 +13,7 @@ open Config
 
 (** VGA controller output *)
 module O : sig
-  type 'a t = {srgb: 'a SRGB.t; hsync: 'a; vsync: 'a; audio: 'a}
+  type 'a t = {srgb: 'a SRGB.t; hsync: 'a; vsync: 'a}
   [@@deriving sexp_of, hardcaml]
 end
 

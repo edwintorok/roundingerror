@@ -90,10 +90,6 @@ There are max slew and max fanout violations at 100C and 1.6V, but that shouldn'
 The design was simulated using both [tt-vgaviz](https://github.com/sylefeb/tt-vgaviz) and [vgasim](https://github.com/ZipCPU/vgasim), although had to adjust the modeline for vgasim to recognize the standard one.
 A simple cocotb test which checked vsync/hsync generation was added post submission.
 
-### Lack of audio
-
-Audio is enabled, but is only a very simple test signal based on hsync and vsync.
-
 ### Simulating
 
 There is a `src/sim/vgasim.ml`, which generates a `demo.v` compatible with [vgasim](https://github.com/ZipCPU/vgasim.git), this uses a different resolution though.
@@ -129,13 +125,9 @@ Or if you can try 25.175 MHz instead, but this will have some jitter. YMMV.
 
 ![color bars](test.png "Color bars test image").
 
-The "audio" out is connected, but is not expected to result in anything audible.
-
 ## External hardware
 
 Connect according to the [Demoscene rules](https://tinytapeout.com/competitions/demoscene/#what-are-the-rules)
 
 * VGA output using [Leo's VGA PMOD](https://github.com/mole99/tiny-vga) on pins `uo[0-7]`, connected to a monitor supporting 640x480 resolution.
-
-* Audio output using [Mike's audio PMOD](https://github.com/MichaelBell/tt-audio-pmod) on `uio[7]`
 

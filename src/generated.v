@@ -55,10 +55,10 @@
  *     ppx_diff.diffable.v0.17.0
  *     ppx_diff.diffable_cinaps.v0.17.0
  *     ppx_enumerate.runtime-lib.v0.17.0
- *     ppx_expect.config.v0.17.0
- *     ppx_expect.config_types.v0.17.0
- *     ppx_expect.make_corrected_file.v0.17.0
- *     ppx_expect.runtime.v0.17.0
+ *     ppx_expect.config.v0.17.2
+ *     ppx_expect.config_types.v0.17.2
+ *     ppx_expect.make_corrected_file.v0.17.2
+ *     ppx_expect.runtime.v0.17.2
  *     ppx_hardcaml.runtime.v0.17.0
  *     ppx_hash.runtime-lib.v0.17.0
  *     ppx_here.runtime-lib.v0.17.0
@@ -72,7 +72,7 @@
  *     ppx_stable_witness.stable_witness.v0.17.0
  *     ppx_string.runtime.v0.17.0
  *     ppxlib.print_diff.0.33.0
- *     re.1.11.0
+ *     re.1.12.0
  *     reference
  *     seq.[distributed with OCaml 4.07 or above]
  *     sexp_pretty.v0.17.0
@@ -95,8 +95,7 @@ module generated (
     g,
     b,
     hsync,
-    vsync,
-    audio
+    vsync
 );
 
     input test;
@@ -107,36 +106,32 @@ module generated (
     output [1:0] b;
     output hsync;
     output vsync;
-    output audio;
 
+    wire [9:0] _105;
+    wire _106;
+    wire [9:0] _102;
+    wire _103;
     wire _104;
-    reg _107;
-    wire vga$o$audio;
-    wire [9:0] _111;
-    wire _112;
-    wire [9:0] _108;
-    wire _109;
-    wire _110;
+    wire _107;
+    wire _108;
+    wire vga$vgaController$o$vsync;
+    reg _111;
+    wire vga$o$vsync;
+    wire [9:0] _115;
+    wire _116;
+    wire [9:0] _112;
     wire _113;
     wire _114;
-    wire vga$vgaController$o$vsync;
-    reg _115;
-    wire vga$o$vsync;
-    wire [9:0] _119;
-    wire _120;
-    wire [9:0] _116;
     wire _117;
     wire _118;
-    wire _121;
-    wire _122;
     wire vga$vgaController$o$hsync;
-    reg _123;
+    reg _119;
     wire vga$o$hsync;
     reg [2:0] vga$h_border$lb;
-    wire [2:0] _226;
+    wire [2:0] _222;
     wire [2:0] vga$v_border$lb;
-    wire [2:0] _224;
-    wire [2:0] _227;
+    wire [2:0] _220;
+    wire [2:0] _223;
     wire [2:0] vga$blue$lb;
     wire [2:0] vga$red$lb;
     wire [2:0] vga$magenta$lb;
@@ -156,43 +151,43 @@ module generated (
     wire [2:0] vga$black$lb;
     reg [2:0] vga$steps$lb;
     wire [2:0] vga$default$lb;
-    wire [2:0] _228;
-    wire [2:0] _184;
-    wire [5:0] _177;
-    wire [7:0] _167;
+    wire [2:0] _224;
+    wire [2:0] _180;
+    wire [5:0] _173;
+    wire [7:0] _163;
     wire [9:0] vga$ray$light$z;
-    wire [19:0] _165;
-    wire [11:0] _166;
-    wire [19:0] _168;
-    wire _169;
-    wire [20:0] _170;
-    wire [20:0] _171;
-    wire _172;
-    wire [21:0] _173;
-    wire [19:0] _174;
-    wire [13:0] _175;
-    wire [12:0] _176;
+    wire [19:0] _161;
+    wire [11:0] _162;
+    wire [19:0] _164;
+    wire _165;
+    wire [20:0] _166;
+    wire [20:0] _167;
+    wire _168;
+    wire [21:0] _169;
+    wire [19:0] _170;
+    wire [13:0] _171;
+    wire [12:0] _172;
     wire [18:0] vga$ray$color$rgb$v01_1$x;
     wire [18:0] vga$ray$color$rgb$z;
-    wire _179;
-    wire [19:0] _180;
-    wire [16:0] _181;
-    wire [13:0] _182;
-    wire [12:0] _183;
-    wire [15:0] _185;
-    wire [2:0] _186;
-    wire [2:0] _187;
+    wire _175;
+    wire [19:0] _176;
+    wire [16:0] _177;
+    wire [13:0] _178;
+    wire [12:0] _179;
+    wire [15:0] _181;
+    wire [2:0] _182;
+    wire [2:0] _183;
     wire [2:0] vga$ray$o$lb;
-    wire [2:0] _229;
-    reg [1:0] _234;
-    wire [1:0] _235;
-    reg [1:0] _236;
+    wire [2:0] _225;
+    reg [1:0] _230;
+    wire [1:0] _231;
+    reg [1:0] _232;
     wire [1:0] vga$o$b;
     reg [2:0] vga$h_border$lg;
-    wire [2:0] _283;
+    wire [2:0] _279;
     wire [2:0] vga$v_border$lg;
-    wire [2:0] _281;
-    wire [2:0] _284;
+    wire [2:0] _277;
+    wire [2:0] _280;
     wire [2:0] vga$blue$lg;
     wire [2:0] vga$red$lg;
     wire [2:0] vga$magenta$lg;
@@ -212,83 +207,83 @@ module generated (
     wire [2:0] vga$black$lg;
     reg [2:0] vga$steps$lg;
     wire [2:0] vga$default$lg;
-    wire [2:0] _285;
-    wire [2:0] _257;
-    wire [5:0] _250;
-    wire [7:0] _240;
+    wire [2:0] _281;
+    wire [2:0] _253;
+    wire [5:0] _246;
+    wire [7:0] _236;
     wire [9:0] vga$ray$light$y;
-    wire [19:0] _238;
-    wire [11:0] _239;
-    wire [19:0] _241;
-    wire _242;
-    wire [20:0] _243;
-    wire [20:0] _163;
-    wire [20:0] _244;
-    wire _245;
-    wire [21:0] _246;
-    wire [19:0] _247;
-    wire [13:0] _248;
-    wire [12:0] _249;
+    wire [19:0] _234;
+    wire [11:0] _235;
+    wire [19:0] _237;
+    wire _238;
+    wire [20:0] _239;
+    wire [20:0] _159;
+    wire [20:0] _240;
+    wire _241;
+    wire [21:0] _242;
+    wire [19:0] _243;
+    wire [13:0] _244;
+    wire [12:0] _245;
     wire [18:0] vga$ray$color$rgb$v01_0$x;
     wire [18:0] vga$ray$color$rgb$y;
-    wire _252;
-    wire [19:0] _253;
-    wire [16:0] _254;
-    wire [13:0] _255;
-    wire [12:0] _256;
-    wire [15:0] _258;
-    wire [2:0] _259;
-    wire [2:0] _260;
+    wire _248;
+    wire [19:0] _249;
+    wire [16:0] _250;
+    wire [13:0] _251;
+    wire [12:0] _252;
+    wire [15:0] _254;
+    wire [2:0] _255;
+    wire [2:0] _256;
     wire [2:0] vga$ray$o$lg;
-    wire [2:0] _286;
-    reg [1:0] _287;
-    wire [1:0] _288;
-    reg [1:0] _289;
+    wire [2:0] _282;
+    reg [1:0] _283;
+    wire [1:0] _284;
+    reg [1:0] _285;
     wire [1:0] vga$o$g;
-    wire [1:0] _233;
-    wire [1:0] _232;
+    wire [1:0] _229;
+    wire [1:0] _228;
     wire [4:0] vga$counter_div_mod_1$i$set_quotient;
-    wire [4:0] _315;
-    wire [4:0] _314;
-    wire [4:0] _316;
-    wire _312;
-    wire [4:0] _306;
-    wire [4:0] _16;
-    wire _307;
-    wire [4:0] _294;
+    wire [4:0] _311;
+    wire [4:0] _310;
+    wire [4:0] _312;
+    wire _308;
+    wire [4:0] _302;
+    wire [4:0] _14;
+    wire _303;
+    wire [4:0] _290;
     wire vga$counter_div_mod_1$i$clear;
     wire vga$counter_div_mod_1$i$clock;
     wire [4:0] vga$counter_div_mod_1$i$set_remainder;
-    wire [4:0] _302;
-    wire [4:0] _301;
-    wire [4:0] _303;
-    wire _296;
-    wire _297;
-    wire _298;
-    wire _299;
-    wire [4:0] _304;
-    wire [4:0] _20;
-    reg [4:0] _305;
-    wire [4:0] _21;
+    wire [4:0] _298;
+    wire [4:0] _297;
+    wire [4:0] _299;
+    wire _292;
+    wire _293;
+    wire _294;
     wire _295;
-    wire _308;
-    wire _22;
+    wire [4:0] _300;
+    wire [4:0] _18;
+    reg [4:0] _301;
+    wire [4:0] _19;
+    wire _291;
+    wire _304;
+    wire _20;
     wire vga$counter_div_mod_1$i$incr;
-    wire _310;
+    wire _306;
     wire vga$counter_div_mod_1$i$set;
-    wire _311;
-    wire _313;
-    wire [4:0] _317;
-    wire [4:0] _25;
-    reg [4:0] _291;
+    wire _307;
+    wire _309;
+    wire [4:0] _313;
+    wire [4:0] _23;
+    reg [4:0] _287;
     wire [4:0] vga$counter_div_mod_1$o$quotient;
     reg [2:0] vga$h_border$lr;
-    wire [2:0] _1148;
-    wire [3:0] _221;
-    wire _222;
+    wire [2:0] _1144;
+    wire [3:0] _217;
+    wire _218;
     wire [2:0] vga$v_border$lr;
-    wire [2:0] _1146;
-    wire [2:0] _1149;
+    wire [2:0] _1142;
+    wire [2:0] _1145;
     wire [2:0] vga$blue$lr;
     wire [2:0] vga$red$lr;
     wire [2:0] vga$magenta$lr;
@@ -297,41 +292,41 @@ module generated (
     wire [2:0] vga$yellow$lr;
     wire [2:0] vga$white$lr;
     wire [3:0] vga$counter_div_mod$i$set_quotient;
-    wire [3:0] _342;
-    wire [3:0] _341;
-    wire [3:0] _343;
-    wire _338;
-    wire [3:0] _333;
-    wire [3:0] _28;
+    wire [3:0] _338;
+    wire [3:0] _337;
+    wire [3:0] _339;
     wire _334;
-    wire [6:0] _321;
+    wire [3:0] _329;
+    wire [3:0] _26;
+    wire _330;
+    wire [6:0] _317;
     wire vga$counter_div_mod$i$clear;
     wire vga$counter_div_mod$i$clock;
     wire [6:0] vga$counter_div_mod$i$set_remainder;
-    wire [6:0] _320;
-    wire [6:0] _329;
-    wire [6:0] _327;
-    wire [6:0] _328;
-    wire [6:0] _330;
-    wire _323;
-    wire _324;
-    wire _325;
-    wire _326;
-    wire [6:0] _331;
-    wire [6:0] _32;
-    reg [6:0] _332;
-    wire [6:0] _33;
+    wire [6:0] _316;
+    wire [6:0] _325;
+    wire [6:0] _323;
+    wire [6:0] _324;
+    wire [6:0] _326;
+    wire _319;
+    wire _320;
+    wire _321;
     wire _322;
-    wire _335;
-    wire _34;
+    wire [6:0] _327;
+    wire [6:0] _30;
+    reg [6:0] _328;
+    wire [6:0] _31;
+    wire _318;
+    wire _331;
+    wire _32;
     wire vga$counter_div_mod$i$incr;
-    wire _336;
+    wire _332;
     wire vga$counter_div_mod$i$set;
-    wire _337;
-    wire _339;
-    wire [3:0] _344;
-    wire [3:0] _37;
-    reg [3:0] _319;
+    wire _333;
+    wire _335;
+    wire [3:0] _340;
+    wire [3:0] _35;
+    reg [3:0] _315;
     wire [3:0] vga$counter_div_mod$o$quotient;
     reg [2:0] vga$bars$lr;
     wire [2:0] vga$black$lr;
@@ -344,969 +339,961 @@ module generated (
     wire [2:0] vga$gray1$lr;
     wire [2:0] vga$gray0$lr;
     wire [5:0] vga$counter_div_mod_0$i$set_quotient;
-    wire [5:0] _345;
-    wire [5:0] _367;
-    wire [5:0] _365;
-    wire [5:0] _366;
-    wire [5:0] _368;
-    wire _363;
-    wire [5:0] _358;
-    wire [5:0] _40;
+    wire [5:0] _341;
+    wire [5:0] _363;
+    wire [5:0] _361;
+    wire [5:0] _362;
+    wire [5:0] _364;
     wire _359;
-    wire [4:0] _347;
-    wire _293;
+    wire [5:0] _354;
+    wire [5:0] _38;
+    wire _355;
+    wire [4:0] _343;
+    wire _289;
     wire vga$counter_div_mod_0$i$clear;
     wire vga$counter_div_mod_0$i$clock;
     wire [4:0] vga$counter_div_mod_0$i$set_remainder;
-    wire [4:0] _290;
-    wire [4:0] _354;
-    wire [4:0] _300;
-    wire [4:0] _353;
-    wire [4:0] _355;
-    wire _349;
-    wire _350;
-    wire _351;
-    wire _352;
-    wire [4:0] _356;
-    wire [4:0] _44;
-    reg [4:0] _357;
-    wire [4:0] _45;
+    wire [4:0] _286;
+    wire [4:0] _350;
+    wire [4:0] _296;
+    wire [4:0] _349;
+    wire [4:0] _351;
+    wire _345;
+    wire _346;
+    wire _347;
     wire _348;
-    wire _360;
-    wire _46;
+    wire [4:0] _352;
+    wire [4:0] _42;
+    reg [4:0] _353;
+    wire [4:0] _43;
+    wire _344;
+    wire _356;
+    wire _44;
     wire vga$counter_div_mod_0$i$incr;
-    wire _361;
+    wire _357;
     wire vga$counter_div_mod_0$i$set;
-    wire _362;
-    wire _364;
-    wire [5:0] _369;
-    wire [5:0] _49;
-    reg [5:0] _346;
+    wire _358;
+    wire _360;
+    wire [5:0] _365;
+    wire [5:0] _47;
+    reg [5:0] _342;
     wire [5:0] vga$counter_div_mod_0$o$quotient;
     reg [2:0] vga$steps$lr;
-    wire [9:0] _200;
+    wire [9:0] _196;
     wire vga$y_top;
     wire [2:0] vga$default$lr;
-    wire [9:0] _195;
-    wire _196;
-    wire _197;
-    wire _194;
-    wire _198;
-    wire [9:0] _190;
-    wire _191;
+    wire [9:0] _191;
     wire _192;
-    wire [9:0] _188;
-    wire _189;
     wire _193;
-    wire _199;
-    wire [2:0] _1150;
-    wire [2:0] _1107;
-    wire [4:0] _1100;
-    wire [6:0] _1089;
-    wire [7:0] _1090;
-    wire [1:0] _825;
-    wire [1:0] _820;
-    wire [3:0] _812;
-    wire _804;
-    wire [13:0] _805;
+    wire _190;
+    wire _194;
+    wire [9:0] _186;
+    wire _187;
+    wire _188;
+    wire [9:0] _184;
+    wire _185;
+    wire _189;
+    wire _195;
+    wire [2:0] _1146;
+    wire [2:0] _1103;
+    wire [4:0] _1096;
+    wire [6:0] _1085;
+    wire [7:0] _1086;
+    wire [1:0] _821;
+    wire [1:0] _816;
+    wire [3:0] _808;
+    wire _800;
     wire [13:0] _801;
-    wire [13:0] _806;
-    wire _807;
-    wire [14:0] _808;
-    wire [10:0] _809;
-    wire [6:0] _810;
-    wire [5:0] _811;
+    wire [13:0] _797;
+    wire [13:0] _802;
+    wire _803;
+    wire [14:0] _804;
+    wire [10:0] _805;
+    wire [6:0] _806;
+    wire [5:0] _807;
     wire [9:0] vga$ray$l$z;
-    wire [7:0] _798;
-    wire [1:0] _797;
-    wire [9:0] _799;
-    wire [7:0] _795;
+    wire [7:0] _794;
+    wire [1:0] _793;
+    wire [9:0] _795;
+    wire [7:0] _791;
+    wire [9:0] _788;
+    wire [9:0] _789;
+    wire [1:0] _790;
     wire [9:0] _792;
-    wire [9:0] _793;
-    wire [1:0] _794;
-    wire [9:0] _796;
     wire [9:0] vga$ray$eye$p$norm$z;
-    wire [19:0] _814;
-    wire _815;
-    wire [20:0] _816;
-    wire [10:0] _817;
-    wire [8:0] _818;
-    wire [7:0] _819;
-    wire [9:0] _821;
-    wire [7:0] _822;
+    wire [19:0] _810;
+    wire _811;
+    wire [20:0] _812;
+    wire [10:0] _813;
+    wire [8:0] _814;
+    wire [7:0] _815;
+    wire [9:0] _817;
+    wire [7:0] _818;
+    wire _819;
+    wire [8:0] _820;
+    wire [10:0] _822;
     wire _823;
-    wire [8:0] _824;
-    wire [10:0] _826;
-    wire _827;
-    wire [11:0] _828;
-    wire [1:0] _788;
-    wire [1:0] _782;
-    wire [1:0] _779;
-    wire [3:0] _771;
-    wire _763;
-    wire [11:0] _764;
+    wire [11:0] _824;
+    wire [1:0] _784;
+    wire [1:0] _778;
+    wire [1:0] _775;
+    wire [3:0] _767;
+    wire _759;
     wire [11:0] _760;
-    wire [11:0] _765;
-    wire _766;
-    wire [12:0] _767;
-    wire [10:0] _768;
-    wire [6:0] _769;
-    wire [5:0] _770;
+    wire [11:0] _756;
+    wire [11:0] _761;
+    wire _762;
+    wire [12:0] _763;
+    wire [10:0] _764;
+    wire [6:0] _765;
+    wire [5:0] _766;
     wire [9:0] vga$ray$l$y;
-    wire [7:0] _757;
-    wire [9:0] _755;
-    wire [1:0] _756;
-    wire [9:0] _758;
     wire [7:0] _753;
     wire [9:0] _751;
     wire [1:0] _752;
     wire [9:0] _754;
+    wire [7:0] _749;
+    wire [9:0] _747;
+    wire [1:0] _748;
+    wire [9:0] _750;
     wire [9:0] vga$ray$eye$p$norm$y;
-    wire [19:0] _773;
-    wire _774;
-    wire [20:0] _775;
-    wire [10:0] _776;
-    wire [8:0] _777;
-    wire [7:0] _778;
-    wire [9:0] _780;
-    wire [7:0] _781;
-    wire [9:0] _783;
-    wire _784;
-    wire [10:0] _785;
-    wire [1:0] _747;
-    wire [1:0] _744;
-    wire [3:0] _736;
-    wire _728;
-    wire [11:0] _729;
+    wire [19:0] _769;
+    wire _770;
+    wire [20:0] _771;
+    wire [10:0] _772;
+    wire [8:0] _773;
+    wire [7:0] _774;
+    wire [9:0] _776;
+    wire [7:0] _777;
+    wire [9:0] _779;
+    wire _780;
+    wire [10:0] _781;
+    wire [1:0] _743;
+    wire [1:0] _740;
+    wire [3:0] _732;
+    wire _724;
     wire [11:0] _725;
-    wire [11:0] _730;
-    wire _731;
-    wire [12:0] _732;
-    wire [10:0] _733;
-    wire [6:0] _734;
-    wire [5:0] _735;
+    wire [11:0] _721;
+    wire [11:0] _726;
+    wire _727;
+    wire [12:0] _728;
+    wire [10:0] _729;
+    wire [6:0] _730;
+    wire [5:0] _731;
     wire [9:0] vga$ray$l$x;
-    wire [7:0] _722;
-    wire [1:0] _721;
-    wire [9:0] _723;
-    wire [7:0] _719;
-    wire [9:0] _711;
-    wire [7:0] _707;
-    wire _705;
-    wire [1:0] _706;
-    wire [9:0] _708;
-    wire [8:0] _702;
+    wire [7:0] _718;
+    wire [1:0] _717;
+    wire [9:0] _719;
+    wire [7:0] _715;
+    wire [9:0] _707;
+    wire [7:0] _703;
     wire _701;
-    wire [9:0] _703;
-    wire [12:0] _558;
-    wire [2:0] _556;
-    wire [7:0] _550;
+    wire [1:0] _702;
+    wire [9:0] _704;
+    wire [8:0] _698;
+    wire _697;
+    wire [9:0] _699;
+    wire [12:0] _554;
+    wire [2:0] _552;
     wire [7:0] _546;
-    wire [7:0] _543;
-    wire [7:0] _537;
-    wire [7:0] _534;
+    wire [7:0] _542;
+    wire [7:0] _539;
+    wire [7:0] _533;
     wire [7:0] _530;
-    wire [9:0] _528;
-    wire [1:0] _529;
-    wire [9:0] _531;
     wire [7:0] _526;
-    wire [9:0] _498;
-    wire [7:0] _494;
-    wire _492;
-    wire [1:0] _493;
-    wire [9:0] _495;
-    wire [8:0] _489;
-    wire _488;
-    wire [9:0] _490;
-    wire [9:0] _392;
-    wire [9:0] _390;
-    wire [7:0] _386;
-    wire _384;
-    wire [1:0] _385;
-    wire [9:0] _387;
-    wire [8:0] _381;
-    wire _380;
-    wire [9:0] _382;
-    wire [9:0] _383;
-    wire [9:0] _388;
-    wire [9:0] _389;
-    wire _377;
-    wire [9:0] _391;
-    wire [9:0] _393;
-    reg [9:0] _394;
-    wire [9:0] _51;
-    wire _379;
-    wire [9:0] _491;
-    wire _378;
-    wire [9:0] _496;
-    wire [9:0] _497;
-    wire [8:0] _373;
-    wire [6:0] _479;
-    wire [6:0] _475;
-    wire [6:0] _471;
-    wire [11:0] _469;
-    wire [4:0] _470;
-    wire [11:0] _472;
-    wire [6:0] _467;
-    wire [6:0] _460;
-    wire [10:0] _461;
-    wire _462;
-    wire [11:0] _463;
-    wire [11:0] _465;
-    wire [4:0] _466;
-    wire [11:0] _468;
-    wire [11:0] _473;
-    wire [4:0] _474;
-    wire [11:0] _476;
-    wire [4:0] _477;
-    wire [2:0] _478;
-    wire [9:0] _480;
-    wire [9:0] _404;
-    wire [1:0] _395;
-    wire [1:0] _396;
-    wire [1:0] _52;
-    reg [1:0] iter_sel;
-    wire [1:0] iter;
-    wire [1:0] _53;
-    reg [9:0] e;
-    wire [9:0] _403;
-    wire [9:0] _405;
-    wire [9:0] _481;
-    reg [9:0] _482;
-    wire [9:0] _54;
-    wire _371;
-    wire _372;
-    wire [9:0] _374;
-    wire _376;
-    wire [9:0] _499;
-    wire [3:0] _485;
-    wire _484;
-    wire [3:0] _486;
-    wire [3:0] _55;
-    reg [3:0] _487;
-    wire [3:0] _56;
-    wire _370;
-    wire [9:0] _500;
-    reg [9:0] _501;
-    wire [9:0] _57;
-    wire [19:0] _523;
     wire [9:0] _524;
     wire [1:0] _525;
     wire [9:0] _527;
-    wire [6:0] _455;
-    wire [10:0] _453;
-    wire [3:0] _454;
-    wire [10:0] _456;
+    wire [7:0] _522;
+    wire [9:0] _494;
+    wire [7:0] _490;
+    wire _488;
+    wire [1:0] _489;
+    wire [9:0] _491;
+    wire [8:0] _485;
+    wire _484;
+    wire [9:0] _486;
+    wire [9:0] _388;
+    wire [9:0] _386;
+    wire [7:0] _382;
+    wire _380;
+    wire [1:0] _381;
+    wire [9:0] _383;
+    wire [8:0] _377;
+    wire _376;
+    wire [9:0] _378;
+    wire [9:0] _379;
+    wire [9:0] _384;
+    wire [9:0] _385;
+    wire _373;
+    wire [9:0] _387;
+    wire [9:0] _389;
+    reg [9:0] _390;
+    wire [9:0] _49;
+    wire _375;
+    wire [9:0] _487;
+    wire _374;
+    wire [9:0] _492;
+    wire [9:0] _493;
+    wire [8:0] _369;
+    wire [6:0] _475;
+    wire [6:0] _471;
+    wire [6:0] _467;
+    wire [11:0] _465;
+    wire [4:0] _466;
+    wire [11:0] _468;
+    wire [6:0] _463;
+    wire [6:0] _456;
+    wire [10:0] _457;
+    wire _458;
+    wire [11:0] _459;
+    wire [11:0] _461;
+    wire [4:0] _462;
+    wire [11:0] _464;
+    wire [11:0] _469;
+    wire [4:0] _470;
+    wire [11:0] _472;
+    wire [4:0] _473;
+    wire [2:0] _474;
+    wire [9:0] _476;
+    wire [9:0] _400;
+    wire [1:0] _391;
+    wire [1:0] _392;
+    wire [1:0] _50;
+    reg [1:0] iter_sel;
+    wire [1:0] iter;
+    wire [1:0] _51;
+    reg [9:0] e;
+    wire [9:0] _399;
+    wire [9:0] _401;
+    wire [9:0] _477;
+    reg [9:0] _478;
+    wire [9:0] _52;
+    wire _367;
+    wire _368;
+    wire [9:0] _370;
+    wire _372;
+    wire [9:0] _495;
+    wire [3:0] _481;
+    wire _480;
+    wire [3:0] _482;
+    wire [3:0] _53;
+    reg [3:0] _483;
+    wire [3:0] _54;
+    wire _366;
+    wire [9:0] _496;
+    reg [9:0] _497;
+    wire [9:0] _55;
+    wire [19:0] _519;
+    wire [9:0] _520;
+    wire [1:0] _521;
+    wire [9:0] _523;
     wire [6:0] _451;
-    wire [9:0] _445;
-    wire _446;
-    wire [10:0] _447;
     wire [10:0] _449;
     wire [3:0] _450;
     wire [10:0] _452;
-    wire [6:0] _443;
-    wire [9:0] _439;
-    wire [2:0] _440;
-    wire _441;
-    wire [3:0] _442;
-    wire [10:0] _444;
+    wire [6:0] _447;
+    wire [9:0] _441;
+    wire _442;
+    wire [10:0] _443;
+    wire [10:0] _445;
+    wire [3:0] _446;
+    wire [10:0] _448;
+    wire [6:0] _439;
+    wire [9:0] _435;
+    wire [2:0] _436;
+    wire _437;
+    wire [3:0] _438;
+    wire [10:0] _440;
     reg [10:0] vga$ray$eye$p$norm$phi;
     wire [10:0] vga$ray$eye$p$phi;
-    wire [3:0] _458;
-    wire _459;
-    wire [9:0] _532;
-    wire [1:0] _533;
-    wire [9:0] _535;
-    wire [1:0] _536;
-    wire [9:0] _538;
-    wire [1:0] _539;
-    wire _540;
-    wire [10:0] _541;
-    wire [2:0] _542;
-    wire [10:0] _544;
-    wire [2:0] _545;
-    wire [10:0] _547;
-    wire [2:0] _548;
-    wire [1:0] _549;
-    wire [9:0] _551;
-    wire [19:0] _552;
-    wire _553;
-    wire [1:0] _554;
-    wire [3:0] _555;
-    wire [6:0] _557;
-    wire [19:0] _559;
-    wire [9:0] _560;
-    wire [9:0] _521;
-    wire [7:0] _517;
-    wire _515;
-    wire [1:0] _516;
-    wire [9:0] _518;
-    wire [8:0] _512;
+    wire [3:0] _454;
+    wire _455;
+    wire [9:0] _528;
+    wire [1:0] _529;
+    wire [9:0] _531;
+    wire [1:0] _532;
+    wire [9:0] _534;
+    wire [1:0] _535;
+    wire _536;
+    wire [10:0] _537;
+    wire [2:0] _538;
+    wire [10:0] _540;
+    wire [2:0] _541;
+    wire [10:0] _543;
+    wire [2:0] _544;
+    wire [1:0] _545;
+    wire [9:0] _547;
+    wire [19:0] _548;
+    wire _549;
+    wire [1:0] _550;
+    wire [3:0] _551;
+    wire [6:0] _553;
+    wire [19:0] _555;
+    wire [9:0] _556;
+    wire [9:0] _517;
+    wire [7:0] _513;
     wire _511;
-    wire [9:0] _513;
+    wire [1:0] _512;
     wire [9:0] _514;
-    wire [9:0] _519;
-    wire [9:0] _520;
-    wire _508;
-    wire [9:0] _522;
-    wire [9:0] _561;
-    reg [9:0] _562;
-    wire [9:0] _58;
-    wire _510;
-    wire [9:0] _704;
-    wire _509;
-    wire [9:0] _709;
-    wire [9:0] _710;
-    wire [8:0] _505;
-    wire [6:0] _693;
+    wire [8:0] _508;
+    wire _507;
+    wire [9:0] _509;
+    wire [9:0] _510;
+    wire [9:0] _515;
+    wire [9:0] _516;
+    wire _504;
+    wire [9:0] _518;
+    wire [9:0] _557;
+    reg [9:0] _558;
+    wire [9:0] _56;
+    wire _506;
+    wire [9:0] _700;
+    wire _505;
+    wire [9:0] _705;
+    wire [9:0] _706;
+    wire [8:0] _501;
     wire [6:0] _689;
     wire [6:0] _685;
-    wire [11:0] _683;
-    wire [4:0] _684;
-    wire [11:0] _686;
     wire [6:0] _681;
-    wire [11:0] _464;
-    wire [6:0] _675;
-    wire [10:0] _676;
-    wire _677;
-    wire [11:0] _678;
     wire [11:0] _679;
     wire [4:0] _680;
     wire [11:0] _682;
-    wire [11:0] _687;
-    wire [4:0] _688;
-    wire [11:0] _690;
-    wire [4:0] _691;
-    wire [2:0] _692;
-    wire [9:0] _694;
-    wire [9:0] _568;
-    wire [1:0] _563;
-    wire [1:0] _564;
-    wire [1:0] _59;
+    wire [6:0] _677;
+    wire [11:0] _460;
+    wire [6:0] _671;
+    wire [10:0] _672;
+    wire _673;
+    wire [11:0] _674;
+    wire [11:0] _675;
+    wire [4:0] _676;
+    wire [11:0] _678;
+    wire [11:0] _683;
+    wire [4:0] _684;
+    wire [11:0] _686;
+    wire [4:0] _687;
+    wire [2:0] _688;
+    wire [9:0] _690;
+    wire [9:0] _564;
+    wire [1:0] _559;
+    wire [1:0] _560;
+    wire [1:0] _57;
     reg [1:0] iter_sel_0;
     wire [1:0] iter_0;
-    wire [1:0] _60;
+    wire [1:0] _58;
     reg [9:0] e_0;
-    wire [9:0] _567;
-    wire [9:0] _569;
-    wire [9:0] _695;
-    reg [9:0] _696;
-    wire [9:0] _61;
+    wire [9:0] _563;
+    wire [9:0] _565;
+    wire [9:0] _691;
+    reg [9:0] _692;
+    wire [9:0] _59;
+    wire _499;
+    wire _500;
+    wire [9:0] _502;
     wire _503;
-    wire _504;
-    wire [9:0] _506;
-    wire _507;
+    wire [9:0] _708;
+    wire [3:0] _694;
+    wire _693;
+    wire [3:0] _695;
+    wire [3:0] _60;
+    reg [3:0] _696;
+    wire [3:0] _61;
+    wire _498;
+    wire [9:0] _709;
+    reg [9:0] _710;
+    wire [9:0] _62;
+    wire [19:0] _711;
     wire [9:0] _712;
-    wire [3:0] _698;
-    wire _697;
-    wire [3:0] _699;
-    wire [3:0] _62;
-    reg [3:0] _700;
-    wire [3:0] _63;
-    wire _502;
     wire [9:0] _713;
-    reg [9:0] _714;
-    wire [9:0] _64;
-    wire [19:0] _715;
+    wire [1:0] _714;
     wire [9:0] _716;
-    wire [9:0] _717;
-    wire [1:0] _718;
-    wire [9:0] _720;
-    wire [6:0] _670;
-    wire [10:0] _668;
-    wire [3:0] _669;
-    wire [10:0] _671;
     wire [6:0] _666;
-    wire [10:0] _448;
-    wire [9:0] _661;
-    wire _662;
-    wire [10:0] _663;
     wire [10:0] _664;
     wire [3:0] _665;
     wire [10:0] _667;
-    wire [6:0] _659;
-    wire [9:0] _655;
-    wire [2:0] _656;
-    wire _657;
-    wire [3:0] _658;
+    wire [6:0] _662;
+    wire [10:0] _444;
+    wire [9:0] _657;
+    wire _658;
+    wire [10:0] _659;
     wire [10:0] _660;
+    wire [3:0] _661;
+    wire [10:0] _663;
+    wire [6:0] _655;
+    wire [9:0] _651;
+    wire [2:0] _652;
+    wire _653;
+    wire [3:0] _654;
+    wire [10:0] _656;
     reg [10:0] vga$ray$eye$p$norm$theta;
     wire [10:0] vga$ray$eye$p$theta;
-    wire [3:0] _673;
-    wire _674;
+    wire [3:0] _669;
+    wire _670;
     wire [9:0] vga$ray$eye$p$norm$x;
-    wire [19:0] _738;
-    wire _739;
-    wire [20:0] _740;
-    wire [10:0] _741;
-    wire [8:0] _742;
-    wire [7:0] _743;
-    wire [9:0] _745;
-    wire [7:0] _746;
-    wire [9:0] _748;
-    wire _749;
-    wire [10:0] _750;
-    wire [10:0] _786;
-    wire [8:0] _787;
-    wire [10:0] _789;
-    wire _790;
-    wire [11:0] _791;
-    wire [11:0] _829;
-    wire _830;
-    wire [12:0] _831;
-    wire [10:0] _832;
+    wire [19:0] _734;
+    wire _735;
+    wire [20:0] _736;
+    wire [10:0] _737;
+    wire [8:0] _738;
+    wire [7:0] _739;
+    wire [9:0] _741;
+    wire [7:0] _742;
+    wire [9:0] _744;
+    wire _745;
+    wire [10:0] _746;
+    wire [10:0] _782;
+    wire [8:0] _783;
+    wire [10:0] _785;
+    wire _786;
+    wire [11:0] _787;
+    wire [11:0] _825;
+    wire _826;
+    wire [12:0] _827;
+    wire [10:0] _828;
     wire [9:0] vga$ray$eye$p$norm$dot_norm_l$x;
-    reg [9:0] _834;
-    wire [9:0] _65;
+    reg [9:0] _830;
+    wire [9:0] _63;
     wire [9:0] vga$ray$light$x;
-    wire [19:0] _1087;
-    wire [12:0] _1088;
-    wire [20:0] _1091;
-    wire _1092;
-    wire [21:0] _1093;
-    wire [21:0] _1085;
-    wire [21:0] _1094;
-    wire _1095;
-    wire [22:0] _1096;
-    wire [19:0] _1097;
-    wire [14:0] _1098;
-    wire [13:0] _1099;
+    wire [19:0] _1083;
+    wire [12:0] _1084;
+    wire [20:0] _1087;
+    wire _1088;
+    wire [21:0] _1089;
+    wire [21:0] _1081;
+    wire [21:0] _1090;
+    wire _1091;
+    wire [22:0] _1092;
+    wire [19:0] _1093;
+    wire [14:0] _1094;
+    wire [13:0] _1095;
     wire [18:0] vga$ray$color$rgb$v01$x;
     wire [18:0] vga$ray$color$rgb$x;
-    wire _1102;
-    wire [19:0] _1103;
-    wire [17:0] _1104;
-    wire [14:0] _1105;
-    wire [13:0] _1106;
-    wire [16:0] _1108;
-    wire [2:0] _1109;
-    wire [11:0] _160;
-    wire [10:0] _158;
-    wire [6:0] _154;
-    wire [6:0] _148;
-    wire [10:0] _141;
-    wire [7:0] _137;
-    wire [12:0] _131;
-    wire [2:0] _129;
-    wire [19:0] _125;
-    wire _126;
-    wire [1:0] _127;
-    wire [3:0] _128;
-    wire [6:0] _130;
-    wire [19:0] _132;
-    wire [9:0] _133;
-    wire [9:0] _1081;
+    wire _1098;
+    wire [19:0] _1099;
+    wire [17:0] _1100;
+    wire [14:0] _1101;
+    wire [13:0] _1102;
+    wire [16:0] _1104;
+    wire [2:0] _1105;
+    wire [11:0] _156;
+    wire [10:0] _154;
+    wire [6:0] _150;
+    wire [6:0] _144;
+    wire [10:0] _137;
+    wire [7:0] _133;
+    wire [12:0] _127;
+    wire [2:0] _125;
+    wire [19:0] _121;
+    wire _122;
+    wire [1:0] _123;
+    wire [3:0] _124;
+    wire [6:0] _126;
+    wire [19:0] _128;
+    wire [9:0] _129;
+    wire [9:0] _1077;
     reg [9:0] e_1;
-    wire [9:0] _1080;
-    wire [8:0] _964;
-    wire [7:0] _1071;
-    wire [4:0] _1066;
+    wire [9:0] _1076;
+    wire [8:0] _960;
     wire [7:0] _1067;
-    wire [4:0] _1063;
-    wire [4:0] _1057;
-    wire [4:0] _1054;
-    wire [7:0] _1047;
+    wire [4:0] _1062;
+    wire [7:0] _1063;
+    wire [4:0] _1059;
+    wire [4:0] _1053;
+    wire [4:0] _1050;
     wire [7:0] _1043;
+    wire [7:0] _1039;
+    wire [12:0] _1036;
+    wire [12:0] _1037;
+    wire [4:0] _1038;
     wire [12:0] _1040;
-    wire [12:0] _1041;
+    reg [12:0] _1041;
     wire [4:0] _1042;
     wire [12:0] _1044;
-    reg [12:0] _1045;
-    wire [4:0] _1046;
-    wire [12:0] _1048;
-    wire _1049;
-    wire [13:0] _1050;
-    wire [10:0] _1051;
-    wire [5:0] _1052;
-    wire [4:0] _1053;
-    wire [9:0] _1055;
-    wire [4:0] _1056;
-    wire [9:0] _1058;
-    wire [4:0] _1059;
-    wire _1060;
-    wire [10:0] _1061;
-    wire [5:0] _1062;
-    wire [10:0] _1064;
+    wire _1045;
+    wire [13:0] _1046;
+    wire [10:0] _1047;
+    wire [5:0] _1048;
+    wire [4:0] _1049;
+    wire [9:0] _1051;
+    wire [4:0] _1052;
+    wire [9:0] _1054;
+    wire [4:0] _1055;
+    wire _1056;
+    wire [10:0] _1057;
+    wire [5:0] _1058;
+    wire [10:0] _1060;
+    wire [5:0] _1061;
+    wire [13:0] _1064;
     wire [5:0] _1065;
-    wire [13:0] _1068;
-    wire [5:0] _1069;
-    wire [1:0] _1070;
-    wire [9:0] _1072;
-    wire [9:0] _1038;
-    wire [7:0] _1034;
-    wire _1032;
-    wire [1:0] _1033;
-    wire [9:0] _1035;
-    wire [8:0] _1029;
+    wire [1:0] _1066;
+    wire [9:0] _1068;
+    wire [9:0] _1034;
+    wire [7:0] _1030;
     wire _1028;
-    wire [9:0] _1030;
-    wire [7:0] _1021;
-    wire [4:0] _1016;
+    wire [1:0] _1029;
+    wire [9:0] _1031;
+    wire [8:0] _1025;
+    wire _1024;
+    wire [9:0] _1026;
     wire [7:0] _1017;
-    wire [4:0] _1013;
-    wire [4:0] _1007;
-    wire [4:0] _1004;
-    wire [7:0] _997;
+    wire [4:0] _1012;
+    wire [7:0] _1013;
+    wire [4:0] _1009;
+    wire [4:0] _1003;
+    wire [4:0] _1000;
     wire [7:0] _993;
-    wire [9:0] _987;
-    wire [1:0] _988;
-    wire _989;
-    wire [1:0] _990;
-    wire [2:0] _991;
-    wire [4:0] _992;
-    wire [12:0] _994;
-    wire [7:0] _985;
-    wire [1:0] _982;
-    wire [2:0] _983;
-    wire [4:0] _984;
-    wire [12:0] _986;
-    wire [7:0] _802;
-    wire [12:0] _803;
-    wire [12:0] _431;
-    wire [2:0] _429;
-    wire [9:0] _124;
-    wire [19:0] _425;
-    wire _426;
-    wire [1:0] _427;
-    wire [3:0] _428;
-    wire [6:0] _430;
-    wire [19:0] _432;
-    wire [9:0] _433;
-    wire [9:0] _946;
-    wire [9:0] _401;
-    wire [9:0] _400;
-    wire [9:0] _399;
-    wire [9:0] _398;
+    wire [7:0] _989;
+    wire [9:0] _983;
+    wire [1:0] _984;
+    wire _985;
+    wire [1:0] _986;
+    wire [2:0] _987;
+    wire [4:0] _988;
+    wire [12:0] _990;
+    wire [7:0] _981;
+    wire [1:0] _978;
+    wire [2:0] _979;
+    wire [4:0] _980;
+    wire [12:0] _982;
+    wire [7:0] _798;
+    wire [12:0] _799;
+    wire [12:0] _427;
+    wire [2:0] _425;
+    wire [9:0] _120;
+    wire [19:0] _421;
+    wire _422;
+    wire [1:0] _423;
+    wire [3:0] _424;
+    wire [6:0] _426;
+    wire [19:0] _428;
+    wire [9:0] _429;
+    wire [9:0] _942;
+    wire [9:0] _397;
+    wire [9:0] _396;
+    wire [9:0] _395;
+    wire [9:0] _394;
     reg [9:0] e_2;
-    wire [9:0] _945;
-    wire [9:0] _375;
-    wire [8:0] _838;
-    wire [7:0] _936;
-    wire [4:0] _931;
+    wire [9:0] _941;
+    wire [9:0] _371;
+    wire [8:0] _834;
     wire [7:0] _932;
-    wire [4:0] _928;
-    wire [4:0] _922;
-    wire [4:0] _919;
-    wire [5:0] _912;
+    wire [4:0] _927;
+    wire [7:0] _928;
+    wire [4:0] _924;
+    wire [4:0] _918;
+    wire [4:0] _915;
     wire [5:0] _908;
-    wire [10:0] _906;
+    wire [5:0] _904;
+    wire [10:0] _902;
+    wire [4:0] _903;
+    wire [10:0] _905;
+    reg [10:0] _906;
     wire [4:0] _907;
     wire [10:0] _909;
-    reg [10:0] _910;
-    wire [4:0] _911;
-    wire [10:0] _913;
-    wire _914;
-    wire [11:0] _915;
-    wire [10:0] _916;
-    wire [5:0] _917;
-    wire [4:0] _918;
-    wire [9:0] _920;
-    wire [4:0] _921;
-    wire [9:0] _923;
-    wire [4:0] _924;
-    wire _925;
-    wire [10:0] _926;
-    wire [5:0] _927;
-    wire [10:0] _929;
+    wire _910;
+    wire [11:0] _911;
+    wire [10:0] _912;
+    wire [5:0] _913;
+    wire [4:0] _914;
+    wire [9:0] _916;
+    wire [4:0] _917;
+    wire [9:0] _919;
+    wire [4:0] _920;
+    wire _921;
+    wire [10:0] _922;
+    wire [5:0] _923;
+    wire [10:0] _925;
+    wire [5:0] _926;
+    wire [13:0] _929;
     wire [5:0] _930;
-    wire [13:0] _933;
-    wire [5:0] _934;
-    wire [1:0] _935;
-    wire [9:0] _937;
-    wire [9:0] _904;
-    wire [7:0] _900;
-    wire _898;
-    wire [1:0] _899;
-    wire [9:0] _901;
-    wire [8:0] _895;
+    wire [1:0] _931;
+    wire [9:0] _933;
+    wire [9:0] _900;
+    wire [7:0] _896;
     wire _894;
-    wire [9:0] _896;
-    wire [7:0] _887;
-    wire [2:0] _162;
-    wire [4:0] _882;
+    wire [1:0] _895;
+    wire [9:0] _897;
+    wire [8:0] _891;
+    wire _890;
+    wire [9:0] _892;
     wire [7:0] _883;
-    wire [4:0] _879;
-    wire [4:0] _873;
-    wire [4:0] _870;
-    wire [5:0] _863;
+    wire [2:0] _158;
+    wire [4:0] _878;
+    wire [7:0] _879;
+    wire [4:0] _875;
+    wire [4:0] _869;
+    wire [4:0] _866;
     wire [5:0] _859;
+    wire [5:0] _855;
+    wire [10:0] _852;
+    wire [10:0] _853;
+    wire [4:0] _854;
     wire [10:0] _856;
-    wire [10:0] _857;
-    wire [4:0] _858;
-    wire [10:0] _860;
-    wire [5:0] _761;
-    wire [10:0] _762;
-    wire [5:0] _726;
-    wire [10:0] _727;
-    wire [5:0] _648;
-    wire [5:0] _645;
-    wire [6:0] _636;
-    wire [6:0] _633;
-    wire [11:0] _626;
-    wire [7:0] _621;
-    wire [8:0] _622;
-    wire [7:0] _618;
+    wire [5:0] _757;
+    wire [10:0] _758;
+    wire [5:0] _722;
+    wire [10:0] _723;
+    wire [5:0] _644;
+    wire [5:0] _641;
+    wire [6:0] _632;
+    wire [6:0] _629;
+    wire [11:0] _622;
+    wire [7:0] _617;
+    wire [8:0] _618;
+    wire [7:0] _614;
     wire [10:0] vga$ray$xy$y;
-    wire _613;
-    wire [11:0] _614;
-    wire [10:0] _615;
-    wire [2:0] _616;
-    wire [1:0] _617;
-    wire [9:0] _619;
-    wire [1:0] _620;
-    wire [10:0] _623;
+    wire _609;
+    wire [11:0] _610;
+    wire [10:0] _611;
+    wire [2:0] _612;
+    wire [1:0] _613;
+    wire [9:0] _615;
+    wire [1:0] _616;
+    wire [10:0] _619;
+    wire _620;
+    wire [11:0] _621;
+    wire [11:0] _623;
     wire _624;
-    wire [11:0] _625;
-    wire [11:0] _627;
-    wire _628;
-    wire [12:0] _629;
-    wire [10:0] _630;
-    wire [3:0] _631;
-    wire [2:0] _632;
+    wire [12:0] _625;
+    wire [10:0] _626;
+    wire [3:0] _627;
+    wire [2:0] _628;
     wire [9:0] vga$ray$xy$uv$y;
-    wire [2:0] _635;
-    wire [9:0] _637;
-    wire _638;
-    wire [10:0] _639;
-    wire _640;
-    wire [11:0] _641;
-    wire [10:0] _642;
-    wire [4:0] _643;
-    wire [3:0] _644;
+    wire [2:0] _631;
+    wire [9:0] _633;
+    wire _634;
+    wire [10:0] _635;
+    wire _636;
+    wire [11:0] _637;
+    wire [10:0] _638;
+    wire [4:0] _639;
+    wire [3:0] _640;
     wire [9:0] vga$ray$screen_uv_eye$dir$y;
     wire [9:0] vga$ray$screen_uv_eye$y;
     wire [9:0] vga$ray$xy$uv$uv_$y;
-    wire [3:0] _647;
-    wire [9:0] _649;
-    wire _650;
+    wire [3:0] _643;
+    wire [9:0] _645;
+    wire _646;
     wire [10:0] vga$ray$eye$p$y;
-    wire [4:0] _652;
-    wire _653;
-    wire [5:0] _606;
-    wire [5:0] _603;
-    wire [6:0] _594;
-    wire [6:0] _591;
-    wire [11:0] _584;
-    wire [7:0] _579;
-    wire [8:0] _580;
-    wire [7:0] _576;
+    wire [4:0] _648;
+    wire _649;
+    wire [5:0] _602;
+    wire [5:0] _599;
+    wire [6:0] _590;
+    wire [6:0] _587;
+    wire [11:0] _580;
+    wire [7:0] _575;
+    wire [8:0] _576;
+    wire [7:0] _572;
     wire [10:0] vga$ray$xy$x;
-    wire _571;
-    wire [11:0] _572;
-    wire [10:0] _573;
-    wire [2:0] _574;
-    wire [1:0] _575;
-    wire [9:0] _577;
-    wire [1:0] _578;
-    wire [10:0] _581;
+    wire _567;
+    wire [11:0] _568;
+    wire [10:0] _569;
+    wire [2:0] _570;
+    wire [1:0] _571;
+    wire [9:0] _573;
+    wire [1:0] _574;
+    wire [10:0] _577;
+    wire _578;
+    wire [11:0] _579;
+    wire [11:0] _581;
     wire _582;
-    wire [11:0] _583;
-    wire [11:0] _585;
-    wire _586;
-    wire [12:0] _587;
-    wire [10:0] _588;
-    wire [3:0] _589;
-    wire [2:0] _590;
+    wire [12:0] _583;
+    wire [10:0] _584;
+    wire [3:0] _585;
+    wire [2:0] _586;
     wire [9:0] vga$ray$xy$uv$x;
-    wire [2:0] _593;
-    wire [9:0] _595;
-    wire _596;
-    wire [10:0] _597;
-    wire _598;
-    wire [11:0] _599;
-    wire [10:0] _600;
-    wire [4:0] _601;
-    wire [3:0] _602;
+    wire [2:0] _589;
+    wire [9:0] _591;
+    wire _592;
+    wire [10:0] _593;
+    wire _594;
+    wire [11:0] _595;
+    wire [10:0] _596;
+    wire [4:0] _597;
+    wire [3:0] _598;
     wire [9:0] vga$ray$screen_uv_eye$dir$x;
     wire [9:0] vga$ray$screen_uv_eye$x;
     wire [9:0] vga$ray$xy$uv$uv_$x;
-    wire [3:0] _605;
-    wire [9:0] _607;
-    wire _608;
+    wire [3:0] _601;
+    wire [9:0] _603;
+    wire _604;
     wire [10:0] vga$ray$eye$p$x;
-    wire [4:0] _610;
-    wire _611;
-    wire [1:0] _654;
-    reg [10:0] _861;
-    wire [4:0] _862;
-    wire [10:0] _864;
-    wire _865;
-    wire [11:0] _866;
-    wire [10:0] _867;
-    wire [5:0] _868;
-    wire [4:0] _869;
-    wire [9:0] _871;
-    wire [4:0] _872;
-    wire [9:0] _874;
-    wire [4:0] _875;
-    wire _876;
-    wire [10:0] _877;
-    wire [5:0] _878;
-    wire [10:0] _880;
+    wire [4:0] _606;
+    wire _607;
+    wire [1:0] _650;
+    reg [10:0] _857;
+    wire [4:0] _858;
+    wire [10:0] _860;
+    wire _861;
+    wire [11:0] _862;
+    wire [10:0] _863;
+    wire [5:0] _864;
+    wire [4:0] _865;
+    wire [9:0] _867;
+    wire [4:0] _868;
+    wire [9:0] _870;
+    wire [4:0] _871;
+    wire _872;
+    wire [10:0] _873;
+    wire [5:0] _874;
+    wire [10:0] _876;
+    wire [5:0] _877;
+    wire [13:0] _880;
     wire [5:0] _881;
-    wire [13:0] _884;
-    wire [5:0] _885;
-    wire [1:0] _886;
-    wire [9:0] _888;
-    wire [9:0] _854;
-    wire [7:0] _850;
-    wire _848;
-    wire [1:0] _849;
-    wire [9:0] _851;
-    wire [8:0] _845;
-    wire [9:0] _846;
-    wire [9:0] _847;
-    wire [9:0] _852;
-    wire [9:0] _853;
-    wire _842;
-    wire [9:0] _855;
-    wire [9:0] _889;
-    reg [9:0] _890;
-    wire [9:0] _66;
+    wire [1:0] _882;
+    wire [9:0] _884;
+    wire [9:0] _850;
+    wire [7:0] _846;
     wire _844;
-    wire [9:0] _897;
-    wire [1:0] _891;
-    wire [1:0] _892;
-    wire [1:0] _67;
+    wire [1:0] _845;
+    wire [9:0] _847;
+    wire [8:0] _841;
+    wire [9:0] _842;
+    wire [9:0] _843;
+    wire [9:0] _848;
+    wire [9:0] _849;
+    wire _838;
+    wire [9:0] _851;
+    wire [9:0] _885;
+    reg [9:0] _886;
+    wire [9:0] _64;
+    wire _840;
+    wire [9:0] _893;
+    wire [1:0] _887;
+    wire [1:0] _888;
+    wire [1:0] _65;
     reg [1:0] iter_sel_1;
     wire [1:0] iter_1;
-    wire [1:0] _68;
-    wire _843;
-    wire [9:0] _902;
-    wire [9:0] _903;
-    wire [9:0] _905;
-    wire [9:0] _938;
-    reg [9:0] _939;
-    wire [9:0] _69;
+    wire [1:0] _66;
+    wire _839;
+    wire [9:0] _898;
+    wire [9:0] _899;
+    wire [9:0] _901;
+    wire [9:0] _934;
+    reg [9:0] _935;
+    wire [9:0] _67;
+    wire _832;
+    wire _833;
+    wire [9:0] _835;
     wire _836;
     wire _837;
-    wire [9:0] _839;
-    wire _840;
-    wire _841;
-    wire [9:0] _947;
-    wire [3:0] _941;
-    wire _940;
-    wire [3:0] _942;
-    wire [3:0] _70;
-    reg [3:0] _943;
-    wire [3:0] _71;
-    wire _835;
-    wire [9:0] _948;
-    reg [9:0] _949;
-    wire [9:0] _72;
-    wire [19:0] _434;
-    wire [9:0] _435;
-    wire [1:0] _436;
-    wire _437;
-    wire [12:0] _421;
-    wire [7:0] _417;
-    wire [11:0] _414;
-    wire [7:0] _410;
+    wire [9:0] _943;
+    wire [3:0] _937;
+    wire _936;
+    wire [3:0] _938;
+    wire [3:0] _68;
+    reg [3:0] _939;
+    wire [3:0] _69;
+    wire _831;
+    wire [9:0] _944;
+    reg [9:0] _945;
+    wire [9:0] _70;
+    wire [19:0] _430;
+    wire [9:0] _431;
+    wire [1:0] _432;
+    wire _433;
+    wire [12:0] _417;
+    wire [7:0] _413;
+    wire [11:0] _410;
+    wire [7:0] _406;
     wire [9:0] vga$vgaController$o$x;
     wire [9:0] vga$ray$i$x;
-    wire _958;
+    wire _954;
     wire [9:0] vga$vgaController$o$y;
     wire [9:0] vga$ray$i$y;
-    wire _957;
-    wire _959;
-    wire [7:0] _956;
-    wire [7:0] _954;
-    wire [7:0] _955;
-    wire [7:0] _77;
-    reg [7:0] _960;
-    wire [7:0] _78;
+    wire _953;
+    wire _955;
+    wire [7:0] _952;
+    wire [7:0] _950;
+    wire [7:0] _951;
+    wire [7:0] _75;
+    reg [7:0] _956;
+    wire [7:0] _76;
     wire gnd;
-    wire [8:0] _406;
-    wire _407;
-    wire [1:0] _408;
-    wire [2:0] _409;
-    wire [10:0] _411;
-    wire _412;
-    wire [11:0] _413;
+    wire [8:0] _402;
+    wire _403;
+    wire [1:0] _404;
+    wire [2:0] _405;
+    wire [10:0] _407;
+    wire _408;
+    wire [11:0] _409;
     wire [11:0] vga$ray$eye$z;
-    wire [3:0] _416;
-    wire [11:0] _418;
-    wire _419;
-    wire [12:0] _420;
+    wire [3:0] _412;
+    wire [11:0] _414;
+    wire _415;
+    wire [12:0] _416;
     wire [12:0] vga$ray$eye$p$z;
-    wire [4:0] _423;
-    wire _424;
-    wire [1:0] _438;
-    reg [12:0] _995;
-    wire [4:0] _996;
-    wire [12:0] _998;
-    wire _999;
-    wire [13:0] _1000;
-    wire [10:0] _1001;
-    wire [5:0] _1002;
-    wire [4:0] _1003;
-    wire [9:0] _1005;
-    wire [4:0] _1006;
-    wire [9:0] _1008;
-    wire [4:0] _1009;
-    wire _1010;
-    wire [10:0] _1011;
-    wire [5:0] _1012;
-    wire [10:0] _1014;
+    wire [4:0] _419;
+    wire _420;
+    wire [1:0] _434;
+    reg [12:0] _991;
+    wire [4:0] _992;
+    wire [12:0] _994;
+    wire _995;
+    wire [13:0] _996;
+    wire [10:0] _997;
+    wire [5:0] _998;
+    wire [4:0] _999;
+    wire [9:0] _1001;
+    wire [4:0] _1002;
+    wire [9:0] _1004;
+    wire [4:0] _1005;
+    wire _1006;
+    wire [10:0] _1007;
+    wire [5:0] _1008;
+    wire [10:0] _1010;
+    wire [5:0] _1011;
+    wire [13:0] _1014;
     wire [5:0] _1015;
-    wire [13:0] _1018;
-    wire [5:0] _1019;
-    wire [1:0] _1020;
-    wire [9:0] _1022;
-    wire [9:0] _980;
-    wire [7:0] _976;
-    wire _974;
-    wire [1:0] _975;
-    wire [9:0] _977;
-    wire [8:0] _971;
-    wire [9:0] _972;
-    wire [9:0] _973;
-    wire [9:0] _978;
-    wire [9:0] _979;
-    wire _105;
-    wire _968;
-    wire [9:0] _981;
-    wire [9:0] _1023;
-    reg [9:0] _1024;
-    wire [9:0] _79;
+    wire [1:0] _1016;
+    wire [9:0] _1018;
+    wire [9:0] _976;
+    wire [7:0] _972;
     wire _970;
-    wire [9:0] _1031;
-    wire [1:0] _230;
-    wire [1:0] _231;
-    wire [1:0] _1025;
-    wire [1:0] _1026;
-    wire [1:0] _80;
+    wire [1:0] _971;
+    wire [9:0] _973;
+    wire [8:0] _967;
+    wire [9:0] _968;
+    wire [9:0] _969;
+    wire [9:0] _974;
+    wire [9:0] _975;
+    wire _109;
+    wire _964;
+    wire [9:0] _977;
+    wire [9:0] _1019;
+    reg [9:0] _1020;
+    wire [9:0] _77;
+    wire _966;
+    wire [9:0] _1027;
+    wire [1:0] _226;
+    wire [1:0] _227;
+    wire [1:0] _1021;
+    wire [1:0] _1022;
+    wire [1:0] _78;
     reg [1:0] iter_sel_2;
     wire [1:0] iter_2;
-    wire [1:0] _81;
-    wire _969;
-    wire [9:0] _1036;
-    wire [9:0] _1037;
-    wire [9:0] _1039;
-    wire [9:0] _1073;
-    reg [9:0] _1074;
-    wire [9:0] _82;
+    wire [1:0] _79;
+    wire _965;
+    wire [9:0] _1032;
+    wire [9:0] _1033;
+    wire [9:0] _1035;
+    wire [9:0] _1069;
+    reg [9:0] _1070;
+    wire [9:0] _80;
+    wire _958;
+    wire _959;
+    wire [9:0] _961;
     wire _962;
     wire _963;
-    wire [9:0] _965;
-    wire _966;
-    wire _967;
-    wire [9:0] _1082;
+    wire [9:0] _1078;
     wire vga$ray$i$rst_n;
     wire vga$ray$i$clk;
-    wire [3:0] _318;
-    wire [3:0] _340;
-    wire [3:0] _1076;
-    wire [3:0] _483;
-    wire _1075;
-    wire [3:0] _1077;
-    wire [3:0] _85;
-    reg [3:0] _1078;
-    wire [3:0] _86;
-    wire _961;
-    wire [9:0] _1083;
-    reg [9:0] _1084;
-    wire [9:0] _87;
-    wire [19:0] _134;
+    wire [3:0] _314;
+    wire [3:0] _336;
+    wire [3:0] _1072;
+    wire [3:0] _479;
+    wire _1071;
+    wire [3:0] _1073;
+    wire [3:0] _83;
+    reg [3:0] _1074;
+    wire [3:0] _84;
+    wire _957;
+    wire [9:0] _1079;
+    reg [9:0] _1080;
+    wire [9:0] _85;
+    wire [19:0] _130;
     wire [9:0] vga$ray$eye$p$r;
     wire [9:0] vga$ray$eye$length_xyz$x;
-    wire [1:0] _136;
-    wire [9:0] _138;
+    wire [1:0] _132;
+    wire [9:0] _134;
+    wire _135;
+    wire [10:0] _136;
+    wire [10:0] _138;
     wire _139;
-    wire [10:0] _140;
-    wire [10:0] _142;
-    wire _143;
-    wire [11:0] _144;
-    wire [10:0] _145;
-    wire [3:0] _146;
-    wire [2:0] _147;
+    wire [11:0] _140;
+    wire [10:0] _141;
+    wire [3:0] _142;
+    wire [2:0] _143;
     wire [9:0] vga$ray$eye$length_xyz$dist__$p__dist_$x;
     wire [9:0] vga$ray$eye$length_xyz$dist__$x;
-    wire [2:0] _150;
-    wire _151;
-    wire [1:0] _152;
-    wire [4:0] _153;
+    wire [2:0] _146;
+    wire _147;
+    wire [1:0] _148;
+    wire [4:0] _149;
+    wire [11:0] _151;
+    wire _152;
+    wire _153;
     wire [11:0] _155;
-    wire _156;
     wire _157;
-    wire [11:0] _159;
-    wire _161;
-    wire [2:0] _1110;
+    wire [2:0] _1106;
     wire [2:0] vga$ray$o$lr;
-    wire _90;
-    wire [2:0] _1151;
-    reg [1:0] _1152;
-    wire [9:0] _1122;
-    wire [9:0] _951;
-    wire _952;
-    wire [9:0] _1114;
+    wire _88;
+    wire [2:0] _1147;
+    reg [1:0] _1148;
+    wire [9:0] _1118;
+    wire [9:0] _947;
+    wire _948;
+    wire [9:0] _1110;
+    wire [9:0] _1107;
+    wire _1108;
     wire [9:0] _1111;
-    wire _1112;
-    wire [9:0] _1115;
-    wire [9:0] _91;
-    reg [9:0] _953;
-    wire [9:0] _92;
-    wire _1123;
-    wire [9:0] _1120;
+    wire [9:0] _89;
+    reg [9:0] _949;
+    wire [9:0] _90;
+    wire _1119;
+    wire [9:0] _1116;
     wire vdd;
     wire vga$i$rst_n;
     wire vga$vgaController$i$rst_n;
     wire vga$i$clk;
     wire vga$vgaController$i$clk;
-    wire [9:0] _292;
-    wire [9:0] _1113;
-    wire [9:0] _1118;
-    wire [9:0] _1116;
+    wire [9:0] _288;
+    wire [9:0] _1109;
+    wire [9:0] _1114;
+    wire [9:0] _1112;
+    wire _1113;
+    wire [9:0] _1115;
+    wire [9:0] _97;
+    reg [9:0] _946;
+    wire [9:0] _98;
     wire _1117;
-    wire [9:0] _1119;
-    wire [9:0] _99;
-    reg [9:0] _950;
-    wire [9:0] _100;
+    wire _1120;
     wire _1121;
-    wire _1124;
-    wire _1125;
     wire vga$vgaController$o$blank;
-    wire [1:0] _1153;
-    reg [1:0] _1154;
+    wire [1:0] _1149;
+    reg [1:0] _1150;
     wire [1:0] vga$o$r;
-    assign _104 = vga$vgaController$o$hsync | vga$vgaController$o$vsync;
+    assign _105 = 10'b0111101100;
+    assign _106 = _90 < _105;
+    assign _102 = 10'b0111101010;
+    assign _103 = _90 < _102;
+    assign _104 = ~ _103;
+    assign _107 = _104 & _106;
+    assign _108 = ~ _107;
+    assign vga$vgaController$o$vsync = _108;
     always @(posedge vga$i$clk) begin
         if (vga$i$rst_n == 0)
-            _107 <= _105;
+            _111 <= _109;
         else
-            _107 <= _104;
+            _111 <= vga$vgaController$o$vsync;
     end
-    assign vga$o$audio = _107;
-    assign _111 = 10'b0111101100;
-    assign _112 = _92 < _111;
-    assign _108 = 10'b0111101010;
-    assign _109 = _92 < _108;
-    assign _110 = ~ _109;
-    assign _113 = _110 & _112;
+    assign vga$o$vsync = _111;
+    assign _115 = 10'b1011110000;
+    assign _116 = _98 < _115;
+    assign _112 = 10'b1010010000;
+    assign _113 = _98 < _112;
     assign _114 = ~ _113;
-    assign vga$vgaController$o$vsync = _114;
-    always @(posedge vga$i$clk) begin
-        if (vga$i$rst_n == 0)
-            _115 <= _105;
-        else
-            _115 <= vga$vgaController$o$vsync;
-    end
-    assign vga$o$vsync = _115;
-    assign _119 = 10'b1011110000;
-    assign _120 = _100 < _119;
-    assign _116 = 10'b1010010000;
-    assign _117 = _100 < _116;
+    assign _117 = _114 & _116;
     assign _118 = ~ _117;
-    assign _121 = _118 & _120;
-    assign _122 = ~ _121;
-    assign vga$vgaController$o$hsync = _122;
+    assign vga$vgaController$o$hsync = _118;
     always @(posedge vga$i$clk) begin
         if (vga$i$rst_n == 0)
-            _123 <= _105;
+            _119 <= _109;
         else
-            _123 <= vga$vgaController$o$hsync;
+            _119 <= vga$vgaController$o$hsync;
     end
-    assign vga$o$hsync = _123;
+    assign vga$o$hsync = _119;
     always @* begin
         case (vga$counter_div_mod_1$o$quotient)
         0:
@@ -1359,10 +1346,10 @@ module generated (
             vga$h_border$lb <= vga$black$lb;
         endcase
     end
-    assign _226 = _189 ? vga$h_border$lb : vga$h_border$lb;
-    assign vga$v_border$lb = _222 ? vga$black$lb : vga$white$lb;
-    assign _224 = _194 ? vga$v_border$lb : vga$v_border$lb;
-    assign _227 = _193 ? _226 : _224;
+    assign _222 = _185 ? vga$h_border$lb : vga$h_border$lb;
+    assign vga$v_border$lb = _218 ? vga$black$lb : vga$white$lb;
+    assign _220 = _190 ? vga$v_border$lb : vga$v_border$lb;
+    assign _223 = _189 ? _222 : _220;
     assign vga$blue$lb = 3'b111;
     assign vga$red$lb = 3'b000;
     assign vga$magenta$lb = 3'b111;
@@ -1468,67 +1455,67 @@ module generated (
         endcase
     end
     assign vga$default$lb = vga$y_top ? vga$bars$lb : vga$steps$lb;
-    assign _228 = _199 ? _227 : vga$default$lb;
-    assign _184 = _181[2:0];
-    assign _177 = _174[5:0];
-    assign _167 = _165[7:0];
+    assign _224 = _195 ? _223 : vga$default$lb;
+    assign _180 = _177[2:0];
+    assign _173 = _170[5:0];
+    assign _163 = _161[7:0];
     assign vga$ray$light$z = 10'b0000101000;
-    assign _165 = $signed(vga$ray$light$z) * $signed(_65);
-    assign _166 = _165[19:8];
-    assign _168 = { _166,
+    assign _161 = $signed(vga$ray$light$z) * $signed(_63);
+    assign _162 = _161[19:8];
+    assign _164 = { _162,
+                    _163 };
+    assign _165 = _164[19:19];
+    assign _166 = { _165,
+                    _164 };
+    assign _167 = _159 + _166;
+    assign _168 = _167[20:20];
+    assign _169 = { _168,
                     _167 };
-    assign _169 = _168[19:19];
-    assign _170 = { _169,
-                    _168 };
-    assign _171 = _163 + _170;
-    assign _172 = _171[20:20];
-    assign _173 = { _172,
-                    _171 };
-    assign _174 = _173[21:2];
-    assign _175 = _174[19:6];
-    assign _176 = _175[12:0];
-    assign vga$ray$color$rgb$v01_1$x = { _176,
-                                         _177 };
-    assign _179 = vga$ray$color$rgb$v01_1$x[18:18];
-    assign _180 = { _179,
+    assign _170 = _169[21:2];
+    assign _171 = _170[19:6];
+    assign _172 = _171[12:0];
+    assign vga$ray$color$rgb$v01_1$x = { _172,
+                                         _173 };
+    assign _175 = vga$ray$color$rgb$v01_1$x[18:18];
+    assign _176 = { _175,
                     vga$ray$color$rgb$v01_1$x };
-    assign _181 = _180[19:3];
-    assign _182 = _181[16:3];
-    assign _183 = _182[12:0];
-    assign _185 = { _183,
-                    _184 };
-    assign _186 = _185[2:0];
-    assign _187 = _161 ? _186 : _162;
-    assign vga$ray$o$lb = _187;
-    assign _229 = _90 ? _228 : vga$ray$o$lb;
+    assign _177 = _176[19:3];
+    assign _178 = _177[16:3];
+    assign _179 = _178[12:0];
+    assign _181 = { _179,
+                    _180 };
+    assign _182 = _181[2:0];
+    assign _183 = _157 ? _182 : _158;
+    assign vga$ray$o$lb = _183;
+    assign _225 = _88 ? _224 : vga$ray$o$lb;
     always @* begin
-        case (_229)
+        case (_225)
         0:
-            _234 <= _230;
+            _230 <= _226;
         1:
-            _234 <= _231;
+            _230 <= _227;
         2:
-            _234 <= _232;
+            _230 <= _228;
         3:
-            _234 <= _232;
+            _230 <= _228;
         4:
-            _234 <= _232;
+            _230 <= _228;
         5:
-            _234 <= _233;
+            _230 <= _229;
         6:
-            _234 <= _233;
+            _230 <= _229;
         default:
-            _234 <= _233;
+            _230 <= _229;
         endcase
     end
-    assign _235 = vga$vgaController$o$blank ? _230 : _234;
+    assign _231 = vga$vgaController$o$blank ? _226 : _230;
     always @(posedge vga$i$clk) begin
         if (vga$i$rst_n == 0)
-            _236 <= _230;
+            _232 <= _226;
         else
-            _236 <= _235;
+            _232 <= _231;
     end
-    assign vga$o$b = _236;
+    assign vga$o$b = _232;
     always @* begin
         case (vga$counter_div_mod_1$o$quotient)
         0:
@@ -1581,10 +1568,10 @@ module generated (
             vga$h_border$lg <= vga$black$lg;
         endcase
     end
-    assign _283 = _189 ? vga$h_border$lg : vga$h_border$lg;
-    assign vga$v_border$lg = _222 ? vga$black$lg : vga$white$lg;
-    assign _281 = _194 ? vga$v_border$lg : vga$v_border$lg;
-    assign _284 = _193 ? _283 : _281;
+    assign _279 = _185 ? vga$h_border$lg : vga$h_border$lg;
+    assign vga$v_border$lg = _218 ? vga$black$lg : vga$white$lg;
+    assign _277 = _190 ? vga$v_border$lg : vga$v_border$lg;
+    assign _280 = _189 ? _279 : _277;
     assign vga$blue$lg = 3'b000;
     assign vga$red$lg = 3'b000;
     assign vga$magenta$lg = 3'b000;
@@ -1690,115 +1677,115 @@ module generated (
         endcase
     end
     assign vga$default$lg = vga$y_top ? vga$bars$lg : vga$steps$lg;
-    assign _285 = _199 ? _284 : vga$default$lg;
-    assign _257 = _254[2:0];
-    assign _250 = _247[5:0];
-    assign _240 = _238[7:0];
+    assign _281 = _195 ? _280 : vga$default$lg;
+    assign _253 = _250[2:0];
+    assign _246 = _243[5:0];
+    assign _236 = _234[7:0];
     assign vga$ray$light$y = 10'b0000101000;
-    assign _238 = $signed(vga$ray$light$y) * $signed(_65);
-    assign _239 = _238[19:8];
-    assign _241 = { _239,
+    assign _234 = $signed(vga$ray$light$y) * $signed(_63);
+    assign _235 = _234[19:8];
+    assign _237 = { _235,
+                    _236 };
+    assign _238 = _237[19:19];
+    assign _239 = { _238,
+                    _237 };
+    assign _159 = 21'b000000000000000011001;
+    assign _240 = _159 + _239;
+    assign _241 = _240[20:20];
+    assign _242 = { _241,
                     _240 };
-    assign _242 = _241[19:19];
-    assign _243 = { _242,
-                    _241 };
-    assign _163 = 21'b000000000000000011001;
-    assign _244 = _163 + _243;
-    assign _245 = _244[20:20];
-    assign _246 = { _245,
-                    _244 };
-    assign _247 = _246[21:2];
-    assign _248 = _247[19:6];
-    assign _249 = _248[12:0];
-    assign vga$ray$color$rgb$v01_0$x = { _249,
-                                         _250 };
-    assign _252 = vga$ray$color$rgb$v01_0$x[18:18];
-    assign _253 = { _252,
+    assign _243 = _242[21:2];
+    assign _244 = _243[19:6];
+    assign _245 = _244[12:0];
+    assign vga$ray$color$rgb$v01_0$x = { _245,
+                                         _246 };
+    assign _248 = vga$ray$color$rgb$v01_0$x[18:18];
+    assign _249 = { _248,
                     vga$ray$color$rgb$v01_0$x };
-    assign _254 = _253[19:3];
-    assign _255 = _254[16:3];
-    assign _256 = _255[12:0];
-    assign _258 = { _256,
-                    _257 };
-    assign _259 = _258[2:0];
-    assign _260 = _161 ? _259 : _162;
-    assign vga$ray$o$lg = _260;
-    assign _286 = _90 ? _285 : vga$ray$o$lg;
+    assign _250 = _249[19:3];
+    assign _251 = _250[16:3];
+    assign _252 = _251[12:0];
+    assign _254 = { _252,
+                    _253 };
+    assign _255 = _254[2:0];
+    assign _256 = _157 ? _255 : _158;
+    assign vga$ray$o$lg = _256;
+    assign _282 = _88 ? _281 : vga$ray$o$lg;
     always @* begin
-        case (_286)
+        case (_282)
         0:
-            _287 <= _230;
+            _283 <= _226;
         1:
-            _287 <= _231;
+            _283 <= _227;
         2:
-            _287 <= _232;
+            _283 <= _228;
         3:
-            _287 <= _232;
+            _283 <= _228;
         4:
-            _287 <= _232;
+            _283 <= _228;
         5:
-            _287 <= _233;
+            _283 <= _229;
         6:
-            _287 <= _233;
+            _283 <= _229;
         default:
-            _287 <= _233;
+            _283 <= _229;
         endcase
     end
-    assign _288 = vga$vgaController$o$blank ? _230 : _287;
+    assign _284 = vga$vgaController$o$blank ? _226 : _283;
     always @(posedge vga$i$clk) begin
         if (vga$i$rst_n == 0)
-            _289 <= _230;
+            _285 <= _226;
         else
-            _289 <= _288;
+            _285 <= _284;
     end
-    assign vga$o$g = _289;
-    assign _233 = 2'b11;
-    assign _232 = 2'b10;
-    assign vga$counter_div_mod_1$i$set_quotient = _290;
-    assign _315 = vga$counter_div_mod_1$i$set ? vga$counter_div_mod_1$i$set_quotient : _290;
-    assign _314 = _16 + _300;
-    assign _316 = _311 ? _315 : _314;
-    assign _312 = vga$counter_div_mod_1$i$incr & _295;
-    assign _306 = 5'b11000;
-    assign _16 = _291;
-    assign _307 = _16 == _306;
-    assign _294 = 5'b11001;
-    assign vga$counter_div_mod_1$i$clear = _293;
+    assign vga$o$g = _285;
+    assign _229 = 2'b11;
+    assign _228 = 2'b10;
+    assign vga$counter_div_mod_1$i$set_quotient = _286;
+    assign _311 = vga$counter_div_mod_1$i$set ? vga$counter_div_mod_1$i$set_quotient : _286;
+    assign _310 = _14 + _296;
+    assign _312 = _307 ? _311 : _310;
+    assign _308 = vga$counter_div_mod_1$i$incr & _291;
+    assign _302 = 5'b11000;
+    assign _14 = _287;
+    assign _303 = _14 == _302;
+    assign _290 = 5'b11001;
+    assign vga$counter_div_mod_1$i$clear = _289;
     assign vga$counter_div_mod_1$i$clock = vga$i$clk;
-    assign vga$counter_div_mod_1$i$set_remainder = _290;
-    assign _302 = vga$counter_div_mod_1$i$set ? vga$counter_div_mod_1$i$set_remainder : _290;
-    assign _301 = _21 + _300;
-    assign _303 = _298 ? _302 : _301;
-    assign _296 = _295 | _22;
-    assign _297 = vga$counter_div_mod_1$i$incr & _296;
-    assign _298 = vga$counter_div_mod_1$i$set | _297;
-    assign _299 = _298 | vga$counter_div_mod_1$i$incr;
-    assign _304 = _299 ? _303 : _21;
+    assign vga$counter_div_mod_1$i$set_remainder = _286;
+    assign _298 = vga$counter_div_mod_1$i$set ? vga$counter_div_mod_1$i$set_remainder : _286;
+    assign _297 = _19 + _296;
+    assign _299 = _294 ? _298 : _297;
+    assign _292 = _291 | _20;
+    assign _293 = vga$counter_div_mod_1$i$incr & _292;
+    assign _294 = vga$counter_div_mod_1$i$set | _293;
+    assign _295 = _294 | vga$counter_div_mod_1$i$incr;
+    assign _300 = _295 ? _299 : _19;
+    assign _18 = _300;
+    always @(posedge vga$counter_div_mod_1$i$clock) begin
+        if (vga$counter_div_mod_1$i$clear)
+            _301 <= _286;
+        else
+            _301 <= _18;
+    end
+    assign _19 = _301;
+    assign _291 = _19 == _290;
+    assign _304 = _291 & _303;
     assign _20 = _304;
-    always @(posedge vga$counter_div_mod_1$i$clock) begin
-        if (vga$counter_div_mod_1$i$clear)
-            _305 <= _290;
-        else
-            _305 <= _20;
-    end
-    assign _21 = _305;
-    assign _295 = _21 == _294;
-    assign _308 = _295 & _307;
-    assign _22 = _308;
     assign vga$counter_div_mod_1$i$incr = vdd;
-    assign _310 = vga$counter_div_mod_1$i$incr & _22;
+    assign _306 = vga$counter_div_mod_1$i$incr & _20;
     assign vga$counter_div_mod_1$i$set = gnd;
-    assign _311 = vga$counter_div_mod_1$i$set | _310;
-    assign _313 = _311 | _312;
-    assign _317 = _313 ? _316 : _16;
-    assign _25 = _317;
+    assign _307 = vga$counter_div_mod_1$i$set | _306;
+    assign _309 = _307 | _308;
+    assign _313 = _309 ? _312 : _14;
+    assign _23 = _313;
     always @(posedge vga$counter_div_mod_1$i$clock) begin
         if (vga$counter_div_mod_1$i$clear)
-            _291 <= _290;
+            _287 <= _286;
         else
-            _291 <= _25;
+            _287 <= _23;
     end
-    assign vga$counter_div_mod_1$o$quotient = _291;
+    assign vga$counter_div_mod_1$o$quotient = _287;
     always @* begin
         case (vga$counter_div_mod_1$o$quotient)
         0:
@@ -1851,12 +1838,12 @@ module generated (
             vga$h_border$lr <= vga$black$lr;
         endcase
     end
-    assign _1148 = _189 ? vga$h_border$lr : vga$h_border$lr;
-    assign _221 = vga$vgaController$o$y[9:6];
-    assign _222 = _221[0:0];
-    assign vga$v_border$lr = _222 ? vga$black$lr : vga$white$lr;
-    assign _1146 = _194 ? vga$v_border$lr : vga$v_border$lr;
-    assign _1149 = _193 ? _1148 : _1146;
+    assign _1144 = _185 ? vga$h_border$lr : vga$h_border$lr;
+    assign _217 = vga$vgaController$o$y[9:6];
+    assign _218 = _217[0:0];
+    assign vga$v_border$lr = _218 ? vga$black$lr : vga$white$lr;
+    assign _1142 = _190 ? vga$v_border$lr : vga$v_border$lr;
+    assign _1145 = _189 ? _1144 : _1142;
     assign vga$blue$lr = 3'b000;
     assign vga$red$lr = 3'b111;
     assign vga$magenta$lr = 3'b111;
@@ -1864,53 +1851,53 @@ module generated (
     assign vga$cyan$lr = 3'b000;
     assign vga$yellow$lr = 3'b111;
     assign vga$white$lr = 3'b111;
-    assign vga$counter_div_mod$i$set_quotient = _318;
-    assign _342 = vga$counter_div_mod$i$set ? vga$counter_div_mod$i$set_quotient : _318;
-    assign _341 = _28 + _340;
-    assign _343 = _337 ? _342 : _341;
-    assign _338 = vga$counter_div_mod$i$incr & _322;
-    assign _333 = 4'b1000;
-    assign _28 = _319;
-    assign _334 = _28 == _333;
-    assign _321 = 7'b1001111;
-    assign vga$counter_div_mod$i$clear = _293;
+    assign vga$counter_div_mod$i$set_quotient = _314;
+    assign _338 = vga$counter_div_mod$i$set ? vga$counter_div_mod$i$set_quotient : _314;
+    assign _337 = _26 + _336;
+    assign _339 = _333 ? _338 : _337;
+    assign _334 = vga$counter_div_mod$i$incr & _318;
+    assign _329 = 4'b1000;
+    assign _26 = _315;
+    assign _330 = _26 == _329;
+    assign _317 = 7'b1001111;
+    assign vga$counter_div_mod$i$clear = _289;
     assign vga$counter_div_mod$i$clock = vga$i$clk;
-    assign vga$counter_div_mod$i$set_remainder = _320;
-    assign _320 = 7'b0000000;
-    assign _329 = vga$counter_div_mod$i$set ? vga$counter_div_mod$i$set_remainder : _320;
-    assign _327 = 7'b0000001;
-    assign _328 = _33 + _327;
-    assign _330 = _325 ? _329 : _328;
-    assign _323 = _322 | _34;
-    assign _324 = vga$counter_div_mod$i$incr & _323;
-    assign _325 = vga$counter_div_mod$i$set | _324;
-    assign _326 = _325 | vga$counter_div_mod$i$incr;
-    assign _331 = _326 ? _330 : _33;
+    assign vga$counter_div_mod$i$set_remainder = _316;
+    assign _316 = 7'b0000000;
+    assign _325 = vga$counter_div_mod$i$set ? vga$counter_div_mod$i$set_remainder : _316;
+    assign _323 = 7'b0000001;
+    assign _324 = _31 + _323;
+    assign _326 = _321 ? _325 : _324;
+    assign _319 = _318 | _32;
+    assign _320 = vga$counter_div_mod$i$incr & _319;
+    assign _321 = vga$counter_div_mod$i$set | _320;
+    assign _322 = _321 | vga$counter_div_mod$i$incr;
+    assign _327 = _322 ? _326 : _31;
+    assign _30 = _327;
+    always @(posedge vga$counter_div_mod$i$clock) begin
+        if (vga$counter_div_mod$i$clear)
+            _328 <= _316;
+        else
+            _328 <= _30;
+    end
+    assign _31 = _328;
+    assign _318 = _31 == _317;
+    assign _331 = _318 & _330;
     assign _32 = _331;
-    always @(posedge vga$counter_div_mod$i$clock) begin
-        if (vga$counter_div_mod$i$clear)
-            _332 <= _320;
-        else
-            _332 <= _32;
-    end
-    assign _33 = _332;
-    assign _322 = _33 == _321;
-    assign _335 = _322 & _334;
-    assign _34 = _335;
     assign vga$counter_div_mod$i$incr = vdd;
-    assign _336 = vga$counter_div_mod$i$incr & _34;
+    assign _332 = vga$counter_div_mod$i$incr & _32;
     assign vga$counter_div_mod$i$set = gnd;
-    assign _337 = vga$counter_div_mod$i$set | _336;
-    assign _339 = _337 | _338;
-    assign _344 = _339 ? _343 : _28;
-    assign _37 = _344;
+    assign _333 = vga$counter_div_mod$i$set | _332;
+    assign _335 = _333 | _334;
+    assign _340 = _335 ? _339 : _26;
+    assign _35 = _340;
     always @(posedge vga$counter_div_mod$i$clock) begin
         if (vga$counter_div_mod$i$clear)
-            _319 <= _318;
+            _315 <= _314;
         else
-            _319 <= _37;
+            _315 <= _35;
     end
-    assign vga$counter_div_mod$o$quotient = _319;
+    assign vga$counter_div_mod$o$quotient = _315;
     always @* begin
         case (vga$counter_div_mod$o$quotient)
         0:
@@ -1940,56 +1927,56 @@ module generated (
     assign vga$gray2$lr = 3'b010;
     assign vga$gray1$lr = 3'b001;
     assign vga$gray0$lr = 3'b000;
-    assign vga$counter_div_mod_0$i$set_quotient = _345;
-    assign _345 = 6'b000000;
-    assign _367 = vga$counter_div_mod_0$i$set ? vga$counter_div_mod_0$i$set_quotient : _345;
-    assign _365 = 6'b000001;
-    assign _366 = _40 + _365;
-    assign _368 = _362 ? _367 : _366;
-    assign _363 = vga$counter_div_mod_0$i$incr & _348;
-    assign _358 = 6'b100000;
-    assign _40 = _346;
-    assign _359 = _40 == _358;
-    assign _347 = 5'b10011;
-    assign _293 = vga$vgaController$o$x == _292;
-    assign vga$counter_div_mod_0$i$clear = _293;
+    assign vga$counter_div_mod_0$i$set_quotient = _341;
+    assign _341 = 6'b000000;
+    assign _363 = vga$counter_div_mod_0$i$set ? vga$counter_div_mod_0$i$set_quotient : _341;
+    assign _361 = 6'b000001;
+    assign _362 = _38 + _361;
+    assign _364 = _358 ? _363 : _362;
+    assign _359 = vga$counter_div_mod_0$i$incr & _344;
+    assign _354 = 6'b100000;
+    assign _38 = _342;
+    assign _355 = _38 == _354;
+    assign _343 = 5'b10011;
+    assign _289 = vga$vgaController$o$x == _288;
+    assign vga$counter_div_mod_0$i$clear = _289;
     assign vga$counter_div_mod_0$i$clock = vga$i$clk;
-    assign vga$counter_div_mod_0$i$set_remainder = _290;
-    assign _290 = 5'b00000;
-    assign _354 = vga$counter_div_mod_0$i$set ? vga$counter_div_mod_0$i$set_remainder : _290;
-    assign _300 = 5'b00001;
-    assign _353 = _45 + _300;
-    assign _355 = _351 ? _354 : _353;
-    assign _349 = _348 | _46;
-    assign _350 = vga$counter_div_mod_0$i$incr & _349;
-    assign _351 = vga$counter_div_mod_0$i$set | _350;
-    assign _352 = _351 | vga$counter_div_mod_0$i$incr;
-    assign _356 = _352 ? _355 : _45;
+    assign vga$counter_div_mod_0$i$set_remainder = _286;
+    assign _286 = 5'b00000;
+    assign _350 = vga$counter_div_mod_0$i$set ? vga$counter_div_mod_0$i$set_remainder : _286;
+    assign _296 = 5'b00001;
+    assign _349 = _43 + _296;
+    assign _351 = _347 ? _350 : _349;
+    assign _345 = _344 | _44;
+    assign _346 = vga$counter_div_mod_0$i$incr & _345;
+    assign _347 = vga$counter_div_mod_0$i$set | _346;
+    assign _348 = _347 | vga$counter_div_mod_0$i$incr;
+    assign _352 = _348 ? _351 : _43;
+    assign _42 = _352;
+    always @(posedge vga$counter_div_mod_0$i$clock) begin
+        if (vga$counter_div_mod_0$i$clear)
+            _353 <= _286;
+        else
+            _353 <= _42;
+    end
+    assign _43 = _353;
+    assign _344 = _43 == _343;
+    assign _356 = _344 & _355;
     assign _44 = _356;
-    always @(posedge vga$counter_div_mod_0$i$clock) begin
-        if (vga$counter_div_mod_0$i$clear)
-            _357 <= _290;
-        else
-            _357 <= _44;
-    end
-    assign _45 = _357;
-    assign _348 = _45 == _347;
-    assign _360 = _348 & _359;
-    assign _46 = _360;
     assign vga$counter_div_mod_0$i$incr = vdd;
-    assign _361 = vga$counter_div_mod_0$i$incr & _46;
+    assign _357 = vga$counter_div_mod_0$i$incr & _44;
     assign vga$counter_div_mod_0$i$set = gnd;
-    assign _362 = vga$counter_div_mod_0$i$set | _361;
-    assign _364 = _362 | _363;
-    assign _369 = _364 ? _368 : _40;
-    assign _49 = _369;
+    assign _358 = vga$counter_div_mod_0$i$set | _357;
+    assign _360 = _358 | _359;
+    assign _365 = _360 ? _364 : _38;
+    assign _47 = _365;
     always @(posedge vga$counter_div_mod_0$i$clock) begin
         if (vga$counter_div_mod_0$i$clear)
-            _346 <= _345;
+            _342 <= _341;
         else
-            _346 <= _49;
+            _342 <= _47;
     end
-    assign vga$counter_div_mod_0$o$quotient = _346;
+    assign vga$counter_div_mod_0$o$quotient = _342;
     always @* begin
         case (vga$counter_div_mod_0$o$quotient)
         0:
@@ -2058,1298 +2045,1298 @@ module generated (
             vga$steps$lr <= vga$gray7$lr;
         endcase
     end
-    assign _200 = 10'b0011110000;
-    assign vga$y_top = vga$vgaController$o$y < _200;
+    assign _196 = 10'b0011110000;
+    assign vga$y_top = vga$vgaController$o$y < _196;
     assign vga$default$lr = vga$y_top ? vga$bars$lr : vga$steps$lr;
-    assign _195 = 10'b1001111000;
-    assign _196 = vga$vgaController$o$x < _195;
-    assign _197 = ~ _196;
-    assign _194 = vga$vgaController$o$x < _188;
-    assign _198 = _194 | _197;
-    assign _190 = 10'b0111011000;
-    assign _191 = vga$vgaController$o$y < _190;
-    assign _192 = ~ _191;
-    assign _188 = 10'b0000001000;
-    assign _189 = vga$vgaController$o$y < _188;
-    assign _193 = _189 | _192;
-    assign _199 = _193 | _198;
-    assign _1150 = _199 ? _1149 : vga$default$lr;
-    assign _1107 = _1104[2:0];
-    assign _1100 = _1097[4:0];
-    assign _1089 = _1087[6:0];
-    assign _1090 = { _1089,
-                     _105 };
-    assign _825 = _821[1:0];
-    assign _820 = _817[1:0];
-    assign _812 = _809[3:0];
-    assign _804 = _803[12:12];
-    assign _805 = { _804,
-                    _803 };
-    assign _801 = 14'b00010000000000;
-    assign _806 = _801 - _805;
-    assign _807 = _806[13:13];
-    assign _808 = { _807,
-                    _806 };
-    assign _809 = _808[14:4];
-    assign _810 = _809[10:4];
-    assign _811 = _810[5:0];
-    assign vga$ray$l$z = { _811,
-                           _812 };
-    assign _798 = _792[7:0];
-    assign _797 = _792[9:8];
-    assign _799 = { _797,
-                    _798 };
-    assign _795 = _793[7:0];
-    assign _792 = _523[19:10];
-    assign _793 = _292 - _792;
-    assign _794 = _793[9:8];
-    assign _796 = { _794,
-                    _795 };
-    assign vga$ray$eye$p$norm$z = _459 ? _799 : _796;
-    assign _814 = $signed(vga$ray$eye$p$norm$z) * $signed(vga$ray$l$z);
-    assign _815 = _814[19:19];
-    assign _816 = { _815,
-                    _814 };
-    assign _817 = _816[20:10];
-    assign _818 = _817[10:2];
-    assign _819 = _818[7:0];
-    assign _821 = { _819,
-                    _820 };
-    assign _822 = _821[9:2];
-    assign _823 = _822[7:7];
+    assign _191 = 10'b1001111000;
+    assign _192 = vga$vgaController$o$x < _191;
+    assign _193 = ~ _192;
+    assign _190 = vga$vgaController$o$x < _184;
+    assign _194 = _190 | _193;
+    assign _186 = 10'b0111011000;
+    assign _187 = vga$vgaController$o$y < _186;
+    assign _188 = ~ _187;
+    assign _184 = 10'b0000001000;
+    assign _185 = vga$vgaController$o$y < _184;
+    assign _189 = _185 | _188;
+    assign _195 = _189 | _194;
+    assign _1146 = _195 ? _1145 : vga$default$lr;
+    assign _1103 = _1100[2:0];
+    assign _1096 = _1093[4:0];
+    assign _1085 = _1083[6:0];
+    assign _1086 = { _1085,
+                     _109 };
+    assign _821 = _817[1:0];
+    assign _816 = _813[1:0];
+    assign _808 = _805[3:0];
+    assign _800 = _799[12:12];
+    assign _801 = { _800,
+                    _799 };
+    assign _797 = 14'b00010000000000;
+    assign _802 = _797 - _801;
+    assign _803 = _802[13:13];
+    assign _804 = { _803,
+                    _802 };
+    assign _805 = _804[14:4];
+    assign _806 = _805[10:4];
+    assign _807 = _806[5:0];
+    assign vga$ray$l$z = { _807,
+                           _808 };
+    assign _794 = _788[7:0];
+    assign _793 = _788[9:8];
+    assign _795 = { _793,
+                    _794 };
+    assign _791 = _789[7:0];
+    assign _788 = _519[19:10];
+    assign _789 = _288 - _788;
+    assign _790 = _789[9:8];
+    assign _792 = { _790,
+                    _791 };
+    assign vga$ray$eye$p$norm$z = _455 ? _795 : _792;
+    assign _810 = $signed(vga$ray$eye$p$norm$z) * $signed(vga$ray$l$z);
+    assign _811 = _810[19:19];
+    assign _812 = { _811,
+                    _810 };
+    assign _813 = _812[20:10];
+    assign _814 = _813[10:2];
+    assign _815 = _814[7:0];
+    assign _817 = { _815,
+                    _816 };
+    assign _818 = _817[9:2];
+    assign _819 = _818[7:7];
+    assign _820 = { _819,
+                    _818 };
+    assign _822 = { _820,
+                    _821 };
+    assign _823 = _822[10:10];
     assign _824 = { _823,
                     _822 };
-    assign _826 = { _824,
-                    _825 };
-    assign _827 = _826[10:10];
-    assign _828 = { _827,
-                    _826 };
-    assign _788 = _786[1:0];
-    assign _782 = _780[1:0];
-    assign _779 = _776[1:0];
-    assign _771 = _768[3:0];
-    assign _763 = _762[10:10];
-    assign _764 = { _763,
-                    _762 };
-    assign _760 = 12'b000010000000;
-    assign _765 = _760 - _764;
-    assign _766 = _765[11:11];
-    assign _767 = { _766,
-                    _765 };
-    assign _768 = _767[12:2];
-    assign _769 = _768[10:4];
-    assign _770 = _769[5:0];
-    assign vga$ray$l$y = { _770,
-                           _771 };
-    assign _757 = _755[7:0];
-    assign _755 = _292 - _751;
-    assign _756 = _755[9:8];
-    assign _758 = { _756,
-                    _757 };
+    assign _784 = _782[1:0];
+    assign _778 = _776[1:0];
+    assign _775 = _772[1:0];
+    assign _767 = _764[3:0];
+    assign _759 = _758[10:10];
+    assign _760 = { _759,
+                    _758 };
+    assign _756 = 12'b000010000000;
+    assign _761 = _756 - _760;
+    assign _762 = _761[11:11];
+    assign _763 = { _762,
+                    _761 };
+    assign _764 = _763[12:2];
+    assign _765 = _764[10:4];
+    assign _766 = _765[5:0];
+    assign vga$ray$l$y = { _766,
+                           _767 };
     assign _753 = _751[7:0];
-    assign _751 = _715[9:0];
+    assign _751 = _288 - _747;
     assign _752 = _751[9:8];
     assign _754 = { _752,
                     _753 };
-    assign vga$ray$eye$p$norm$y = _674 ? _758 : _754;
-    assign _773 = $signed(vga$ray$eye$p$norm$y) * $signed(vga$ray$l$y);
-    assign _774 = _773[19:19];
-    assign _775 = { _774,
-                    _773 };
-    assign _776 = _775[20:10];
-    assign _777 = _776[10:2];
-    assign _778 = _777[7:0];
-    assign _780 = { _778,
+    assign _749 = _747[7:0];
+    assign _747 = _711[9:0];
+    assign _748 = _747[9:8];
+    assign _750 = { _748,
+                    _749 };
+    assign vga$ray$eye$p$norm$y = _670 ? _754 : _750;
+    assign _769 = $signed(vga$ray$eye$p$norm$y) * $signed(vga$ray$l$y);
+    assign _770 = _769[19:19];
+    assign _771 = { _770,
+                    _769 };
+    assign _772 = _771[20:10];
+    assign _773 = _772[10:2];
+    assign _774 = _773[7:0];
+    assign _776 = { _774,
+                    _775 };
+    assign _777 = _776[9:2];
+    assign _779 = { _777,
+                    _778 };
+    assign _780 = _779[9:9];
+    assign _781 = { _780,
                     _779 };
-    assign _781 = _780[9:2];
-    assign _783 = { _781,
-                    _782 };
-    assign _784 = _783[9:9];
-    assign _785 = { _784,
-                    _783 };
-    assign _747 = _745[1:0];
-    assign _744 = _741[1:0];
-    assign _736 = _733[3:0];
-    assign _728 = _727[10:10];
-    assign _729 = { _728,
-                    _727 };
-    assign _725 = 12'b000100000000;
-    assign _730 = _725 - _729;
-    assign _731 = _730[11:11];
-    assign _732 = { _731,
-                    _730 };
-    assign _733 = _732[12:2];
-    assign _734 = _733[10:4];
-    assign _735 = _734[5:0];
-    assign vga$ray$l$x = { _735,
-                           _736 };
-    assign _722 = _716[7:0];
-    assign _721 = _716[9:8];
-    assign _723 = { _721,
-                    _722 };
-    assign _719 = _717[7:0];
-    assign _711 = _64 - _709;
-    assign _707 = _704[9:2];
-    assign _705 = _704[9:9];
-    assign _706 = { _705,
-                    _705 };
-    assign _708 = { _706,
-                    _707 };
-    assign _702 = _58[9:1];
-    assign _701 = _58[9:9];
-    assign _703 = { _701,
-                    _702 };
-    assign _558 = _552[19:7];
-    assign _556 = { _554,
-                    _553 };
-    assign _550 = _547[7:0];
-    assign _546 = _544[7:0];
-    assign _543 = _541[7:0];
-    assign _537 = _535[7:0];
-    assign _534 = _532[7:0];
+    assign _743 = _741[1:0];
+    assign _740 = _737[1:0];
+    assign _732 = _729[3:0];
+    assign _724 = _723[10:10];
+    assign _725 = { _724,
+                    _723 };
+    assign _721 = 12'b000100000000;
+    assign _726 = _721 - _725;
+    assign _727 = _726[11:11];
+    assign _728 = { _727,
+                    _726 };
+    assign _729 = _728[12:2];
+    assign _730 = _729[10:4];
+    assign _731 = _730[5:0];
+    assign vga$ray$l$x = { _731,
+                           _732 };
+    assign _718 = _712[7:0];
+    assign _717 = _712[9:8];
+    assign _719 = { _717,
+                    _718 };
+    assign _715 = _713[7:0];
+    assign _707 = _62 - _705;
+    assign _703 = _700[9:2];
+    assign _701 = _700[9:9];
+    assign _702 = { _701,
+                    _701 };
+    assign _704 = { _702,
+                    _703 };
+    assign _698 = _56[9:1];
+    assign _697 = _56[9:9];
+    assign _699 = { _697,
+                    _698 };
+    assign _554 = _548[19:7];
+    assign _552 = { _550,
+                    _549 };
+    assign _546 = _543[7:0];
+    assign _542 = _540[7:0];
+    assign _539 = _537[7:0];
+    assign _533 = _531[7:0];
     assign _530 = _528[7:0];
-    assign _528 = _292 - _524;
-    assign _529 = _528[9:8];
-    assign _531 = { _529,
-                    _530 };
     assign _526 = _524[7:0];
-    assign _498 = _57 - _496;
-    assign _494 = _491[9:2];
-    assign _492 = _491[9:9];
-    assign _493 = { _492,
-                    _492 };
-    assign _495 = { _493,
-                    _494 };
-    assign _489 = _51[9:1];
-    assign _488 = _51[9:9];
-    assign _490 = { _488,
-                    _489 };
-    assign _392 = 10'b0010011100;
-    assign _390 = _51 + _388;
-    assign _386 = _383[9:2];
-    assign _384 = _383[9:9];
-    assign _385 = { _384,
-                    _384 };
-    assign _387 = { _385,
-                    _386 };
-    assign _381 = _57[9:1];
-    assign _380 = _57[9:9];
-    assign _382 = { _380,
-                    _381 };
-    assign _383 = _379 ? _382 : _57;
-    assign _388 = _378 ? _387 : _383;
-    assign _389 = _51 - _388;
-    assign _377 = _105 ^ _376;
-    assign _391 = _377 ? _390 : _389;
-    assign _393 = _370 ? _392 : _391;
-    always @(posedge vga$ray$i$clk) begin
-        _394 <= _393;
-    end
-    assign _51 = _394;
-    assign _379 = _53[0:0];
-    assign _491 = _379 ? _490 : _51;
-    assign _378 = _53[1:1];
-    assign _496 = _378 ? _495 : _491;
-    assign _497 = _57 + _496;
-    assign _373 = _54[8:0];
-    assign _479 = _476[6:0];
-    assign _475 = _473[6:0];
-    assign _471 = _469[6:0];
-    assign _469 = _463 + _464;
-    assign _470 = _469[11:7];
-    assign _472 = { _470,
-                    _471 };
-    assign _467 = _465[6:0];
-    assign _460 = vga$ray$eye$p$norm$phi[6:0];
-    assign _461 = { _458,
-                    _460 };
-    assign _462 = _461[10:10];
-    assign _463 = { _462,
-                    _461 };
-    assign _465 = _463 - _464;
-    assign _466 = _465[11:7];
-    assign _468 = { _466,
-                    _467 };
-    assign _473 = _459 ? _472 : _468;
-    assign _474 = _473[11:7];
-    assign _476 = { _474,
-                    _475 };
-    assign _477 = _476[11:7];
-    assign _478 = _477[2:0];
-    assign _480 = { _478,
-                    _479 };
-    assign _404 = _54 + e;
-    assign _395 = _53 + _231;
-    assign _396 = _370 ? _230 : _395;
-    assign _52 = _396;
-    always @(posedge vga$ray$i$clk) begin
-        iter_sel <= _52;
-    end
-    assign _53 = iter_sel;
-    always @* begin
-        case (_53)
-        0:
-            e <= _398;
-        1:
-            e <= _399;
-        2:
-            e <= _400;
-        default:
-            e <= _401;
-        endcase
-    end
-    assign _403 = _54 - e;
-    assign _405 = _376 ? _404 : _403;
-    assign _481 = _370 ? _480 : _405;
-    always @(posedge vga$ray$i$clk) begin
-        _482 <= _481;
-    end
-    assign _54 = _482;
-    assign _371 = _54[9:9];
-    assign _372 = ~ _371;
-    assign _374 = { _372,
-                    _373 };
-    assign _376 = _374 < _375;
-    assign _499 = _376 ? _498 : _497;
-    assign _485 = _56 + _340;
-    assign _484 = _56 == _483;
-    assign _486 = _484 ? _318 : _485;
-    assign _55 = _486;
-    always @(posedge vga$ray$i$clk) begin
-        if (vga$ray$i$rst_n == 0)
-            _487 <= _318;
-        else
-            _487 <= _55;
-    end
-    assign _56 = _487;
-    assign _370 = _56 == _318;
-    assign _500 = _370 ? _292 : _499;
-    always @(posedge vga$ray$i$clk) begin
-        _501 <= _500;
-    end
-    assign _57 = _501;
-    assign _523 = { _57,
-                    _51 };
-    assign _524 = _523[9:0];
+    assign _524 = _288 - _520;
     assign _525 = _524[9:8];
     assign _527 = { _525,
                     _526 };
-    assign _455 = _453[6:0];
-    assign _453 = _447 - _448;
-    assign _454 = _453[10:7];
-    assign _456 = { _454,
-                    _455 };
+    assign _522 = _520[7:0];
+    assign _494 = _55 - _492;
+    assign _490 = _487[9:2];
+    assign _488 = _487[9:9];
+    assign _489 = { _488,
+                    _488 };
+    assign _491 = { _489,
+                    _490 };
+    assign _485 = _49[9:1];
+    assign _484 = _49[9:9];
+    assign _486 = { _484,
+                    _485 };
+    assign _388 = 10'b0010011100;
+    assign _386 = _49 + _384;
+    assign _382 = _379[9:2];
+    assign _380 = _379[9:9];
+    assign _381 = { _380,
+                    _380 };
+    assign _383 = { _381,
+                    _382 };
+    assign _377 = _55[9:1];
+    assign _376 = _55[9:9];
+    assign _378 = { _376,
+                    _377 };
+    assign _379 = _375 ? _378 : _55;
+    assign _384 = _374 ? _383 : _379;
+    assign _385 = _49 - _384;
+    assign _373 = _109 ^ _372;
+    assign _387 = _373 ? _386 : _385;
+    assign _389 = _366 ? _388 : _387;
+    always @(posedge vga$ray$i$clk) begin
+        _390 <= _389;
+    end
+    assign _49 = _390;
+    assign _375 = _51[0:0];
+    assign _487 = _375 ? _486 : _49;
+    assign _374 = _51[1:1];
+    assign _492 = _374 ? _491 : _487;
+    assign _493 = _55 + _492;
+    assign _369 = _52[8:0];
+    assign _475 = _472[6:0];
+    assign _471 = _469[6:0];
+    assign _467 = _465[6:0];
+    assign _465 = _459 + _460;
+    assign _466 = _465[11:7];
+    assign _468 = { _466,
+                    _467 };
+    assign _463 = _461[6:0];
+    assign _456 = vga$ray$eye$p$norm$phi[6:0];
+    assign _457 = { _454,
+                    _456 };
+    assign _458 = _457[10:10];
+    assign _459 = { _458,
+                    _457 };
+    assign _461 = _459 - _460;
+    assign _462 = _461[11:7];
+    assign _464 = { _462,
+                    _463 };
+    assign _469 = _455 ? _468 : _464;
+    assign _470 = _469[11:7];
+    assign _472 = { _470,
+                    _471 };
+    assign _473 = _472[11:7];
+    assign _474 = _473[2:0];
+    assign _476 = { _474,
+                    _475 };
+    assign _400 = _52 + e;
+    assign _391 = _51 + _227;
+    assign _392 = _366 ? _226 : _391;
+    assign _50 = _392;
+    always @(posedge vga$ray$i$clk) begin
+        iter_sel <= _50;
+    end
+    assign _51 = iter_sel;
+    always @* begin
+        case (_51)
+        0:
+            e <= _394;
+        1:
+            e <= _395;
+        2:
+            e <= _396;
+        default:
+            e <= _397;
+        endcase
+    end
+    assign _399 = _52 - e;
+    assign _401 = _372 ? _400 : _399;
+    assign _477 = _366 ? _476 : _401;
+    always @(posedge vga$ray$i$clk) begin
+        _478 <= _477;
+    end
+    assign _52 = _478;
+    assign _367 = _52[9:9];
+    assign _368 = ~ _367;
+    assign _370 = { _368,
+                    _369 };
+    assign _372 = _370 < _371;
+    assign _495 = _372 ? _494 : _493;
+    assign _481 = _54 + _336;
+    assign _480 = _54 == _479;
+    assign _482 = _480 ? _314 : _481;
+    assign _53 = _482;
+    always @(posedge vga$ray$i$clk) begin
+        if (vga$ray$i$rst_n == 0)
+            _483 <= _314;
+        else
+            _483 <= _53;
+    end
+    assign _54 = _483;
+    assign _366 = _54 == _314;
+    assign _496 = _366 ? _288 : _495;
+    always @(posedge vga$ray$i$clk) begin
+        _497 <= _496;
+    end
+    assign _55 = _497;
+    assign _519 = { _55,
+                    _49 };
+    assign _520 = _519[9:0];
+    assign _521 = _520[9:8];
+    assign _523 = { _521,
+                    _522 };
     assign _451 = _449[6:0];
-    assign _445 = { _440,
-                    _443 };
-    assign _446 = _445[9:9];
-    assign _447 = { _446,
-                    _445 };
-    assign _449 = _447 + _448;
+    assign _449 = _443 - _444;
     assign _450 = _449[10:7];
     assign _452 = { _450,
                     _451 };
-    assign _443 = _439[6:0];
-    assign _439 = _134[19:10];
-    assign _440 = _439[9:7];
-    assign _441 = _440[2:2];
-    assign _442 = { _441,
-                    _440 };
-    assign _444 = { _442,
-                    _443 };
+    assign _447 = _445[6:0];
+    assign _441 = { _436,
+                    _439 };
+    assign _442 = _441[9:9];
+    assign _443 = { _442,
+                    _441 };
+    assign _445 = _443 + _444;
+    assign _446 = _445[10:7];
+    assign _448 = { _446,
+                    _447 };
+    assign _439 = _435[6:0];
+    assign _435 = _130[19:10];
+    assign _436 = _435[9:7];
+    assign _437 = _436[2:2];
+    assign _438 = { _437,
+                    _436 };
+    assign _440 = { _438,
+                    _439 };
     always @* begin
-        case (_438)
+        case (_434)
         0:
-            vga$ray$eye$p$norm$phi <= _444;
+            vga$ray$eye$p$norm$phi <= _440;
         1:
-            vga$ray$eye$p$norm$phi <= _444;
+            vga$ray$eye$p$norm$phi <= _440;
         2:
-            vga$ray$eye$p$norm$phi <= _452;
+            vga$ray$eye$p$norm$phi <= _448;
         default:
-            vga$ray$eye$p$norm$phi <= _456;
+            vga$ray$eye$p$norm$phi <= _452;
         endcase
     end
-    assign _458 = vga$ray$eye$p$norm$phi[10:7];
-    assign _459 = _458[3:3];
-    assign _532 = _459 ? _531 : _527;
-    assign _533 = _532[9:8];
-    assign _535 = { _533,
+    assign _454 = vga$ray$eye$p$norm$phi[10:7];
+    assign _455 = _454[3:3];
+    assign _528 = _455 ? _527 : _523;
+    assign _529 = _528[9:8];
+    assign _531 = { _529,
+                    _530 };
+    assign _532 = _531[9:8];
+    assign _534 = { _532,
+                    _533 };
+    assign _535 = _534[9:8];
+    assign _536 = _535[1:1];
+    assign _537 = { _536,
                     _534 };
-    assign _536 = _535[9:8];
-    assign _538 = { _536,
-                    _537 };
-    assign _539 = _538[9:8];
-    assign _540 = _539[1:1];
-    assign _541 = { _540,
-                    _538 };
-    assign _542 = _541[10:8];
-    assign _544 = { _542,
-                    _543 };
-    assign _545 = _544[10:8];
+    assign _538 = _537[10:8];
+    assign _540 = { _538,
+                    _539 };
+    assign _541 = _540[10:8];
+    assign _543 = { _541,
+                    _542 };
+    assign _544 = _543[10:8];
+    assign _545 = _544[1:0];
     assign _547 = { _545,
                     _546 };
-    assign _548 = _547[10:8];
-    assign _549 = _548[1:0];
-    assign _551 = { _549,
+    assign _548 = $signed(_547) * $signed(_120);
+    assign _549 = _548[19:19];
+    assign _550 = { _549,
+                    _549 };
+    assign _551 = { _550,
                     _550 };
-    assign _552 = $signed(_551) * $signed(_124);
-    assign _553 = _552[19:19];
-    assign _554 = { _553,
-                    _553 };
-    assign _555 = { _554,
+    assign _553 = { _551,
+                    _552 };
+    assign _555 = { _553,
                     _554 };
-    assign _557 = { _555,
-                    _556 };
-    assign _559 = { _557,
-                    _558 };
-    assign _560 = _559[9:0];
-    assign _521 = _58 + _519;
-    assign _517 = _514[9:2];
-    assign _515 = _514[9:9];
-    assign _516 = { _515,
-                    _515 };
-    assign _518 = { _516,
-                    _517 };
-    assign _512 = _64[9:1];
-    assign _511 = _64[9:9];
-    assign _513 = { _511,
-                    _512 };
-    assign _514 = _510 ? _513 : _64;
-    assign _519 = _509 ? _518 : _514;
-    assign _520 = _58 - _519;
-    assign _508 = _105 ^ _507;
-    assign _522 = _508 ? _521 : _520;
-    assign _561 = _502 ? _560 : _522;
+    assign _556 = _555[9:0];
+    assign _517 = _56 + _515;
+    assign _513 = _510[9:2];
+    assign _511 = _510[9:9];
+    assign _512 = { _511,
+                    _511 };
+    assign _514 = { _512,
+                    _513 };
+    assign _508 = _62[9:1];
+    assign _507 = _62[9:9];
+    assign _509 = { _507,
+                    _508 };
+    assign _510 = _506 ? _509 : _62;
+    assign _515 = _505 ? _514 : _510;
+    assign _516 = _56 - _515;
+    assign _504 = _109 ^ _503;
+    assign _518 = _504 ? _517 : _516;
+    assign _557 = _498 ? _556 : _518;
     always @(posedge vga$ray$i$clk) begin
-        _562 <= _561;
+        _558 <= _557;
     end
-    assign _58 = _562;
-    assign _510 = _60[0:0];
-    assign _704 = _510 ? _703 : _58;
-    assign _509 = _60[1:1];
-    assign _709 = _509 ? _708 : _704;
-    assign _710 = _64 + _709;
-    assign _505 = _61[8:0];
-    assign _693 = _690[6:0];
-    assign _689 = _687[6:0];
+    assign _56 = _558;
+    assign _506 = _58[0:0];
+    assign _700 = _506 ? _699 : _56;
+    assign _505 = _58[1:1];
+    assign _705 = _505 ? _704 : _700;
+    assign _706 = _62 + _705;
+    assign _501 = _59[8:0];
+    assign _689 = _686[6:0];
     assign _685 = _683[6:0];
-    assign _683 = _678 + _464;
-    assign _684 = _683[11:7];
-    assign _686 = { _684,
-                    _685 };
     assign _681 = _679[6:0];
-    assign _464 = 12'b000011001001;
-    assign _675 = vga$ray$eye$p$norm$theta[6:0];
-    assign _676 = { _673,
-                    _675 };
-    assign _677 = _676[10:10];
-    assign _678 = { _677,
-                    _676 };
-    assign _679 = _678 - _464;
+    assign _679 = _674 + _460;
     assign _680 = _679[11:7];
     assign _682 = { _680,
                     _681 };
-    assign _687 = _674 ? _686 : _682;
-    assign _688 = _687[11:7];
+    assign _677 = _675[6:0];
+    assign _460 = 12'b000011001001;
+    assign _671 = vga$ray$eye$p$norm$theta[6:0];
+    assign _672 = { _669,
+                    _671 };
+    assign _673 = _672[10:10];
+    assign _674 = { _673,
+                    _672 };
+    assign _675 = _674 - _460;
+    assign _676 = _675[11:7];
+    assign _678 = { _676,
+                    _677 };
+    assign _683 = _670 ? _682 : _678;
+    assign _684 = _683[11:7];
+    assign _686 = { _684,
+                    _685 };
+    assign _687 = _686[11:7];
+    assign _688 = _687[2:0];
     assign _690 = { _688,
                     _689 };
-    assign _691 = _690[11:7];
-    assign _692 = _691[2:0];
-    assign _694 = { _692,
-                    _693 };
-    assign _568 = _61 + e_0;
-    assign _563 = _60 + _231;
-    assign _564 = _502 ? _230 : _563;
-    assign _59 = _564;
+    assign _564 = _59 + e_0;
+    assign _559 = _58 + _227;
+    assign _560 = _498 ? _226 : _559;
+    assign _57 = _560;
     always @(posedge vga$ray$i$clk) begin
-        iter_sel_0 <= _59;
+        iter_sel_0 <= _57;
     end
-    assign _60 = iter_sel_0;
+    assign _58 = iter_sel_0;
     always @* begin
-        case (_60)
+        case (_58)
         0:
-            e_0 <= _398;
+            e_0 <= _394;
         1:
-            e_0 <= _399;
+            e_0 <= _395;
         2:
-            e_0 <= _400;
+            e_0 <= _396;
         default:
-            e_0 <= _401;
+            e_0 <= _397;
         endcase
     end
-    assign _567 = _61 - e_0;
-    assign _569 = _507 ? _568 : _567;
-    assign _695 = _502 ? _694 : _569;
+    assign _563 = _59 - e_0;
+    assign _565 = _503 ? _564 : _563;
+    assign _691 = _498 ? _690 : _565;
     always @(posedge vga$ray$i$clk) begin
-        _696 <= _695;
+        _692 <= _691;
     end
-    assign _61 = _696;
-    assign _503 = _61[9:9];
-    assign _504 = ~ _503;
-    assign _506 = { _504,
-                    _505 };
-    assign _507 = _506 < _375;
-    assign _712 = _507 ? _711 : _710;
-    assign _698 = _63 + _340;
-    assign _697 = _63 == _483;
-    assign _699 = _697 ? _318 : _698;
-    assign _62 = _699;
+    assign _59 = _692;
+    assign _499 = _59[9:9];
+    assign _500 = ~ _499;
+    assign _502 = { _500,
+                    _501 };
+    assign _503 = _502 < _371;
+    assign _708 = _503 ? _707 : _706;
+    assign _694 = _61 + _336;
+    assign _693 = _61 == _479;
+    assign _695 = _693 ? _314 : _694;
+    assign _60 = _695;
     always @(posedge vga$ray$i$clk) begin
         if (vga$ray$i$rst_n == 0)
-            _700 <= _318;
+            _696 <= _314;
         else
-            _700 <= _62;
+            _696 <= _60;
     end
-    assign _63 = _700;
-    assign _502 = _63 == _318;
-    assign _713 = _502 ? _292 : _712;
+    assign _61 = _696;
+    assign _498 = _61 == _314;
+    assign _709 = _498 ? _288 : _708;
     always @(posedge vga$ray$i$clk) begin
-        _714 <= _713;
+        _710 <= _709;
     end
-    assign _64 = _714;
-    assign _715 = { _64,
-                    _58 };
-    assign _716 = _715[19:10];
-    assign _717 = _292 - _716;
-    assign _718 = _717[9:8];
-    assign _720 = { _718,
-                    _719 };
-    assign _670 = _668[6:0];
-    assign _668 = _663 - _448;
-    assign _669 = _668[10:7];
-    assign _671 = { _669,
-                    _670 };
+    assign _62 = _710;
+    assign _711 = { _62,
+                    _56 };
+    assign _712 = _711[19:10];
+    assign _713 = _288 - _712;
+    assign _714 = _713[9:8];
+    assign _716 = { _714,
+                    _715 };
     assign _666 = _664[6:0];
-    assign _448 = 11'b00011001001;
-    assign _661 = { _656,
-                    _659 };
-    assign _662 = _661[9:9];
-    assign _663 = { _662,
-                    _661 };
-    assign _664 = _663 + _448;
+    assign _664 = _659 - _444;
     assign _665 = _664[10:7];
     assign _667 = { _665,
                     _666 };
-    assign _659 = _655[6:0];
-    assign _655 = _434[19:10];
-    assign _656 = _655[9:7];
-    assign _657 = _656[2:2];
-    assign _658 = { _657,
-                    _656 };
-    assign _660 = { _658,
-                    _659 };
+    assign _662 = _660[6:0];
+    assign _444 = 11'b00011001001;
+    assign _657 = { _652,
+                    _655 };
+    assign _658 = _657[9:9];
+    assign _659 = { _658,
+                    _657 };
+    assign _660 = _659 + _444;
+    assign _661 = _660[10:7];
+    assign _663 = { _661,
+                    _662 };
+    assign _655 = _651[6:0];
+    assign _651 = _430[19:10];
+    assign _652 = _651[9:7];
+    assign _653 = _652[2:2];
+    assign _654 = { _653,
+                    _652 };
+    assign _656 = { _654,
+                    _655 };
     always @* begin
-        case (_654)
+        case (_650)
         0:
-            vga$ray$eye$p$norm$theta <= _660;
+            vga$ray$eye$p$norm$theta <= _656;
         1:
-            vga$ray$eye$p$norm$theta <= _660;
+            vga$ray$eye$p$norm$theta <= _656;
         2:
-            vga$ray$eye$p$norm$theta <= _667;
+            vga$ray$eye$p$norm$theta <= _663;
         default:
-            vga$ray$eye$p$norm$theta <= _671;
+            vga$ray$eye$p$norm$theta <= _667;
         endcase
     end
-    assign _673 = vga$ray$eye$p$norm$theta[10:7];
-    assign _674 = _673[3:3];
-    assign vga$ray$eye$p$norm$x = _674 ? _723 : _720;
-    assign _738 = $signed(vga$ray$eye$p$norm$x) * $signed(vga$ray$l$x);
-    assign _739 = _738[19:19];
-    assign _740 = { _739,
-                    _738 };
-    assign _741 = _740[20:10];
-    assign _742 = _741[10:2];
-    assign _743 = _742[7:0];
-    assign _745 = { _743,
+    assign _669 = vga$ray$eye$p$norm$theta[10:7];
+    assign _670 = _669[3:3];
+    assign vga$ray$eye$p$norm$x = _670 ? _719 : _716;
+    assign _734 = $signed(vga$ray$eye$p$norm$x) * $signed(vga$ray$l$x);
+    assign _735 = _734[19:19];
+    assign _736 = { _735,
+                    _734 };
+    assign _737 = _736[20:10];
+    assign _738 = _737[10:2];
+    assign _739 = _738[7:0];
+    assign _741 = { _739,
+                    _740 };
+    assign _742 = _741[9:2];
+    assign _744 = { _742,
+                    _743 };
+    assign _745 = _744[9:9];
+    assign _746 = { _745,
                     _744 };
-    assign _746 = _745[9:2];
-    assign _748 = { _746,
-                    _747 };
-    assign _749 = _748[9:9];
-    assign _750 = { _749,
-                    _748 };
-    assign _786 = _750 + _785;
-    assign _787 = _786[10:2];
-    assign _789 = { _787,
-                    _788 };
-    assign _790 = _789[10:10];
-    assign _791 = { _790,
-                    _789 };
-    assign _829 = _791 + _828;
-    assign _830 = _829[11:11];
-    assign _831 = { _830,
-                    _829 };
-    assign _832 = _831[12:2];
-    assign vga$ray$eye$p$norm$dot_norm_l$x = _832[9:0];
+    assign _782 = _746 + _781;
+    assign _783 = _782[10:2];
+    assign _785 = { _783,
+                    _784 };
+    assign _786 = _785[10:10];
+    assign _787 = { _786,
+                    _785 };
+    assign _825 = _787 + _824;
+    assign _826 = _825[11:11];
+    assign _827 = { _826,
+                    _825 };
+    assign _828 = _827[12:2];
+    assign vga$ray$eye$p$norm$dot_norm_l$x = _828[9:0];
     always @(posedge vga$ray$i$clk) begin
         if (vga$ray$i$rst_n == 0)
-            _834 <= _292;
+            _830 <= _288;
         else
-            _834 <= vga$ray$eye$p$norm$dot_norm_l$x;
+            _830 <= vga$ray$eye$p$norm$dot_norm_l$x;
     end
-    assign _65 = _834;
+    assign _63 = _830;
     assign vga$ray$light$x = 10'b0001110011;
-    assign _1087 = $signed(vga$ray$light$x) * $signed(_65);
-    assign _1088 = _1087[19:7];
-    assign _1091 = { _1088,
+    assign _1083 = $signed(vga$ray$light$x) * $signed(_63);
+    assign _1084 = _1083[19:7];
+    assign _1087 = { _1084,
+                     _1086 };
+    assign _1088 = _1087[20:20];
+    assign _1089 = { _1088,
+                     _1087 };
+    assign _1081 = 22'b0000000000000000011001;
+    assign _1090 = _1081 + _1089;
+    assign _1091 = _1090[21:21];
+    assign _1092 = { _1091,
                      _1090 };
-    assign _1092 = _1091[20:20];
-    assign _1093 = { _1092,
-                     _1091 };
-    assign _1085 = 22'b0000000000000000011001;
-    assign _1094 = _1085 + _1093;
-    assign _1095 = _1094[21:21];
-    assign _1096 = { _1095,
-                     _1094 };
-    assign _1097 = _1096[22:3];
-    assign _1098 = _1097[19:5];
-    assign _1099 = _1098[13:0];
-    assign vga$ray$color$rgb$v01$x = { _1099,
-                                       _1100 };
-    assign _1102 = vga$ray$color$rgb$v01$x[18:18];
-    assign _1103 = { _1102,
+    assign _1093 = _1092[22:3];
+    assign _1094 = _1093[19:5];
+    assign _1095 = _1094[13:0];
+    assign vga$ray$color$rgb$v01$x = { _1095,
+                                       _1096 };
+    assign _1098 = vga$ray$color$rgb$v01$x[18:18];
+    assign _1099 = { _1098,
                      vga$ray$color$rgb$v01$x };
-    assign _1104 = _1103[19:2];
-    assign _1105 = _1104[17:3];
-    assign _1106 = _1105[13:0];
-    assign _1108 = { _1106,
-                     _1107 };
-    assign _1109 = _1108[2:0];
-    assign _160 = 12'b110000000000;
-    assign _158 = _155[10:0];
-    assign _154 = vga$ray$eye$length_xyz$dist__$p__dist_$x[6:0];
-    assign _148 = _145[6:0];
-    assign _141 = 11'b00100000000;
-    assign _137 = vga$ray$eye$p$r[7:0];
-    assign _131 = _125[19:7];
-    assign _129 = { _127,
-                    _126 };
-    assign _125 = $signed(_79) * $signed(_124);
-    assign _126 = _125[19:19];
-    assign _127 = { _126,
-                    _126 };
-    assign _128 = { _127,
+    assign _1100 = _1099[19:2];
+    assign _1101 = _1100[17:3];
+    assign _1102 = _1101[13:0];
+    assign _1104 = { _1102,
+                     _1103 };
+    assign _1105 = _1104[2:0];
+    assign _156 = 12'b110000000000;
+    assign _154 = _151[10:0];
+    assign _150 = vga$ray$eye$length_xyz$dist__$p__dist_$x[6:0];
+    assign _144 = _141[6:0];
+    assign _137 = 11'b00100000000;
+    assign _133 = vga$ray$eye$p$r[7:0];
+    assign _127 = _121[19:7];
+    assign _125 = { _123,
+                    _122 };
+    assign _121 = $signed(_77) * $signed(_120);
+    assign _122 = _121[19:19];
+    assign _123 = { _122,
+                    _122 };
+    assign _124 = { _123,
+                    _123 };
+    assign _126 = { _124,
+                    _125 };
+    assign _128 = { _126,
                     _127 };
-    assign _130 = { _128,
-                    _129 };
-    assign _132 = { _130,
-                    _131 };
-    assign _133 = _132[9:0];
-    assign _1081 = _87 + e_1;
+    assign _129 = _128[9:0];
+    assign _1077 = _85 + e_1;
     always @* begin
-        case (_81)
+        case (_79)
         0:
-            e_1 <= _398;
+            e_1 <= _394;
         1:
-            e_1 <= _399;
+            e_1 <= _395;
         2:
-            e_1 <= _400;
+            e_1 <= _396;
         default:
-            e_1 <= _401;
+            e_1 <= _397;
         endcase
     end
-    assign _1080 = _87 - e_1;
-    assign _964 = _82[8:0];
-    assign _1071 = _1068[7:0];
-    assign _1066 = _1064[4:0];
-    assign _1067 = { _1066,
-                     _162 };
-    assign _1063 = _1061[4:0];
-    assign _1057 = _1055[4:0];
-    assign _1054 = _1051[4:0];
-    assign _1047 = _1045[7:0];
+    assign _1076 = _85 - e_1;
+    assign _960 = _80[8:0];
+    assign _1067 = _1064[7:0];
+    assign _1062 = _1060[4:0];
+    assign _1063 = { _1062,
+                     _158 };
+    assign _1059 = _1057[4:0];
+    assign _1053 = _1051[4:0];
+    assign _1050 = _1047[4:0];
     assign _1043 = _1041[7:0];
-    assign _1040 = 13'b0000000000000;
-    assign _1041 = _1040 - vga$ray$eye$p$z;
+    assign _1039 = _1037[7:0];
+    assign _1036 = 13'b0000000000000;
+    assign _1037 = _1036 - vga$ray$eye$p$z;
+    assign _1038 = _1037[12:8];
+    assign _1040 = { _1038,
+                     _1039 };
+    always @* begin
+        case (_434)
+        0:
+            _1041 <= _982;
+        1:
+            _1041 <= _982;
+        2:
+            _1041 <= _1040;
+        default:
+            _1041 <= _799;
+        endcase
+    end
     assign _1042 = _1041[12:8];
     assign _1044 = { _1042,
                      _1043 };
-    always @* begin
-        case (_438)
-        0:
-            _1045 <= _986;
-        1:
-            _1045 <= _986;
-        2:
-            _1045 <= _1044;
-        default:
-            _1045 <= _803;
-        endcase
-    end
-    assign _1046 = _1045[12:8];
-    assign _1048 = { _1046,
-                     _1047 };
-    assign _1049 = _1048[12:12];
-    assign _1050 = { _1049,
-                     _1048 };
-    assign _1051 = _1050[13:3];
-    assign _1052 = _1051[10:5];
-    assign _1053 = _1052[4:0];
-    assign _1055 = { _1053,
+    assign _1045 = _1044[12:12];
+    assign _1046 = { _1045,
+                     _1044 };
+    assign _1047 = _1046[13:3];
+    assign _1048 = _1047[10:5];
+    assign _1049 = _1048[4:0];
+    assign _1051 = { _1049,
+                     _1050 };
+    assign _1052 = _1051[9:5];
+    assign _1054 = { _1052,
+                     _1053 };
+    assign _1055 = _1054[9:5];
+    assign _1056 = _1055[4:4];
+    assign _1057 = { _1056,
                      _1054 };
-    assign _1056 = _1055[9:5];
-    assign _1058 = { _1056,
-                     _1057 };
-    assign _1059 = _1058[9:5];
-    assign _1060 = _1059[4:4];
-    assign _1061 = { _1060,
-                     _1058 };
-    assign _1062 = _1061[10:5];
-    assign _1064 = { _1062,
+    assign _1058 = _1057[10:5];
+    assign _1060 = { _1058,
+                     _1059 };
+    assign _1061 = _1060[10:5];
+    assign _1064 = { _1061,
                      _1063 };
-    assign _1065 = _1064[10:5];
-    assign _1068 = { _1065,
+    assign _1065 = _1064[13:8];
+    assign _1066 = _1065[1:0];
+    assign _1068 = { _1066,
                      _1067 };
-    assign _1069 = _1068[13:8];
-    assign _1070 = _1069[1:0];
-    assign _1072 = { _1070,
-                     _1071 };
-    assign _1038 = _82 - _1036;
-    assign _1034 = _1031[9:2];
-    assign _1032 = _1031[9:9];
-    assign _1033 = { _1032,
-                     _1032 };
-    assign _1035 = { _1033,
-                     _1034 };
-    assign _1029 = _79[9:1];
-    assign _1028 = _79[9:9];
-    assign _1030 = { _1028,
-                     _1029 };
-    assign _1021 = _1018[7:0];
-    assign _1016 = _1014[4:0];
-    assign _1017 = { _1016,
-                     _162 };
-    assign _1013 = _1011[4:0];
-    assign _1007 = _1005[4:0];
-    assign _1004 = _1001[4:0];
-    assign _997 = _995[7:0];
-    assign _993 = _987[7:0];
-    assign _987 = _292 - _435;
-    assign _988 = _987[9:8];
-    assign _989 = _988[1:1];
-    assign _990 = { _989,
-                    _989 };
-    assign _991 = { _990,
-                    _989 };
-    assign _992 = { _991,
-                    _988 };
-    assign _994 = { _992,
-                    _993 };
-    assign _985 = _435[7:0];
-    assign _982 = { _437,
-                    _437 };
-    assign _983 = { _982,
-                    _437 };
-    assign _984 = { _983,
-                    _436 };
-    assign _986 = { _984,
+    assign _1034 = _80 - _1032;
+    assign _1030 = _1027[9:2];
+    assign _1028 = _1027[9:9];
+    assign _1029 = { _1028,
+                     _1028 };
+    assign _1031 = { _1029,
+                     _1030 };
+    assign _1025 = _77[9:1];
+    assign _1024 = _77[9:9];
+    assign _1026 = { _1024,
+                     _1025 };
+    assign _1017 = _1014[7:0];
+    assign _1012 = _1010[4:0];
+    assign _1013 = { _1012,
+                     _158 };
+    assign _1009 = _1007[4:0];
+    assign _1003 = _1001[4:0];
+    assign _1000 = _997[4:0];
+    assign _993 = _991[7:0];
+    assign _989 = _983[7:0];
+    assign _983 = _288 - _431;
+    assign _984 = _983[9:8];
+    assign _985 = _984[1:1];
+    assign _986 = { _985,
                     _985 };
-    assign _802 = vga$ray$eye$p$z[7:0];
-    assign _803 = { _423,
-                    _802 };
-    assign _431 = _425[19:7];
-    assign _429 = { _427,
-                    _426 };
-    assign _124 = 10'b0001001110;
-    assign _425 = $signed(_66) * $signed(_124);
-    assign _426 = _425[19:19];
-    assign _427 = { _426,
-                    _426 };
-    assign _428 = { _427,
+    assign _987 = { _986,
+                    _985 };
+    assign _988 = { _987,
+                    _984 };
+    assign _990 = { _988,
+                    _989 };
+    assign _981 = _431[7:0];
+    assign _978 = { _433,
+                    _433 };
+    assign _979 = { _978,
+                    _433 };
+    assign _980 = { _979,
+                    _432 };
+    assign _982 = { _980,
+                    _981 };
+    assign _798 = vga$ray$eye$p$z[7:0];
+    assign _799 = { _419,
+                    _798 };
+    assign _427 = _421[19:7];
+    assign _425 = { _423,
+                    _422 };
+    assign _120 = 10'b0001001110;
+    assign _421 = $signed(_64) * $signed(_120);
+    assign _422 = _421[19:19];
+    assign _423 = { _422,
+                    _422 };
+    assign _424 = { _423,
+                    _423 };
+    assign _426 = { _424,
+                    _425 };
+    assign _428 = { _426,
                     _427 };
-    assign _430 = { _428,
-                    _429 };
-    assign _432 = { _430,
-                    _431 };
-    assign _433 = _432[9:0];
-    assign _946 = _72 + e_2;
-    assign _401 = 10'b0000010000;
-    assign _400 = 10'b0000011111;
-    assign _399 = 10'b0000111011;
-    assign _398 = 10'b0001100101;
+    assign _429 = _428[9:0];
+    assign _942 = _70 + e_2;
+    assign _397 = 10'b0000010000;
+    assign _396 = 10'b0000011111;
+    assign _395 = 10'b0000111011;
+    assign _394 = 10'b0001100101;
     always @* begin
-        case (_68)
+        case (_66)
         0:
-            e_2 <= _398;
+            e_2 <= _394;
         1:
-            e_2 <= _399;
+            e_2 <= _395;
         2:
-            e_2 <= _400;
+            e_2 <= _396;
         default:
-            e_2 <= _401;
+            e_2 <= _397;
         endcase
     end
-    assign _945 = _72 - e_2;
-    assign _375 = 10'b1000000000;
-    assign _838 = _69[8:0];
-    assign _936 = _933[7:0];
-    assign _931 = _929[4:0];
-    assign _932 = { _931,
-                    _162 };
-    assign _928 = _926[4:0];
-    assign _922 = _920[4:0];
-    assign _919 = _916[4:0];
-    assign _912 = _910[5:0];
+    assign _941 = _70 - e_2;
+    assign _371 = 10'b1000000000;
+    assign _834 = _67[8:0];
+    assign _932 = _929[7:0];
+    assign _927 = _925[4:0];
+    assign _928 = { _927,
+                    _158 };
+    assign _924 = _922[4:0];
+    assign _918 = _916[4:0];
+    assign _915 = _912[4:0];
     assign _908 = _906[5:0];
-    assign _906 = _856 - vga$ray$eye$p$x;
+    assign _904 = _902[5:0];
+    assign _902 = _852 - vga$ray$eye$p$x;
+    assign _903 = _902[10:6];
+    assign _905 = { _903,
+                    _904 };
+    always @* begin
+        case (_650)
+        0:
+            _906 <= _758;
+        1:
+            _906 <= _758;
+        2:
+            _906 <= _905;
+        default:
+            _906 <= _723;
+        endcase
+    end
     assign _907 = _906[10:6];
     assign _909 = { _907,
                     _908 };
+    assign _910 = _909[10:10];
+    assign _911 = { _910,
+                    _909 };
+    assign _912 = _911[11:1];
+    assign _913 = _912[10:5];
+    assign _914 = _913[4:0];
+    assign _916 = { _914,
+                    _915 };
+    assign _917 = _916[9:5];
+    assign _919 = { _917,
+                    _918 };
+    assign _920 = _919[9:5];
+    assign _921 = _920[4:4];
+    assign _922 = { _921,
+                    _919 };
+    assign _923 = _922[10:5];
+    assign _925 = { _923,
+                    _924 };
+    assign _926 = _925[10:5];
+    assign _929 = { _926,
+                    _928 };
+    assign _930 = _929[13:8];
+    assign _931 = _930[1:0];
+    assign _933 = { _931,
+                    _932 };
+    assign _900 = _67 - _898;
+    assign _896 = _893[9:2];
+    assign _894 = _893[9:9];
+    assign _895 = { _894,
+                    _894 };
+    assign _897 = { _895,
+                    _896 };
+    assign _891 = _64[9:1];
+    assign _890 = _64[9:9];
+    assign _892 = { _890,
+                    _891 };
+    assign _883 = _880[7:0];
+    assign _158 = 3'b000;
+    assign _878 = _876[4:0];
+    assign _879 = { _878,
+                    _158 };
+    assign _875 = _873[4:0];
+    assign _869 = _867[4:0];
+    assign _866 = _863[4:0];
+    assign _859 = _857[5:0];
+    assign _855 = _853[5:0];
+    assign _852 = 11'b00000000000;
+    assign _853 = _852 - vga$ray$eye$p$y;
+    assign _854 = _853[10:6];
+    assign _856 = { _854,
+                    _855 };
+    assign _757 = vga$ray$eye$p$y[5:0];
+    assign _758 = { _648,
+                    _757 };
+    assign _722 = vga$ray$eye$p$x[5:0];
+    assign _723 = { _606,
+                    _722 };
+    assign _644 = vga$ray$screen_uv_eye$dir$y[5:0];
+    assign _641 = _638[5:0];
+    assign _632 = vga$ray$xy$uv$y[6:0];
+    assign _629 = _626[6:0];
+    assign _622 = 12'b000011111000;
+    assign _617 = _615[7:0];
+    assign _618 = { _617,
+                    _109 };
+    assign _614 = _611[7:0];
+    assign vga$ray$xy$y = { gnd,
+                            vga$ray$i$y };
+    assign _609 = vga$ray$xy$y[10:10];
+    assign _610 = { _609,
+                    vga$ray$xy$y };
+    assign _611 = _610[11:1];
+    assign _612 = _611[10:8];
+    assign _613 = _612[1:0];
+    assign _615 = { _613,
+                    _614 };
+    assign _616 = _615[9:8];
+    assign _619 = { _616,
+                    _618 };
+    assign _620 = _619[10:10];
+    assign _621 = { _620,
+                    _619 };
+    assign _623 = _621 - _622;
+    assign _624 = _623[11:11];
+    assign _625 = { _624,
+                    _623 };
+    assign _626 = _625[12:2];
+    assign _627 = _626[10:7];
+    assign _628 = _627[2:0];
+    assign vga$ray$xy$uv$y = { _628,
+                               _629 };
+    assign _631 = vga$ray$xy$uv$y[9:7];
+    assign _633 = { _631,
+                    _632 };
+    assign _634 = _633[9:9];
+    assign _635 = { _634,
+                    _633 };
+    assign _636 = _635[10:10];
+    assign _637 = { _636,
+                    _635 };
+    assign _638 = _637[11:1];
+    assign _639 = _638[10:6];
+    assign _640 = _639[3:0];
+    assign vga$ray$screen_uv_eye$dir$y = { _640,
+                                           _641 };
+    assign _643 = vga$ray$screen_uv_eye$dir$y[9:6];
+    assign _645 = { _643,
+                    _644 };
+    assign _646 = _645[9:9];
+    assign vga$ray$eye$p$y = { _646,
+                               _645 };
+    assign _648 = vga$ray$eye$p$y[10:6];
+    assign _649 = _648[4:4];
+    assign _602 = vga$ray$screen_uv_eye$dir$x[5:0];
+    assign _599 = _596[5:0];
+    assign _590 = vga$ray$xy$uv$x[6:0];
+    assign _587 = _584[6:0];
+    assign _580 = 12'b000101001000;
+    assign _575 = _573[7:0];
+    assign _576 = { _575,
+                    _109 };
+    assign _572 = _569[7:0];
+    assign vga$ray$xy$x = { gnd,
+                            vga$ray$i$x };
+    assign _567 = vga$ray$xy$x[10:10];
+    assign _568 = { _567,
+                    vga$ray$xy$x };
+    assign _569 = _568[11:1];
+    assign _570 = _569[10:8];
+    assign _571 = _570[1:0];
+    assign _573 = { _571,
+                    _572 };
+    assign _574 = _573[9:8];
+    assign _577 = { _574,
+                    _576 };
+    assign _578 = _577[10:10];
+    assign _579 = { _578,
+                    _577 };
+    assign _581 = _579 - _580;
+    assign _582 = _581[11:11];
+    assign _583 = { _582,
+                    _581 };
+    assign _584 = _583[12:2];
+    assign _585 = _584[10:7];
+    assign _586 = _585[2:0];
+    assign vga$ray$xy$uv$x = { _586,
+                               _587 };
+    assign _589 = vga$ray$xy$uv$x[9:7];
+    assign _591 = { _589,
+                    _590 };
+    assign _592 = _591[9:9];
+    assign _593 = { _592,
+                    _591 };
+    assign _594 = _593[10:10];
+    assign _595 = { _594,
+                    _593 };
+    assign _596 = _595[11:1];
+    assign _597 = _596[10:6];
+    assign _598 = _597[3:0];
+    assign vga$ray$screen_uv_eye$dir$x = { _598,
+                                           _599 };
+    assign _601 = vga$ray$screen_uv_eye$dir$x[9:6];
+    assign _603 = { _601,
+                    _602 };
+    assign _604 = _603[9:9];
+    assign vga$ray$eye$p$x = { _604,
+                               _603 };
+    assign _606 = vga$ray$eye$p$x[10:6];
+    assign _607 = _606[4:4];
+    assign _650 = { _607,
+                    _649 };
     always @* begin
-        case (_654)
+        case (_650)
         0:
-            _910 <= _762;
+            _857 <= _723;
         1:
-            _910 <= _762;
+            _857 <= _723;
         2:
-            _910 <= _909;
+            _857 <= _758;
         default:
-            _910 <= _727;
+            _857 <= _856;
         endcase
     end
-    assign _911 = _910[10:6];
-    assign _913 = { _911,
-                    _912 };
-    assign _914 = _913[10:10];
-    assign _915 = { _914,
-                    _913 };
-    assign _916 = _915[11:1];
-    assign _917 = _916[10:5];
-    assign _918 = _917[4:0];
-    assign _920 = { _918,
-                    _919 };
-    assign _921 = _920[9:5];
-    assign _923 = { _921,
-                    _922 };
-    assign _924 = _923[9:5];
-    assign _925 = _924[4:4];
-    assign _926 = { _925,
-                    _923 };
-    assign _927 = _926[10:5];
-    assign _929 = { _927,
-                    _928 };
-    assign _930 = _929[10:5];
-    assign _933 = { _930,
-                    _932 };
-    assign _934 = _933[13:8];
-    assign _935 = _934[1:0];
-    assign _937 = { _935,
-                    _936 };
-    assign _904 = _69 - _902;
-    assign _900 = _897[9:2];
-    assign _898 = _897[9:9];
-    assign _899 = { _898,
-                    _898 };
-    assign _901 = { _899,
-                    _900 };
-    assign _895 = _66[9:1];
-    assign _894 = _66[9:9];
-    assign _896 = { _894,
-                    _895 };
-    assign _887 = _884[7:0];
-    assign _162 = 3'b000;
-    assign _882 = _880[4:0];
-    assign _883 = { _882,
-                    _162 };
-    assign _879 = _877[4:0];
-    assign _873 = _871[4:0];
-    assign _870 = _867[4:0];
-    assign _863 = _861[5:0];
-    assign _859 = _857[5:0];
-    assign _856 = 11'b00000000000;
-    assign _857 = _856 - vga$ray$eye$p$y;
     assign _858 = _857[10:6];
     assign _860 = { _858,
                     _859 };
-    assign _761 = vga$ray$eye$p$y[5:0];
-    assign _762 = { _652,
-                    _761 };
-    assign _726 = vga$ray$eye$p$x[5:0];
-    assign _727 = { _610,
-                    _726 };
-    assign _648 = vga$ray$screen_uv_eye$dir$y[5:0];
-    assign _645 = _642[5:0];
-    assign _636 = vga$ray$xy$uv$y[6:0];
-    assign _633 = _630[6:0];
-    assign _626 = 12'b000011111000;
-    assign _621 = _619[7:0];
-    assign _622 = { _621,
-                    _105 };
-    assign _618 = _615[7:0];
-    assign vga$ray$xy$y = { gnd,
-                            vga$ray$i$y };
-    assign _613 = vga$ray$xy$y[10:10];
-    assign _614 = { _613,
-                    vga$ray$xy$y };
-    assign _615 = _614[11:1];
-    assign _616 = _615[10:8];
-    assign _617 = _616[1:0];
-    assign _619 = { _617,
-                    _618 };
-    assign _620 = _619[9:8];
-    assign _623 = { _620,
-                    _622 };
-    assign _624 = _623[10:10];
-    assign _625 = { _624,
-                    _623 };
-    assign _627 = _625 - _626;
-    assign _628 = _627[11:11];
-    assign _629 = { _628,
-                    _627 };
-    assign _630 = _629[12:2];
-    assign _631 = _630[10:7];
-    assign _632 = _631[2:0];
-    assign vga$ray$xy$uv$y = { _632,
-                               _633 };
-    assign _635 = vga$ray$xy$uv$y[9:7];
-    assign _637 = { _635,
-                    _636 };
-    assign _638 = _637[9:9];
-    assign _639 = { _638,
-                    _637 };
-    assign _640 = _639[10:10];
-    assign _641 = { _640,
-                    _639 };
-    assign _642 = _641[11:1];
-    assign _643 = _642[10:6];
-    assign _644 = _643[3:0];
-    assign vga$ray$screen_uv_eye$dir$y = { _644,
-                                           _645 };
-    assign _647 = vga$ray$screen_uv_eye$dir$y[9:6];
-    assign _649 = { _647,
-                    _648 };
-    assign _650 = _649[9:9];
-    assign vga$ray$eye$p$y = { _650,
-                               _649 };
-    assign _652 = vga$ray$eye$p$y[10:6];
-    assign _653 = _652[4:4];
-    assign _606 = vga$ray$screen_uv_eye$dir$x[5:0];
-    assign _603 = _600[5:0];
-    assign _594 = vga$ray$xy$uv$x[6:0];
-    assign _591 = _588[6:0];
-    assign _584 = 12'b000101001000;
-    assign _579 = _577[7:0];
-    assign _580 = { _579,
-                    _105 };
-    assign _576 = _573[7:0];
-    assign vga$ray$xy$x = { gnd,
-                            vga$ray$i$x };
-    assign _571 = vga$ray$xy$x[10:10];
-    assign _572 = { _571,
-                    vga$ray$xy$x };
-    assign _573 = _572[11:1];
-    assign _574 = _573[10:8];
-    assign _575 = _574[1:0];
-    assign _577 = { _575,
-                    _576 };
-    assign _578 = _577[9:8];
-    assign _581 = { _578,
-                    _580 };
-    assign _582 = _581[10:10];
-    assign _583 = { _582,
-                    _581 };
-    assign _585 = _583 - _584;
-    assign _586 = _585[11:11];
-    assign _587 = { _586,
-                    _585 };
-    assign _588 = _587[12:2];
-    assign _589 = _588[10:7];
-    assign _590 = _589[2:0];
-    assign vga$ray$xy$uv$x = { _590,
-                               _591 };
-    assign _593 = vga$ray$xy$uv$x[9:7];
-    assign _595 = { _593,
-                    _594 };
-    assign _596 = _595[9:9];
-    assign _597 = { _596,
-                    _595 };
-    assign _598 = _597[10:10];
-    assign _599 = { _598,
-                    _597 };
-    assign _600 = _599[11:1];
-    assign _601 = _600[10:6];
-    assign _602 = _601[3:0];
-    assign vga$ray$screen_uv_eye$dir$x = { _602,
-                                           _603 };
-    assign _605 = vga$ray$screen_uv_eye$dir$x[9:6];
-    assign _607 = { _605,
-                    _606 };
-    assign _608 = _607[9:9];
-    assign vga$ray$eye$p$x = { _608,
-                               _607 };
-    assign _610 = vga$ray$eye$p$x[10:6];
-    assign _611 = _610[4:4];
-    assign _654 = { _611,
-                    _653 };
-    always @* begin
-        case (_654)
-        0:
-            _861 <= _727;
-        1:
-            _861 <= _727;
-        2:
-            _861 <= _762;
-        default:
-            _861 <= _860;
-        endcase
-    end
-    assign _862 = _861[10:6];
-    assign _864 = { _862,
-                    _863 };
-    assign _865 = _864[10:10];
-    assign _866 = { _865,
-                    _864 };
-    assign _867 = _866[11:1];
-    assign _868 = _867[10:5];
-    assign _869 = _868[4:0];
-    assign _871 = { _869,
+    assign _861 = _860[10:10];
+    assign _862 = { _861,
+                    _860 };
+    assign _863 = _862[11:1];
+    assign _864 = _863[10:5];
+    assign _865 = _864[4:0];
+    assign _867 = { _865,
+                    _866 };
+    assign _868 = _867[9:5];
+    assign _870 = { _868,
+                    _869 };
+    assign _871 = _870[9:5];
+    assign _872 = _871[4:4];
+    assign _873 = { _872,
                     _870 };
-    assign _872 = _871[9:5];
-    assign _874 = { _872,
-                    _873 };
-    assign _875 = _874[9:5];
-    assign _876 = _875[4:4];
-    assign _877 = { _876,
-                    _874 };
-    assign _878 = _877[10:5];
-    assign _880 = { _878,
+    assign _874 = _873[10:5];
+    assign _876 = { _874,
+                    _875 };
+    assign _877 = _876[10:5];
+    assign _880 = { _877,
                     _879 };
-    assign _881 = _880[10:5];
-    assign _884 = { _881,
+    assign _881 = _880[13:8];
+    assign _882 = _881[1:0];
+    assign _884 = { _882,
                     _883 };
-    assign _885 = _884[13:8];
-    assign _886 = _885[1:0];
-    assign _888 = { _886,
-                    _887 };
-    assign _854 = _66 + _852;
-    assign _850 = _847[9:2];
-    assign _848 = _847[9:9];
-    assign _849 = { _848,
-                    _848 };
-    assign _851 = { _849,
-                    _850 };
-    assign _845 = _69[9:1];
-    assign _846 = { _836,
-                    _845 };
-    assign _847 = _844 ? _846 : _69;
-    assign _852 = _843 ? _851 : _847;
-    assign _853 = _66 - _852;
-    assign _842 = _105 ^ _841;
-    assign _855 = _842 ? _854 : _853;
-    assign _889 = _835 ? _888 : _855;
+    assign _850 = _64 + _848;
+    assign _846 = _843[9:2];
+    assign _844 = _843[9:9];
+    assign _845 = { _844,
+                    _844 };
+    assign _847 = { _845,
+                    _846 };
+    assign _841 = _67[9:1];
+    assign _842 = { _832,
+                    _841 };
+    assign _843 = _840 ? _842 : _67;
+    assign _848 = _839 ? _847 : _843;
+    assign _849 = _64 - _848;
+    assign _838 = _109 ^ _837;
+    assign _851 = _838 ? _850 : _849;
+    assign _885 = _831 ? _884 : _851;
     always @(posedge vga$ray$i$clk) begin
-        _890 <= _889;
+        _886 <= _885;
     end
-    assign _66 = _890;
-    assign _844 = _68[0:0];
-    assign _897 = _844 ? _896 : _66;
-    assign _891 = _68 + _231;
-    assign _892 = _835 ? _230 : _891;
-    assign _67 = _892;
+    assign _64 = _886;
+    assign _840 = _66[0:0];
+    assign _893 = _840 ? _892 : _64;
+    assign _887 = _66 + _227;
+    assign _888 = _831 ? _226 : _887;
+    assign _65 = _888;
     always @(posedge vga$ray$i$clk) begin
-        iter_sel_1 <= _67;
+        iter_sel_1 <= _65;
     end
-    assign _68 = iter_sel_1;
-    assign _843 = _68[1:1];
-    assign _902 = _843 ? _901 : _897;
-    assign _903 = _69 + _902;
-    assign _905 = _841 ? _904 : _903;
-    assign _938 = _835 ? _937 : _905;
+    assign _66 = iter_sel_1;
+    assign _839 = _66[1:1];
+    assign _898 = _839 ? _897 : _893;
+    assign _899 = _67 + _898;
+    assign _901 = _837 ? _900 : _899;
+    assign _934 = _831 ? _933 : _901;
     always @(posedge vga$ray$i$clk) begin
-        _939 <= _938;
+        _935 <= _934;
+    end
+    assign _67 = _935;
+    assign _832 = _67[9:9];
+    assign _833 = ~ _832;
+    assign _835 = { _833,
+                    _834 };
+    assign _836 = _835 < _371;
+    assign _837 = ~ _836;
+    assign _943 = _837 ? _942 : _941;
+    assign _937 = _69 + _336;
+    assign _936 = _69 == _479;
+    assign _938 = _936 ? _314 : _937;
+    assign _68 = _938;
+    always @(posedge vga$ray$i$clk) begin
+        if (vga$ray$i$rst_n == 0)
+            _939 <= _314;
+        else
+            _939 <= _68;
     end
     assign _69 = _939;
-    assign _836 = _69[9:9];
-    assign _837 = ~ _836;
-    assign _839 = { _837,
-                    _838 };
-    assign _840 = _839 < _375;
-    assign _841 = ~ _840;
-    assign _947 = _841 ? _946 : _945;
-    assign _941 = _71 + _340;
-    assign _940 = _71 == _483;
-    assign _942 = _940 ? _318 : _941;
-    assign _70 = _942;
+    assign _831 = _69 == _314;
+    assign _944 = _831 ? _288 : _943;
     always @(posedge vga$ray$i$clk) begin
-        if (vga$ray$i$rst_n == 0)
-            _943 <= _318;
-        else
-            _943 <= _70;
+        _945 <= _944;
     end
-    assign _71 = _943;
-    assign _835 = _71 == _318;
-    assign _948 = _835 ? _292 : _947;
-    always @(posedge vga$ray$i$clk) begin
-        _949 <= _948;
-    end
-    assign _72 = _949;
-    assign _434 = { _72,
-                    _433 };
-    assign _435 = _434[9:0];
-    assign _436 = _435[9:8];
-    assign _437 = _436[1:1];
-    assign _421 = 13'b1110110010110;
-    assign _417 = vga$ray$eye$z[7:0];
-    assign _414 = 12'b001110000000;
-    assign _410 = _406[7:0];
-    assign vga$vgaController$o$x = _950;
+    assign _70 = _945;
+    assign _430 = { _70,
+                    _429 };
+    assign _431 = _430[9:0];
+    assign _432 = _431[9:8];
+    assign _433 = _432[1:1];
+    assign _417 = 13'b1110110010110;
+    assign _413 = vga$ray$eye$z[7:0];
+    assign _410 = 12'b001110000000;
+    assign _406 = _402[7:0];
+    assign vga$vgaController$o$x = _946;
     assign vga$ray$i$x = vga$vgaController$o$x;
-    assign _958 = vga$ray$i$x == _292;
-    assign vga$vgaController$o$y = _953;
+    assign _954 = vga$ray$i$x == _288;
+    assign vga$vgaController$o$y = _949;
     assign vga$ray$i$y = vga$vgaController$o$y;
-    assign _957 = vga$ray$i$y == _292;
-    assign _959 = _957 & _958;
-    assign _956 = 8'b00000000;
-    assign _954 = 8'b00000001;
-    assign _955 = _78 + _954;
-    assign _77 = _955;
+    assign _953 = vga$ray$i$y == _288;
+    assign _955 = _953 & _954;
+    assign _952 = 8'b00000000;
+    assign _950 = 8'b00000001;
+    assign _951 = _76 + _950;
+    assign _75 = _951;
     always @(posedge vga$ray$i$clk) begin
         if (vga$ray$i$rst_n == 0)
-            _960 <= _956;
+            _956 <= _952;
         else
-            if (_959)
-                _960 <= _77;
+            if (_955)
+                _956 <= _75;
     end
-    assign _78 = _960;
+    assign _76 = _956;
     assign gnd = 1'b0;
-    assign _406 = { gnd,
-                    _78 };
-    assign _407 = _406[8:8];
-    assign _408 = { _407,
-                    _407 };
+    assign _402 = { gnd,
+                    _76 };
+    assign _403 = _402[8:8];
+    assign _404 = { _403,
+                    _403 };
+    assign _405 = { _404,
+                    _403 };
+    assign _407 = { _405,
+                    _406 };
+    assign _408 = _407[10:10];
     assign _409 = { _408,
                     _407 };
-    assign _411 = { _409,
-                    _410 };
-    assign _412 = _411[10:10];
-    assign _413 = { _412,
-                    _411 };
-    assign vga$ray$eye$z = _413 + _414;
-    assign _416 = vga$ray$eye$z[11:8];
-    assign _418 = { _416,
-                    _417 };
-    assign _419 = _418[11:11];
-    assign _420 = { _419,
-                    _418 };
-    assign vga$ray$eye$p$z = _420 + _421;
-    assign _423 = vga$ray$eye$p$z[12:8];
-    assign _424 = _423[4:4];
-    assign _438 = { _424,
-                    _437 };
+    assign vga$ray$eye$z = _409 + _410;
+    assign _412 = vga$ray$eye$z[11:8];
+    assign _414 = { _412,
+                    _413 };
+    assign _415 = _414[11:11];
+    assign _416 = { _415,
+                    _414 };
+    assign vga$ray$eye$p$z = _416 + _417;
+    assign _419 = vga$ray$eye$p$z[12:8];
+    assign _420 = _419[4:4];
+    assign _434 = { _420,
+                    _433 };
     always @* begin
-        case (_438)
+        case (_434)
         0:
-            _995 <= _803;
+            _991 <= _799;
         1:
-            _995 <= _803;
+            _991 <= _799;
         2:
-            _995 <= _986;
+            _991 <= _982;
         default:
-            _995 <= _994;
+            _991 <= _990;
         endcase
     end
-    assign _996 = _995[12:8];
-    assign _998 = { _996,
-                    _997 };
-    assign _999 = _998[12:12];
-    assign _1000 = { _999,
-                     _998 };
-    assign _1001 = _1000[13:3];
-    assign _1002 = _1001[10:5];
-    assign _1003 = _1002[4:0];
-    assign _1005 = { _1003,
+    assign _992 = _991[12:8];
+    assign _994 = { _992,
+                    _993 };
+    assign _995 = _994[12:12];
+    assign _996 = { _995,
+                    _994 };
+    assign _997 = _996[13:3];
+    assign _998 = _997[10:5];
+    assign _999 = _998[4:0];
+    assign _1001 = { _999,
+                     _1000 };
+    assign _1002 = _1001[9:5];
+    assign _1004 = { _1002,
+                     _1003 };
+    assign _1005 = _1004[9:5];
+    assign _1006 = _1005[4:4];
+    assign _1007 = { _1006,
                      _1004 };
-    assign _1006 = _1005[9:5];
-    assign _1008 = { _1006,
-                     _1007 };
-    assign _1009 = _1008[9:5];
-    assign _1010 = _1009[4:4];
-    assign _1011 = { _1010,
-                     _1008 };
-    assign _1012 = _1011[10:5];
-    assign _1014 = { _1012,
+    assign _1008 = _1007[10:5];
+    assign _1010 = { _1008,
+                     _1009 };
+    assign _1011 = _1010[10:5];
+    assign _1014 = { _1011,
                      _1013 };
-    assign _1015 = _1014[10:5];
-    assign _1018 = { _1015,
+    assign _1015 = _1014[13:8];
+    assign _1016 = _1015[1:0];
+    assign _1018 = { _1016,
                      _1017 };
-    assign _1019 = _1018[13:8];
-    assign _1020 = _1019[1:0];
-    assign _1022 = { _1020,
-                     _1021 };
-    assign _980 = _79 + _978;
-    assign _976 = _973[9:2];
-    assign _974 = _973[9:9];
-    assign _975 = { _974,
-                    _974 };
-    assign _977 = { _975,
-                    _976 };
-    assign _971 = _82[9:1];
-    assign _972 = { _962,
-                    _971 };
-    assign _973 = _970 ? _972 : _82;
-    assign _978 = _969 ? _977 : _973;
-    assign _979 = _79 - _978;
-    assign _105 = 1'b0;
-    assign _968 = _105 ^ _967;
-    assign _981 = _968 ? _980 : _979;
-    assign _1023 = _961 ? _1022 : _981;
+    assign _976 = _77 + _974;
+    assign _972 = _969[9:2];
+    assign _970 = _969[9:9];
+    assign _971 = { _970,
+                    _970 };
+    assign _973 = { _971,
+                    _972 };
+    assign _967 = _80[9:1];
+    assign _968 = { _958,
+                    _967 };
+    assign _969 = _966 ? _968 : _80;
+    assign _974 = _965 ? _973 : _969;
+    assign _975 = _77 - _974;
+    assign _109 = 1'b0;
+    assign _964 = _109 ^ _963;
+    assign _977 = _964 ? _976 : _975;
+    assign _1019 = _957 ? _1018 : _977;
     always @(posedge vga$ray$i$clk) begin
-        _1024 <= _1023;
+        _1020 <= _1019;
     end
-    assign _79 = _1024;
-    assign _970 = _81[0:0];
-    assign _1031 = _970 ? _1030 : _79;
-    assign _230 = 2'b00;
-    assign _231 = 2'b01;
-    assign _1025 = _81 + _231;
-    assign _1026 = _961 ? _230 : _1025;
-    assign _80 = _1026;
+    assign _77 = _1020;
+    assign _966 = _79[0:0];
+    assign _1027 = _966 ? _1026 : _77;
+    assign _226 = 2'b00;
+    assign _227 = 2'b01;
+    assign _1021 = _79 + _227;
+    assign _1022 = _957 ? _226 : _1021;
+    assign _78 = _1022;
     always @(posedge vga$ray$i$clk) begin
-        iter_sel_2 <= _80;
+        iter_sel_2 <= _78;
     end
-    assign _81 = iter_sel_2;
-    assign _969 = _81[1:1];
-    assign _1036 = _969 ? _1035 : _1031;
-    assign _1037 = _82 + _1036;
-    assign _1039 = _967 ? _1038 : _1037;
-    assign _1073 = _961 ? _1072 : _1039;
+    assign _79 = iter_sel_2;
+    assign _965 = _79[1:1];
+    assign _1032 = _965 ? _1031 : _1027;
+    assign _1033 = _80 + _1032;
+    assign _1035 = _963 ? _1034 : _1033;
+    assign _1069 = _957 ? _1068 : _1035;
     always @(posedge vga$ray$i$clk) begin
-        _1074 <= _1073;
+        _1070 <= _1069;
     end
-    assign _82 = _1074;
-    assign _962 = _82[9:9];
+    assign _80 = _1070;
+    assign _958 = _80[9:9];
+    assign _959 = ~ _958;
+    assign _961 = { _959,
+                    _960 };
+    assign _962 = _961 < _371;
     assign _963 = ~ _962;
-    assign _965 = { _963,
-                    _964 };
-    assign _966 = _965 < _375;
-    assign _967 = ~ _966;
-    assign _1082 = _967 ? _1081 : _1080;
+    assign _1078 = _963 ? _1077 : _1076;
     assign vga$ray$i$rst_n = vga$i$rst_n;
     assign vga$ray$i$clk = vga$i$clk;
-    assign _318 = 4'b0000;
-    assign _340 = 4'b0001;
-    assign _1076 = _86 + _340;
-    assign _483 = 4'b0100;
-    assign _1075 = _86 == _483;
-    assign _1077 = _1075 ? _318 : _1076;
-    assign _85 = _1077;
+    assign _314 = 4'b0000;
+    assign _336 = 4'b0001;
+    assign _1072 = _84 + _336;
+    assign _479 = 4'b0100;
+    assign _1071 = _84 == _479;
+    assign _1073 = _1071 ? _314 : _1072;
+    assign _83 = _1073;
     always @(posedge vga$ray$i$clk) begin
         if (vga$ray$i$rst_n == 0)
-            _1078 <= _318;
+            _1074 <= _314;
         else
-            _1078 <= _85;
+            _1074 <= _83;
     end
-    assign _86 = _1078;
-    assign _961 = _86 == _318;
-    assign _1083 = _961 ? _292 : _1082;
+    assign _84 = _1074;
+    assign _957 = _84 == _314;
+    assign _1079 = _957 ? _288 : _1078;
     always @(posedge vga$ray$i$clk) begin
-        _1084 <= _1083;
+        _1080 <= _1079;
     end
-    assign _87 = _1084;
-    assign _134 = { _87,
+    assign _85 = _1080;
+    assign _130 = { _85,
+                    _129 };
+    assign vga$ray$eye$p$r = _130[9:0];
+    assign _132 = vga$ray$eye$p$r[9:8];
+    assign _134 = { _132,
                     _133 };
-    assign vga$ray$eye$p$r = _134[9:0];
-    assign _136 = vga$ray$eye$p$r[9:8];
-    assign _138 = { _136,
-                    _137 };
-    assign _139 = _138[9:9];
+    assign _135 = _134[9:9];
+    assign _136 = { _135,
+                    _134 };
+    assign _138 = _136 - _137;
+    assign _139 = _138[10:10];
     assign _140 = { _139,
                     _138 };
-    assign _142 = _140 - _141;
-    assign _143 = _142[10:10];
-    assign _144 = { _143,
-                    _142 };
-    assign _145 = _144[11:1];
-    assign _146 = _145[10:7];
-    assign _147 = _146[2:0];
-    assign vga$ray$eye$length_xyz$dist__$p__dist_$x = { _147,
-                                                        _148 };
-    assign _150 = vga$ray$eye$length_xyz$dist__$p__dist_$x[9:7];
-    assign _151 = _150[2:2];
-    assign _152 = { _151,
-                    _151 };
-    assign _153 = { _152,
+    assign _141 = _140[11:1];
+    assign _142 = _141[10:7];
+    assign _143 = _142[2:0];
+    assign vga$ray$eye$length_xyz$dist__$p__dist_$x = { _143,
+                                                        _144 };
+    assign _146 = vga$ray$eye$length_xyz$dist__$p__dist_$x[9:7];
+    assign _147 = _146[2:2];
+    assign _148 = { _147,
+                    _147 };
+    assign _149 = { _148,
+                    _146 };
+    assign _151 = { _149,
                     _150 };
+    assign _152 = _151[11:11];
+    assign _153 = ~ _152;
     assign _155 = { _153,
                     _154 };
-    assign _156 = _155[11:11];
-    assign _157 = ~ _156;
-    assign _159 = { _157,
-                    _158 };
-    assign _161 = _159 < _160;
-    assign _1110 = _161 ? _1109 : _162;
-    assign vga$ray$o$lr = _1110;
-    assign _90 = test;
-    assign _1151 = _90 ? _1150 : vga$ray$o$lr;
+    assign _157 = _155 < _156;
+    assign _1106 = _157 ? _1105 : _158;
+    assign vga$ray$o$lr = _1106;
+    assign _88 = test;
+    assign _1147 = _88 ? _1146 : vga$ray$o$lr;
     always @* begin
-        case (_1151)
+        case (_1147)
         0:
-            _1152 <= _230;
+            _1148 <= _226;
         1:
-            _1152 <= _231;
+            _1148 <= _227;
         2:
-            _1152 <= _232;
+            _1148 <= _228;
         3:
-            _1152 <= _232;
+            _1148 <= _228;
         4:
-            _1152 <= _232;
+            _1148 <= _228;
         5:
-            _1152 <= _233;
+            _1148 <= _229;
         6:
-            _1152 <= _233;
+            _1148 <= _229;
         default:
-            _1152 <= _233;
+            _1148 <= _229;
         endcase
     end
-    assign _1122 = 10'b0111100000;
-    assign _951 = 10'b1010001111;
-    assign _952 = _100 == _951;
-    assign _1114 = _92 + _1113;
-    assign _1111 = 10'b1000001100;
-    assign _1112 = _92 == _1111;
-    assign _1115 = _1112 ? _292 : _1114;
-    assign _91 = _1115;
+    assign _1118 = 10'b0111100000;
+    assign _947 = 10'b1010001111;
+    assign _948 = _98 == _947;
+    assign _1110 = _90 + _1109;
+    assign _1107 = 10'b1000001100;
+    assign _1108 = _90 == _1107;
+    assign _1111 = _1108 ? _288 : _1110;
+    assign _89 = _1111;
     always @(posedge vga$vgaController$i$clk) begin
         if (vga$vgaController$i$rst_n == 0)
-            _953 <= _292;
+            _949 <= _288;
         else
-            if (_952)
-                _953 <= _91;
+            if (_948)
+                _949 <= _89;
     end
-    assign _92 = _953;
-    assign _1123 = _92 < _1122;
-    assign _1120 = 10'b1010000000;
+    assign _90 = _949;
+    assign _1119 = _90 < _1118;
+    assign _1116 = 10'b1010000000;
     assign vdd = 1'b1;
     assign vga$i$rst_n = rst_n;
     assign vga$vgaController$i$rst_n = vga$i$rst_n;
     assign vga$i$clk = clk;
     assign vga$vgaController$i$clk = vga$i$clk;
-    assign _292 = 10'b0000000000;
-    assign _1113 = 10'b0000000001;
-    assign _1118 = _100 + _1113;
-    assign _1116 = 10'b1100011111;
-    assign _1117 = _100 == _1116;
-    assign _1119 = _1117 ? _292 : _1118;
-    assign _99 = _1119;
+    assign _288 = 10'b0000000000;
+    assign _1109 = 10'b0000000001;
+    assign _1114 = _98 + _1109;
+    assign _1112 = 10'b1100011111;
+    assign _1113 = _98 == _1112;
+    assign _1115 = _1113 ? _288 : _1114;
+    assign _97 = _1115;
     always @(posedge vga$vgaController$i$clk) begin
         if (vga$vgaController$i$rst_n == 0)
-            _950 <= _292;
+            _946 <= _288;
         else
-            _950 <= _99;
+            _946 <= _97;
     end
-    assign _100 = _950;
-    assign _1121 = _100 < _1120;
-    assign _1124 = _1121 & _1123;
-    assign _1125 = ~ _1124;
-    assign vga$vgaController$o$blank = _1125;
-    assign _1153 = vga$vgaController$o$blank ? _230 : _1152;
+    assign _98 = _946;
+    assign _1117 = _98 < _1116;
+    assign _1120 = _1117 & _1119;
+    assign _1121 = ~ _1120;
+    assign vga$vgaController$o$blank = _1121;
+    assign _1149 = vga$vgaController$o$blank ? _226 : _1148;
     always @(posedge vga$i$clk) begin
         if (vga$i$rst_n == 0)
-            _1154 <= _230;
+            _1150 <= _226;
         else
-            _1154 <= _1153;
+            _1150 <= _1149;
     end
-    assign vga$o$r = _1154;
+    assign vga$o$r = _1150;
     assign vga$ray$color$rgb$z = vga$ray$color$rgb$v01_1$x;
     assign vga$ray$color$rgb$y = vga$ray$color$rgb$v01_0$x;
     assign iter = iter_sel;
@@ -3370,6 +3357,5 @@ module generated (
     assign b = vga$o$b;
     assign hsync = vga$o$hsync;
     assign vsync = vga$o$vsync;
-    assign audio = vga$o$audio;
 
 endmodule

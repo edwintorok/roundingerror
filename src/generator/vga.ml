@@ -346,7 +346,7 @@ let%expect_test "hvsync" =
     |}]
 
 module O = struct
-  type 'a t = {srgb: 'a SRGB.t; hsync: 'a; vsync: 'a; audio: 'a}
+  type 'a t = {srgb: 'a SRGB.t; hsync: 'a; vsync: 'a}
   [@@deriving sexp_of, hardcaml]
 end
 
@@ -376,8 +376,7 @@ let create ~image ~modeline scope input =
   let srgb =
     rgb |> linear_to_srgb |> SRGB.Of_signal.mux2 controller.blank zero
   in
-  let audio = Signal.(controller.hsync |: controller.vsync) in
-  O.{hsync= controller.hsync; vsync= controller.vsync; srgb; audio}
+  O.{hsync= controller.hsync; vsync= controller.vsync; srgb}
   (* add register on output for all signals: helps with timing analysis,
      and avoiding glitches on the output *)
   |> O.Of_signal.reg (Controller.reg input)

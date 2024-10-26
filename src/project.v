@@ -15,15 +15,13 @@ module tt_um_edwintorok (
     input  wire       clk,      // clock
     input  wire       rst_n     // reset_n - low to reset
 );
-  wire hsync, vsync, audio;
+  wire hsync, vsync;
   wire [1:0] r,g,b;
   
   // All output pins must be assigned. If not used, assign to 0.
-  assign uio_out[6:0] = 0;
+  assign uio_out[7:0] = 0;
 
-  assign uio_out[7] = audio; // TODO: audio
-
-  assign uio_oe  = 8'b10000000; // the audio output pin
+  assign uio_oe  = 8'b00000000;
 
   // List all unused inputs to prevent warnings
   wire _unused_ok = &{ena, ui_in, uio_in[7:1], rst_n, 1'b0};
@@ -43,7 +41,6 @@ module tt_um_edwintorok (
     .r(r),
     .g(g),
     .b(b),
-    .audio(audio),
     .test(uio_in[0])
   );
 
