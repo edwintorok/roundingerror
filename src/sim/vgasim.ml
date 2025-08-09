@@ -34,7 +34,7 @@ end
 let color srgb_bits =
   Signal.concat_msb [srgb_bits; Signal.zero (8 - Config.SRGB.bpp)]
 
-let create scope I.({i_clk; i_reset; i_test; _} as i) =
+let create scope I.({i_clk; i_reset; _} as i) =
   let open Signal in
   let input = Vga.I.{clk= i_clk; rst_n= ~:i_reset; test= gnd} in
   (* breaks sim: always sets test mode..., so ignore i_test for now *)

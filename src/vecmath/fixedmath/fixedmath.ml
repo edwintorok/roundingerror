@@ -416,7 +416,7 @@ module Vec2 = struct
       create cordic I.{args; clk; clr; ld; enable}
       |> O.Of_signal.pack |> Results.Of_signal.unpack
 
-    let hierarchical ~name scope args =
+    let hierarchical ~name:_ scope args =
       let coords_frac, args = norm args in
       (*let args = CF.Args.map ~f:resize_angle args in
         let coords_frac = FSpec.fractional_width in*)

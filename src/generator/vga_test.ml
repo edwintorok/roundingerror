@@ -24,7 +24,7 @@ let divide_evenly ~clk ~max ~coord scope lst =
   in
   Linear.Of_signal.mux quotient lst
 
-let create ~modeline scope I.{coord; clk; rst_n} =
+let create ~modeline scope I.{coord; clk; _} =
   let ( -- ) = Scope.naming scope in
   let apply_names name t =
     let scope = Scope.sub_scope scope name in

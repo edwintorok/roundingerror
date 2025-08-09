@@ -4,10 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  * 
  * Libraries used:
- *     base.v0.17.1
- *     base.base_internalhash_types.v0.17.1
- *     base.md5.v0.17.1
- *     base.shadow_stdlib.v0.17.1
+ *     base.v0.17.3
+ *     base.base_internalhash_types.v0.17.3
+ *     base.md5.v0.17.3
+ *     base.shadow_stdlib.v0.17.3
  *     base_bigstring.v0.17.0
  *     base_quickcheck.v0.17.0
  *     base_quickcheck.ppx_quickcheck.runtime.v0.17.0
@@ -24,7 +24,7 @@
  *     core_kernel.pairing_heap.v0.17.0
  *     core_kernel.tuple_pool.v0.17.0
  *     cryptokit
- *     dune-build-info.3.16.0
+ *     dune-build-info.3.19.1
  *     expect_test_helpers_core.expect_test_helpers_base.v0.17.0
  *     fieldslib.v0.17.0
  *     fixederrmath
@@ -45,8 +45,8 @@
  *     hardcaml_waveterm.kernel.v0.17.0
  *     int_repr.v0.17.0
  *     jane-street-headers.v0.17.0
- *     num.1.6~dev
- *     num.core.1.6~dev
+ *     num.1.7~dev
+ *     num.core.1.7~dev
  *     ocaml_intrinsics_kernel.v0.17.1
  *     parsexp.v0.17.0
  *     ppx_assert.runtime-lib.v0.17.0
@@ -71,8 +71,8 @@
  *     ppx_stable_witness.runtime.v0.17.0
  *     ppx_stable_witness.stable_witness.v0.17.0
  *     ppx_string.runtime.v0.17.0
- *     ppxlib.print_diff.0.33.0
- *     re.1.12.0
+ *     ppxlib.print_diff.0.35.0
+ *     re
  *     reference
  *     seq.[distributed with OCaml 4.07 or above]
  *     sexp_pretty.v0.17.0
@@ -81,8 +81,8 @@
  *     splittable_random.v0.17.0
  *     stdio.v0.17.0
  *     time_now.v0.17.0
- *     typerep.v0.17.0
- *     unix.5.2.0
+ *     typerep.v0.17.1
+ *     unix.5.3.0
  *     variantslib.v0.17.0
  *     vecmath_core
  *     zarith.1.14

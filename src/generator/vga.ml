@@ -22,7 +22,7 @@ module Controller = struct
 
   open Signal
 
-  let reg I.{clk; rst_n} =
+  let reg I.{clk; rst_n; _} =
     (* ASIC (not FPGA) optimized, use asynchronous clear, instead of synchronous reset *)
     Reg_spec.(
       create ~clock:clk () |> override ~reset:rst_n ~reset_edge:Edge.Falling )
