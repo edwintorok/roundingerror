@@ -1,6 +1,7 @@
 open Hardcaml
 open Sexplib.Std
 open Config
+module WT = Hardcaml_event_driven_sim.Waveterm
 
 module I = struct
   type 'a t = {clk: 'a; rst_n: 'a; test: 'a} [@@deriving sexp_of, hardcaml]
@@ -65,17 +66,27 @@ let%expect_test "hvsync" =
   let modeline = Modeline.test_config in
   let module C = Controller in
   let module W = Waveforms.Make (C.I) (C.O) in
-  let waves, sim = W.make (C.create ~modeline) in
-  let inputs = Cyclesim.inputs sim and outputs = Cyclesim.outputs sim in
-  inputs.rst_n := Bits.gnd ;
-  Cyclesim.cycle sim ;
-  inputs.rst_n := Bits.vdd ;
   let h = Modeline.Timing.to_modeline_pos modeline.horiz
   and v = Modeline.Timing.to_modeline_pos modeline.vert in
   let monitor = Array.make_matrix v.total h.total "x"
   and hsyncs = Array.make_matrix v.total h.total "x"
   and vsyncs = Array.make_matrix v.total h.total "x" in
-  for i = 0 to h.total * v.total * 2 do
+  let waves, _ =
+    W.run
+      ~limit:(h.total * v.total * 2)
+      (C.create ~modeline)
+      (fun i -> i.C.I.clk)
+    @@ fun inputs outputs () ->
+    let open Waveforms in
+    let open Step.Let_syntax in
+    let ( <-- ) = Event_simulator.( <-- ) in
+    inputs.rst_n <-- Bits.gnd ;
+    let%bind () = Step.cycle () in
+    let%bind () = Step.cycle () in
+    inputs.rst_n <-- Bits.vdd ;
+    let%bind () = Step.cycle () in
+    Step.for_ 0 (h.total * v.total * 2)
+    @@ fun i ->
     (* Our counter starts at 0 = beginning of active region.
        However the monitor starts drawing at Hsync+Vsync start.
        To show how the signal looks like for the monitor we offset.
@@ -83,37 +94,41 @@ let%expect_test "hvsync" =
     let offset = h.sync_start + (h.total * (v.sync_start - 1)) in
     let hpos = (i - offset) mod h.total
     and vpos = (i - offset) / h.total mod v.total in
-    let hsync = Bits.to_bool !(outputs.hsync)
-    and vsync = Bits.to_bool !(outputs.vsync)
-    and blank = Bits.to_bool !(outputs.blank)
-    and hcnt = Bits.to_int !(outputs.coord.x)
-    and vcnt = Bits.to_int !(outputs.coord.y) in
+    let open WT.Sim.Signal in
+    let hsync = Bits.to_bool (read outputs.hsync)
+    and vsync = Bits.to_bool (read outputs.vsync)
+    and blank = Bits.to_bool (read outputs.blank)
+    and hcnt = Bits.to_int (read outputs.coord.x)
+    and vcnt = Bits.to_int (read outputs.coord.y) in
     let str = if blank then "B" else Printf.sprintf "%2u,%2u" vcnt hcnt in
     if i >= offset && vpos < v.total && hpos < h.total then (
       hsyncs.(vpos).(hpos) <- (if hsync then "H" else " ") ;
       vsyncs.(vpos).(hpos) <- (if vsync then "V" else " ") ;
       monitor.(vpos).(hpos) <- Printf.sprintf "%5s" str ) ;
+    let%bind () = Step.cycle () in
+    return ()
     (* clock is automatically set, no need to change it *)
-    Cyclesim.cycle sim
-  done ;
+  in
   print_endline (Modeline.to_modeline modeline) ;
-  Hardcaml_waveterm.Waveform.expect ~display_rules ~wave_width:0
-    ~serialize_to:"vga1" ~display_width:76 waves ;
-  Hardcaml_waveterm.Waveform.expect ~display_rules ~wave_width:0
-    ~serialize_to:"vga2"
-    ~start_cycle:((h.total * (v.sync_start - 1)) + h.sync_start)
-    ~display_width:76 waves ;
-  Hardcaml_waveterm.Waveform.expect ~display_rules ~wave_width:(-1)
-    ~serialize_to:"vga3"
-    ~start_cycle:(h.total * (v.sync_start - 1))
-    ~display_width:76 waves ;
-  Hardcaml_waveterm.Waveform.expect ~display_rules ~wave_width:(-1)
-    ~serialize_to:"vga4"
-    ~start_cycle:((h.total * (v.disp - 1)) + h.disp - 2)
-    ~display_width:76 waves ;
-  Hardcaml_waveterm.Waveform.expect ~display_rules ~wave_width:(-1)
-    ~serialize_to:"vga5" ~start_cycle:(h.total * v.sync_start) ~display_width:76
-    waves ;
+  print_endline "vga1:" ;
+  WT.Waveform.expect ~display_rules ~wave_width:(-1) ~serialize_to:"vga1"
+    ~display_height:22 ~display_width:76 waves ;
+  print_endline "vga2:" ;
+  WT.Waveform.expect ~display_rules ~wave_width:(-1) ~serialize_to:"vga2"
+    ~start_cycle:(2 * ((h.total * (v.sync_start - 1)) + h.sync_start))
+    ~display_height:22 ~display_width:76 waves ;
+  print_endline "vga3:" ;
+  WT.Waveform.expect ~display_rules ~wave_width:(-2) ~serialize_to:"vga3"
+    ~start_cycle:(2 * (h.total * (v.sync_start - 1)))
+    ~display_height:22 ~display_width:76 waves ;
+  print_endline "vga4:" ;
+  WT.Waveform.expect ~display_rules ~wave_width:(-2) ~serialize_to:"vga4"
+    ~start_cycle:(2 * ((h.total * (v.disp - 1)) + h.disp - 2))
+    ~display_height:22 ~display_width:76 waves ;
+  print_endline "vga5:" ;
+  WT.Waveform.expect ~display_rules ~wave_width:(-2) ~serialize_to:"vga5"
+    ~start_cycle:(2 * (h.total * v.sync_start))
+    ~display_height:22 ~display_width:76 waves ;
   let draw_monitor a =
     print_endline "" ;
     String.concat "\n"
@@ -124,12 +139,15 @@ let%expect_test "hvsync" =
          |> String.concat "" )
     |> print_endline
   in
+  print_endline "hsyncs:" ;
   let h = modeline.horiz in
   print_s [%message (h : Modeline.Timing.t)] ;
   draw_monitor hsyncs ;
+  print_endline "vsyncs:" ;
   let v = modeline.vert in
   print_s [%message (v : Modeline.Timing.t)] ;
   draw_monitor vsyncs ;
+  print_endline "blanks:" ;
   let blank_hl, blank_hr = (h.sync + h.back_porch, h.front_porch)
   and blank_vt, blank_vb = (v.sync + v.back_porch, v.front_porch) in
   print_s
@@ -139,15 +157,20 @@ let%expect_test "hvsync" =
   [%expect
     {|
     ModeLine "2x8_59.52" 0.010 2 5 8 12 8 11 13 14 +hsync +vsync
+    vga1:
     ┌Signals──────────┐┌Waves──────────────────────────────────────────────────┐
-    │clk              ││┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌│
-    │                 ││ └┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘│
-    │rst_n            ││  ┌────────────────────────────────────────────────────│
-    │                 ││──┘                                                    │
     │blank            ││      ┌───────────────────┐   ┌───────────────────┐   ┌│
     │                 ││──────┘                   └───┘                   └───┘│
+    │clk              ││─┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌│
+    │                 ││ └┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘│
     │hsync            ││            ┌─────┐                 ┌─────┐            │
     │                 ││────────────┘     └─────────────────┘     └────────────│
+    │rst_n            ││  ┌────────────────────────────────────────────────────│
+    │                 ││──┘                                                    │
+    │test             ││                                                       │
+    │                 ││───────────────────────────────────────────────────────│
+    │vdd              ││───────────────────────────────────────────────────────│
+    │                 ││                                                       │
     │vsync            ││                                                       │
     │                 ││───────────────────────────────────────────────────────│
     │                 ││────┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬│
@@ -156,19 +179,22 @@ let%expect_test "hvsync" =
     │                 ││────────────┬───────────────────────┬──────────────────│
     │y                ││ 0          │1                      │2                 │
     │                 ││────────────┴───────────────────────┴──────────────────│
-    │vdd              ││───────────────────────────────────────────────────────│
-    │                 ││                                                       │
     └─────────────────┘└───────────────────────────────────────────────────────┘
-    e3cba7663d203cdd60a06d85211b25e2
+    034e565d5fc9a220f5560ffdbc330c28
+    vga2:
     ┌Signals──────────┐┌Waves──────────────────────────────────────────────────┐
-    │clk              ││┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌│
-    │                 ││ └┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘│
-    │rst_n            ││───────────────────────────────────────────────────────│
-    │                 ││                                                       │
     │blank            ││───────────────────────────────────────────────────────│
     │                 ││                                                       │
+    │clk              ││─┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌┐┌│
+    │                 ││ └┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘└┘│
     │hsync            ││  ┌─────┐                 ┌─────┐                 ┌────│
     │                 ││──┘     └─────────────────┘     └─────────────────┘    │
+    │rst_n            ││───────────────────────────────────────────────────────│
+    │                 ││                                                       │
+    │test             ││                                                       │
+    │                 ││───────────────────────────────────────────────────────│
+    │vdd              ││───────────────────────────────────────────────────────│
+    │                 ││                                                       │
     │vsync            ││  ┌───────────────────────────────────────────────┐    │
     │                 ││──┘                                               └────│
     │                 ││──┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬│
@@ -177,19 +203,22 @@ let%expect_test "hvsync" =
     │                 ││──┬───────────────────────┬───────────────────────┬────│
     │y                ││ A│B                      │C                      │D   │
     │                 ││──┴───────────────────────┴───────────────────────┴────│
-    │vdd              ││───────────────────────────────────────────────────────│
-    │                 ││                                                       │
     └─────────────────┘└───────────────────────────────────────────────────────┘
-    e3cba7663d203cdd60a06d85211b25e2
+    034e565d5fc9a220f5560ffdbc330c28
+    vga3:
     ┌Signals──────────┐┌Waves──────────────────────────────────────────────────┐
-    │clk              ││╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥│
-    │                 ││╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨│
-    │rst_n            ││───────────────────────────────────────────────────────│
-    │                 ││                                                       │
     │blank            ││─────────────────────────────────────────────────┐ ┌───│
     │                 ││                                                 └─┘   │
+    │clk              ││╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥│
+    │                 ││╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨│
     │hsync            ││      ┌──┐        ┌──┐        ┌──┐        ┌──┐        ┌│
     │                 ││──────┘  └────────┘  └────────┘  └────────┘  └────────┘│
+    │rst_n            ││───────────────────────────────────────────────────────│
+    │                 ││                                                       │
+    │test             ││                                                       │
+    │                 ││───────────────────────────────────────────────────────│
+    │vdd              ││───────────────────────────────────────────────────────│
+    │                 ││                                                       │
     │vsync            ││      ┌───────────────────────┐                        │
     │                 ││──────┘                       └────────────────────────│
     │                 ││─┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬│
@@ -198,19 +227,22 @@ let%expect_test "hvsync" =
     │                 ││──────┬───────────┬───────────┬───────────┬───────────┬│
     │y                ││ A    │B          │C          │D          │0          ││
     │                 ││──────┴───────────┴───────────┴───────────┴───────────┴│
-    │vdd              ││───────────────────────────────────────────────────────│
-    │                 ││                                                       │
     └─────────────────┘└───────────────────────────────────────────────────────┘
-    e3cba7663d203cdd60a06d85211b25e2
+    034e565d5fc9a220f5560ffdbc330c28
+    vga4:
     ┌Signals──────────┐┌Waves──────────────────────────────────────────────────┐
-    │clk              ││╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥│
-    │                 ││╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨│
-    │rst_n            ││───────────────────────────────────────────────────────│
-    │                 ││                                                       │
     │blank            ││─┐ ┌───────────────────────────────────────────────────│
     │                 ││ └─┘                                                   │
+    │clk              ││╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥│
+    │                 ││╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨│
     │hsync            ││      ┌──┐        ┌──┐        ┌──┐        ┌──┐        ┌│
     │                 ││──────┘  └────────┘  └────────┘  └────────┘  └────────┘│
+    │rst_n            ││───────────────────────────────────────────────────────│
+    │                 ││                                                       │
+    │test             ││                                                       │
+    │                 ││───────────────────────────────────────────────────────│
+    │vdd              ││───────────────────────────────────────────────────────│
+    │                 ││                                                       │
     │vsync            ││                                          ┌────────────│
     │                 ││──────────────────────────────────────────┘            │
     │                 ││─┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬│
@@ -219,19 +251,22 @@ let%expect_test "hvsync" =
     │                 ││──────┬───────────┬───────────┬───────────┬───────────┬│
     │y                ││ 7    │8          │9          │A          │B          ││
     │                 ││──────┴───────────┴───────────┴───────────┴───────────┴│
-    │vdd              ││───────────────────────────────────────────────────────│
-    │                 ││                                                       │
     └─────────────────┘└───────────────────────────────────────────────────────┘
-    e3cba7663d203cdd60a06d85211b25e2
+    034e565d5fc9a220f5560ffdbc330c28
+    vga5:
     ┌Signals──────────┐┌Waves──────────────────────────────────────────────────┐
-    │clk              ││╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥│
-    │                 ││╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨│
-    │rst_n            ││───────────────────────────────────────────────────────│
-    │                 ││                                                       │
     │blank            ││─────────────────────────────────────┐ ┌─────────┐ ┌───│
     │                 ││                                     └─┘         └─┘   │
+    │clk              ││╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥╥│
+    │                 ││╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨╨│
     │hsync            ││      ┌──┐        ┌──┐        ┌──┐        ┌──┐        ┌│
     │                 ││──────┘  └────────┘  └────────┘  └────────┘  └────────┘│
+    │rst_n            ││───────────────────────────────────────────────────────│
+    │                 ││                                                       │
+    │test             ││                                                       │
+    │                 ││───────────────────────────────────────────────────────│
+    │vdd              ││───────────────────────────────────────────────────────│
+    │                 ││                                                       │
     │vsync            ││──────────────────┐                                    │
     │                 ││                  └────────────────────────────────────│
     │                 ││─┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬│
@@ -240,10 +275,9 @@ let%expect_test "hvsync" =
     │                 ││──────┬───────────┬───────────┬───────────┬───────────┬│
     │y                ││ B    │C          │D          │0          │1          ││
     │                 ││──────┴───────────┴───────────┴───────────┴───────────┴│
-    │vdd              ││───────────────────────────────────────────────────────│
-    │                 ││                                                       │
     └─────────────────┘└───────────────────────────────────────────────────────┘
-    e3cba7663d203cdd60a06d85211b25e2
+    034e565d5fc9a220f5560ffdbc330c28
+    hsyncs:
     (h (
       (sync        3)
       (polarity    High)
@@ -266,6 +300,7 @@ let%expect_test "hvsync" =
     |H|H|H| | | | | | | | | |
     |H|H|H| | | | | | | | | |
     |H|H|H| | | | | | | | | |
+    vsyncs:
     (v (
       (sync        2)
       (polarity    High)
@@ -288,6 +323,7 @@ let%expect_test "hvsync" =
     | | | | | | | | | | | | |
     | | | | | | | | | | | | |
     | | | | | | | | | | | | |
+    blanks:
     ((blank_hl 7)
      (blank_hr 3)
      (blank_vt 3)

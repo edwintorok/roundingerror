@@ -21,6 +21,8 @@
  *     core.univ_map.v0.17.1
  *     core.validate.v0.17.1
  *     core_kernel.flags.v0.17.0
+ *     core_kernel.pairing_heap.v0.17.0
+ *     core_kernel.tuple_pool.v0.17.0
  *     cryptokit
  *     dune-build-info.3.16.0
  *     expect_test_helpers_core.expect_test_helpers_base.v0.17.0
@@ -32,9 +34,14 @@
  *     gg.1.0.0
  *     hardcaml.v0.17.0
  *     hardcaml_circuits.v0.17.0
+ *     hardcaml_event_driven_sim.v0.17.0
+ *     hardcaml_event_driven_sim.kernel.v0.17.0
  *     hardcaml_fixed_point.v0.17.0
+ *     hardcaml_step_testbench.v0.17.0
+ *     hardcaml_step_testbench.digital_components.v0.17.0
  *     hardcaml_waveterm.v0.17.0
  *     hardcaml_waveterm.cyclesim.v0.17.0
+ *     hardcaml_waveterm.event_store.v0.17.0
  *     hardcaml_waveterm.kernel.v0.17.0
  *     int_repr.v0.17.0
  *     jane-street-headers.v0.17.0
