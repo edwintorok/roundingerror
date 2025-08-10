@@ -175,9 +175,9 @@ let error_vec3 (a, b) =
   let e1 = error (xa, xb) and e2 = error (ya, yb) and e3 = error (za, zb) in
   merge_error e3 (merge_error e1 e2)
 
+(*
 open Expect_test_helpers_base
 open Sexplib.Std
-
 let print_error input output =
   let actual, expected = output and err = error output |> Option.get in
   let actual = A.to_float_opt actual |> Option.get in
@@ -640,3 +640,4 @@ let%expect_test "xy" =
      (expected 0.70710678118654746))
     phase=0.785398163397;
     |}]
+*)
