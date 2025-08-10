@@ -8,10 +8,11 @@ open Hardcaml
 (* all the timings that we want to support *)
 let all_timings =
   (* TODO: 1024 config *)
-  Modeline.[(*custom_1920_1080_133;*)
-   dmt_04h_640_480
-(*  dmt_23h_1280_1024*)
-  (* test_160_100*)]
+  Modeline.
+    [ (*custom_1920_1080_133;*)
+      dmt_04h_640_480
+      (*  dmt_23h_1280_1024*)
+      (* test_160_100*) ]
 
 let bits_for timing =
   (timing |> Modeline.Timing.total) - 1 |> Signal.num_bits_to_represent
@@ -32,7 +33,8 @@ module Coord = struct
 end
 
 module ImageIn = struct
-  type 'a t = {clk: 'a; coord: 'a Coord.t; rst_n: 'a} [@@deriving sexp_of, hardcaml]
+  type 'a t = {clk: 'a; coord: 'a Coord.t; rst_n: 'a}
+  [@@deriving sexp_of, hardcaml]
 end
 
 module Linear = struct

@@ -29,7 +29,7 @@ let create ~modeline scope I.{clk; coord; rst_n} =
   in
   let ray_direction xy ~fov_deg ~size =
     (* TODO: assert size.y is power of 2 *)
-(*    let size_y = Vec2.(y size) |> to_float_opt |> Option.get in*)
+    (*    let size_y = Vec2.(y size) |> to_float_opt |> Option.get in*)
     let size_y = 512. in
     (* override for now, remove *)
     let size' = Vec2.(size /:. 2.) in
@@ -67,7 +67,10 @@ let create ~modeline scope I.{clk; coord; rst_n} =
         ~f:(mux2 (dist'' <: epsilon) ~t:depth' ~f:depth'')*)
       depth'' )
   in
-  let max_less_eps = max_dist (*-: epsilon*) in
+  let max_less_eps =
+    max_dist
+    (*-: epsilon*)
+  in
   let lightPos =
     vec3 scope (of_float scope 4.0) (of_float scope 2.0) (of_float scope 4.0)
   in

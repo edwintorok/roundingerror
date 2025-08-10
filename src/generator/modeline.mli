@@ -20,29 +20,23 @@ module Timing : sig
   (** [active t] is [addressable + 2 * border] *)
 
   val total : t -> int
-
   (** [total t] is the total number of cycles or lines in this timing *)
+
+  val cnt_sync : enable:Signal.t -> reg_width:int -> t -> Reg_spec.t -> counter
   (** [cnt_sync ~enable timing rspec] returns a counter according to the [timing].
 
      The counter will count in the range [[0, total t - 1)].
      It has a [sync_start] signal that is active for 1 clock cycle.
      It has a [sync] signal that is active for as long as the [timing.sync] indicates.
     *)
-  val cnt_sync : enable:Signal.t -> reg_width:int -> t -> Reg_spec.t -> counter
 
-  type modeline_pos =
-  { disp: int
-  ; sync_start: int
-  ; sync_end: int
-  ; total: int
-  }
+  type modeline_pos = {disp: int; sync_start: int; sync_end: int; total: int}
 
+  val to_modeline_pos : t -> modeline_pos
   (** [to_modeline_pos timing] converts the [timing] to
     [active], [sync start], [sync end], and [total] counter offsets,
     as used by a ModeLine.
    *)
-  val to_modeline_pos: t -> modeline_pos
-
 end
 
 type t = private
@@ -74,7 +68,7 @@ val custom_1920_1080_133 : t
 val dmt_04h_640_480 : t
 (** [dmt_04h_640_480] industry standard 640x480 ~59.94 Hz. *)
 
-val test_160_100: t
+val test_160_100 : t
 
 val dmt_23h_1280_1024 : t
 (** [dmt_23h_1280_1024] 1280x1024 60Hz. *)

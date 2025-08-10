@@ -51,16 +51,18 @@ type vec2 = A.vec2 * B.vec2 [@@deriving sexp_of]
 type vec3 = A.vec3 * B.vec3 [@@deriving sexp_of]
 
 module Make
-    (A : GenFType
-           with type bool' := A.bool'
-            and type int' := A.int'
-            and type uint' := A.uint'
-            and type float' := A.float')
-    (B : GenFType
-           with type bool' := B.bool'
-            and type int' := B.int'
-            and type uint' := B.uint'
-            and type float' := B.float') =
+    (A :
+      GenFType
+        with type bool' := A.bool'
+         and type int' := A.int'
+         and type uint' := A.uint'
+         and type float' := A.float')
+    (B :
+      GenFType
+        with type bool' := B.bool'
+         and type int' := B.int'
+         and type uint' := B.uint'
+         and type float' := B.float') =
 struct
   type t = A.t * B.t
 
@@ -93,8 +95,7 @@ struct
 
   let ( -- ) (a, b) name = (A.(a -- name), B.(b -- name))
 
-  let pipeline reg (a, b) n =
-   (A.pipeline reg a n, B.pipeline reg b n)
+  let pipeline reg (a, b) n = (A.pipeline reg a n, B.pipeline reg b n)
 
   let abs = unary A.(abs) B.abs
 

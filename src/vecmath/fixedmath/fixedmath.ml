@@ -360,7 +360,6 @@ module Vec2 = struct
           *)
          let t = F.resize t (F.width_int t + 1) (F.width_frac t) in
          (*let t = resize' t in*)
-
          (* this truncates! FSpec.width would be the more correct version,
                 but that yields overall 0.
             int_width yields non-zero, but is it by accident?

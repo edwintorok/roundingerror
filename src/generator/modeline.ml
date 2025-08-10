@@ -92,8 +92,10 @@ let dmt_04h_640_480 =
   ; vert=
       Timing.make ~sync:2 Level.Low ~back_porch:25 ~addressable:480
         ~front_porch:2 ~border:8
-  ; pixel_clock_mhz= 25.175 (* in range, and *2 is in range too *)
-  (*  TODO: impliment divider *)
+  ; pixel_clock_mhz=
+      25.175
+      (* in range, and *2 is in range too *)
+      (*  TODO: impliment divider *)
   ; clock_divider= 1 }
 
 let test_160_100 =
@@ -103,8 +105,10 @@ let test_160_100 =
   ; vert=
       Timing.make ~sync:6 Level.High ~back_porch:6 ~addressable:100
         ~front_porch:3 ~border:0
-  ; pixel_clock_mhz= 1.0 (* in range, and *2 is in range too *)
-  (*  TODO: impliment divider *)
+  ; pixel_clock_mhz=
+      1.0
+      (* in range, and *2 is in range too *)
+      (*  TODO: impliment divider *)
   ; clock_divider= 1 }
 
 let dmt_52h_1920_1080 =
@@ -194,8 +198,7 @@ let%expect_test "dmt_55h" =
 let%expect_test "dmt_23h" =
   print_string (to_modeline dmt_23h_1280_1024) ;
   [%expect
-    {| ModeLine "1280x1024_60.02" 108.000 1280 1328 1440 1688 1024 1025 1028 1066 +hsync +vsync |}
-  ]
+    {| ModeLine "1280x1024_60.02" 108.000 1280 1328 1440 1688 1024 1025 1028 1066 +hsync +vsync |}]
 
 let%expect_test "custom_1920_1080_133" =
   print_string (to_modeline custom_1920_1080_133) ;

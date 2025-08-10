@@ -36,20 +36,23 @@ let color srgb_bits =
 
 let create scope I.({i_clk; i_reset; i_test; _} as i) =
   let open Signal in
-  let input = Vga.I.{clk= i_clk; rst_n= ~:i_reset;test=gnd} in
+  let input = Vga.I.{clk= i_clk; rst_n= ~:i_reset; test= gnd} in
   (* breaks sim: always sets test mode..., so ignore i_test for now *)
   let modeline = (*Modeline.dmt_23h_1280_1024*) List.hd Config.all_timings in
   let image scope input =
     let test = Vga_test.create ~modeline scope input
-    and actual = Ray.hierarchical ~modeline scope input
-    in
+    and actual = Ray.hierarchical ~modeline scope input in
     Config.Linear.Of_signal.mux2 Signal.gnd (* i_test *) test actual
   in
   (*prerr_endline (Modeline.to_modeline modeline);*)
   let output = Vga.hierarchical ~modeline ~image scope input in
   O.
-    { o_vga_vsync= if modeline.vert.polarity = High then ~:(output.vsync) else output.vsync
-    ; o_vga_hsync= if modeline.horiz.polarity = High then  ~:(output.hsync) else output.hsync
+    { o_vga_vsync=
+        ( if modeline.vert.polarity = High then ~:(output.vsync)
+          else output.vsync )
+    ; o_vga_hsync=
+        ( if modeline.horiz.polarity = High then ~:(output.hsync)
+          else output.hsync )
     ; o_interrupt= gnd
     ; o_vga_red= color output.srgb.r
     ; o_vga_grn= color output.srgb.g

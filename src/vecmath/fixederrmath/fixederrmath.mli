@@ -18,6 +18,7 @@ val error_vec2 : vec2 -> float option
 val error_vec3 : vec3 -> float option
 
 open Hardcaml
+
 val of_uint_signal : Scope.t -> Signal.t -> t
 
-val to_01: width:int -> t -> Signal.t
+val to_01 : width:int -> t -> Signal.t

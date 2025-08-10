@@ -159,6 +159,7 @@ let ( /:. ) = ( /. )
 let mux2 cond ~t ~f = if cond then t else f
 
 let ( -- ) t _name = t
+
 let pipeline _ t _ = t
 
 let abs = Float.abs
@@ -204,6 +205,7 @@ module MakeVec (V : Gg.V) = struct
   let mux2 cond ~t ~f = if cond then t else f
 
   let ( -- ) t _name = t
+
   let pipeline _ t _ = t
 
   let abs = V.map abs
@@ -243,7 +245,7 @@ end
 
 module Vec2 = struct
   include MakeVec (Gg.V2)
-  
+
   let phase t = Gg.V2.(to_polar t |> y)
 end
 

@@ -53,7 +53,10 @@ let create ~modeline scope I.{coord; clk; rst_n} =
     ; black ]
   in
   let borders =
-    List.init (List.length bars / 2 ) (fun _ -> [white; black; white ; black; white; black]) |> List.concat
+    List.init
+      (List.length bars / 2)
+      (fun _ -> [white; black; white; black; white; black])
+    |> List.concat
   in
   let bars =
     bars

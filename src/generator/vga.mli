@@ -5,8 +5,7 @@ module I : sig
   type 'a t =
     { clk: 'a  (** Clock. Must be an integer multiple of the VGA pixel clock. *)
     ; rst_n: 'a  (** Reset signal. Active low. *)
-    ; test: 'a
-    }
+    ; test: 'a }
   [@@deriving sexp_of, hardcaml]
 end
 

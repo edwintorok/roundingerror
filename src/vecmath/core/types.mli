@@ -105,8 +105,8 @@ module type GenFType = sig
   val ( -- ) : t -> string -> t
   (** [a -- name] assigns the [name] to [a] for debugging purposes. *)
 
-  (** [pipeline reg t n] maps each coordinate of [t] through [Signal.pipeline]. *)
   val pipeline : Reg_spec.t -> t -> int -> t
+  (** [pipeline reg t n] maps each coordinate of [t] through [Signal.pipeline]. *)
 
   (** {1 Common operations on GLSL [FType]}
         , i.e. [float], [vec2], [vec3], or [vec4].
@@ -248,10 +248,10 @@ module type S = sig
 
     val y : vec2 -> float'
     (** [y vec2] accesses the [y] component of [vec2]. *)
-    
+
     (** For testing purposes, not part of GLSL *)
 
-    val phase: vec2 -> float'
+    val phase : vec2 -> float'
     (** [phase vec2] is the angle between [y] and [x] in radians. *)
   end
 
