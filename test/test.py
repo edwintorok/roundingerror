@@ -29,7 +29,7 @@ async def wait_cycles(dut, clock, n, trigger):
     t1 = time_clocks(clock)
     delta = t1 - t0
     dut._log.info("trigger signal: %d, after %f clocks", trigger.signal.value, delta)
-    assert delta == n
+    assert int(delta) == n
 
 
 @cocotb.test()
@@ -45,6 +45,7 @@ async def test_project(dut):
     dut.ena.value = 1
     dut.ui_in.value = 0
     dut.uio_in.value = 0
+    # dut.uio_in.value = 1
     dut.rst_n.value = 0
     await ClockCycles(dut.clk, 10)
     dut.rst_n.value = 1

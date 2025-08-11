@@ -8,7 +8,7 @@ SRC_DIR = $(PWD)/../src
 PROJECT_SOURCES = project.v generated.v
 
 ifeq ($(SIM),verilator)
-EXTRA_ARGS += --timing --trace --trace-fst --trace-structs -Wno-fatal
+EXTRA_ARGS += --timing --trace --trace-fst --trace-structs -Wno-fatal --bbox-unsup --x-initial 0 
 endif
 
 ifneq ($(GATES),yes)
