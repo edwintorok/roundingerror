@@ -66,7 +66,7 @@ async def test_project(dut):
     # Keep testing the module by changing the input values, waiting for
     # one or more clock cycles, and asserting the expected output values.
 
-    proj = dut.user_project
+    proj = dut
     hsync_start = FallingEdge(proj.hsync)
     hsync_end = RisingEdge(proj.hsync)
     vsync_start = FallingEdge(proj.vsync)

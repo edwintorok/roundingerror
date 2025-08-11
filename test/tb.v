@@ -26,6 +26,8 @@ module tb ();
   wire VPWR = 1'b1;
   wire VGND = 1'b0;
 `endif
+  wire hsync;
+  wire vsync;
 
   // Replace tt_um_example with your module name:
   tt_um_edwintorok user_project (
@@ -45,5 +47,7 @@ module tb ();
       .clk    (clk),      // clock
       .rst_n  (rst_n)     // not reset
   );
+  assign hsync = uo_out[7];
+  assign vsync = uo_out[3];
 
 endmodule
