@@ -7,6 +7,9 @@ TOPLEVEL_LANG ?= verilog
 SRC_DIR = $(PWD)/../src
 PROJECT_SOURCES = project.v generated.v
 
+# usual VCD format is too big and runs of space in the CI, use FST instead
+WAVES ?= 1
+
 ifeq ($(SIM),verilator)
 EXTRA_ARGS += --timing --trace --trace-fst --trace-structs -Wno-fatal --bbox-unsup --x-initial 0 
 endif
